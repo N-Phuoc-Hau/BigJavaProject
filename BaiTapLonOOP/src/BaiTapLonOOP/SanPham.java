@@ -23,7 +23,6 @@ public class SanPham extends HoaDon {
 	}
 
 	public void inSP() {
-
 	}
 
 	public static int tongSLSP() {
