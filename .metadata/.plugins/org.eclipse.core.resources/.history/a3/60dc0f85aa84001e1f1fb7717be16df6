@@ -12,6 +12,12 @@ public class NhanVien {
 
 	private int namSinh;
 
+	private HoaDon[] hd;
+
+	private SanPham[] sp;
+
+	private ChamSocKhachHang cskh;
+
 	public void NhanVienFT() {
 
 	}
