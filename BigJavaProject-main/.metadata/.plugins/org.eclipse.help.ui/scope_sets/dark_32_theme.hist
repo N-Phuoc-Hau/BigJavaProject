@@ -1,0 +1,4 @@
+#Wed Nov 15 12:13:13 ICT 2023
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=dark theme
