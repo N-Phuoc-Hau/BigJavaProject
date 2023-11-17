@@ -1,6 +1,8 @@
 
 package BaiTapLonOOP;
 import java.util.Scanner;
+import java.util.ArrayList;
+
 public class NhanVien {
 
 	private int maNV;
@@ -11,8 +13,9 @@ public class NhanVien {
 
 	private String diaChi;
 
-	private int namSinh;
 	private int sDT;
+		
+	private int namSinh;
 
 	public NhanVien(int maNV, String tenNV, boolean loaiNhanVienFT,
 			String diaChi, int namSinh, int sDT) {
@@ -86,20 +89,25 @@ public class NhanVien {
 				+ '\'' + ", Năm Sinh=" + this.namSinh + ", Số ĐT=" + this.sDT + '}') ;
 	}
 
-	public void inDSNV(NhanVien[] nhanVien) {
-		for (NhanVien nv : nhanVien) {
+	public void inDSNV() {
+		for (NhanVien nv : nv) {
 			nv.hienThi();
+			System.out.println("");
         }
 	}
 
-	public void timKiemNV(NhanVien[] nhanVien) {
-		int maNV = 1;
-
-        for (NhanVien nv : nhanVien) {
+	public void timKiemNVbangMaNV() {
+		int ktra = 1;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Nhập Mã Nhân viên");
+		int maNV = sc.nextInt();
+        for (NhanVien nv : nv) {
             if (nv.getMaNV() == maNV) {
-                System.out.println(nv);
+                nv.hienThi();
             }
+            else ktra = 0;
         }
+        if (ktra == 0)System.out.println("Khong tim thấy");
 	}
 	public static void xoaNV(NhanVien[] nhanVien, int maNV) {
 	    for (int i = 0; i < nhanVien.length; i++) {
@@ -116,17 +124,53 @@ public class NhanVien {
 		Scanner sc = new Scanner(System.in);
 	    int index = nhanVien.length;
 	    System.out.print("Nhập mã nhân viên: ");
-	    nhanVien[index].maNV = sc.nextInt();
+	    nv.maNV = sc.nextInt();
 	    System.out.print("Nhập tên nhân viên: ");
-	    nhanVien[index].tenNV = sc.next();
+	    nv.tenNV = sc.next();
 	    System.out.print("Nhân viên FullTime?: ");
-	    nhanVien[index].loaiNhanVienFT = sc.nextBoolean();
+	    nv.loaiNhanVienFT = sc.hasNextBoolean();
 	    System.out.print("Nhập số điện thoại nhân viên: ");
-	    nhanVien[index].sDT = sc.nextInt();
-	    System.out.print("Nhập địa chỉ nhân viên: ");
-	    nhanVien[index].diaChi = sc.next();
+	    nv.sDT = sc.nextInt();
 	    System.out.print("Nhập năm sinh nhân viên: ");
-	    nhanVien[index].namSinh = sc.nextInt();
+	    nv.namSinh = sc.nextInt();
+	    System.out.print("Nhập địa chỉ nhân viên: ");
+	    nv.diaChi = sc.next();
+	    nv = nhanVien[index] ;
+	}
+
+	private ArrayList<NhanVien> nv = new ArrayList<>();
+	public void them (NhanVien nhanvien){
+		nv.add(nhanvien);
+	}
+	public int TimPhantucuoicung(){
+		int lastElement = 0;
+        for (int i = 0; i < nv.size(); i++) {
+            if (i == nv.size() - 1) {
+                lastElement = nv.get(i).maNV;
+                break;
+            }
+        }
+		return lastElement;
+		
+	}
+	public void them(){
+		Scanner sc = new Scanner (System.in);
+		int manv = nv.lastIndexOf(maNV);
+		manv += 1;
+	    System.out.print("Nhập tên nhân viên: ");
+	    String ten = sc.next();
+	    System.out.print("Nhân viên FullTime?: ");
+	    boolean loai = sc.nextBoolean();
+	    System.out.print("Nhập số điện thoại nhân viên: ");
+	    int sdt = sc.nextInt();
+	    System.out.print("Nhập năm sinh nhân viên: ");
+	    int nam = sc.nextInt();
+	    System.out.print("Nhập địa chỉ nhân viên: ");
+	    String diachi = sc.next();
+	    
+		
+		NhanVien nvx = new NhanVien(manv,ten,loai,diachi,nam,sdt);
+		nv.add(nvx);
 	}
 	
 

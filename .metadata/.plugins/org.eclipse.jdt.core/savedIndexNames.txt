@@ -1,5 +1,4 @@
 INDEX VERSION 1.127+C:\Users\Admin\Documents\GitHub\BigJavaProject\.metadata\.plugins\org.eclipse.jdt.core
-4235101481.index
 401767567.index
 585472926.index
 3852244655.index
