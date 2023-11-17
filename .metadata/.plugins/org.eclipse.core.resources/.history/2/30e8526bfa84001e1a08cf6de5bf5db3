@@ -1,0 +1,9 @@
+package test;
+
+public class main {
+	public static void main(String agrs[]){
+		PhanSo A = new PhanSo(2,3);
+		PhanSo B = new PhanSo(4,2);
+		A.hienThi();
+	}
+}

@@ -1,0 +1,23 @@
+package test;
+
+public class Main {
+	public static void main(String agrs[]){
+
+
+		PhanSo[] ds ={
+				new PhanSo(2,3),new PhanSo(1,4),new PhanSo(5,3),new PhanSo(3,7)
+		};
+		for(PhanSo ps : ds){
+			ps.hienThi();
+			System.out.println("");
+		}
+		PhanSo tong = new PhanSo(0,1);
+		for(PhanSo p : ds){
+			System.out.print("a");
+			tong = tong.cong(p);
+		}
+		System.out.println("Tong phan so trong danh sach:");
+		tong.rutGon().hienThi();;
+
+	}
+}

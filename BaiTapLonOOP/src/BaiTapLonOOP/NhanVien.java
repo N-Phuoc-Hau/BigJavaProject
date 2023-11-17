@@ -1,5 +1,6 @@
-package BaiTapLonOOP;
 
+package BaiTapLonOOP;
+import java.util.Scanner;
 public class NhanVien {
 
 	private int maNV;
@@ -11,14 +12,16 @@ public class NhanVien {
 	private String diaChi;
 
 	private int namSinh;
+	private int sDT;
 
 	public NhanVien(int maNV, String tenNV, boolean loaiNhanVienFT,
-			String diaChi, int namSinh) {
+			String diaChi, int namSinh, int sDT) {
 		this.maNV = maNV;
 		this.tenNV = tenNV;
 		this.loaiNhanVienFT = loaiNhanVienFT;
 		this.diaChi = diaChi;
 		this.namSinh = namSinh;
+		this.sDT = sDT;
 	}
 
 	public int getMaNV() {
@@ -37,12 +40,20 @@ public class NhanVien {
 		this.tenNV = tenNV;
 	}
 
-	public boolean isLoaiNhanVien() {
+	public boolean isLoaiNhanVienFT() {
 		return loaiNhanVienFT;
 	}
 
-	public void setLoaiNhanVien(boolean loaiNhanVien) {
-		this.loaiNhanVienFT = loaiNhanVien;
+	public void setLoaiNhanVienFT(boolean loaiNhanVienFT) {
+		this.loaiNhanVienFT = loaiNhanVienFT;
+	}
+
+	public int getsDT() {
+		return sDT;
+	}
+
+	public void setsDT(int sDT) {
+		this.sDT = sDT;
 	}
 
 	public String getDiaChi() {
@@ -68,23 +79,20 @@ public class NhanVien {
 
 	}
 
-    NhanVien nhanVien[] = new NhanVien[]{new NhanVien(1, "Nguyễn Văn A", true, "Hà Nội", 1990),
-        new NhanVien(2, "Nguyễn Văn B", false, "Đà Nẵng", 1991),
-        new NhanVien(3, "Nguyễn Văn C", true, "Hồ Chí Minh", 1992)};
 
-	public String NV() {
-		return "NhanVien{" + "maNV=" + maNV + ", tenNV='" + tenNV + '\''
-				+ ", loaiNhanVien=" + loaiNhanVienFT + ", diaChi='" + diaChi
-				+ '\'' + ", namSinh=" + namSinh + '}';
+	public void hienThi() {
+		System.out.print("NhanVien{" + "Mã nhân viên=" + this.maNV + ", Họ Tên='" + this.tenNV + '\''
+				+ ", NV FullTtime=" + this.loaiNhanVienFT + ", Địa chỉ='" + this.diaChi
+				+ '\'' + ", Năm Sinh=" + this.namSinh + ", Số ĐT=" + this.sDT + '}') ;
 	}
 
-	public void inDSNV() {
+	public void inDSNV(NhanVien[] nhanVien) {
 		for (NhanVien nv : nhanVien) {
-            System.out.println(nv.NV());
+			nv.hienThi();
         }
 	}
 
-	public void timKiemNV() {
+	public void timKiemNV(NhanVien[] nhanVien) {
 		int maNV = 1;
 
         for (NhanVien nv : nhanVien) {
@@ -105,8 +113,20 @@ public class NhanVien {
 	    }
 	}
 	public static void themNV(NhanVien[] nhanVien, NhanVien nv) {
+		Scanner sc = new Scanner(System.in);
 	    int index = nhanVien.length;
-	    nhanVien[index] = nv;
+	    System.out.print("Nhập mã nhân viên: ");
+	    nhanVien[index].maNV = sc.nextInt();
+	    System.out.print("Nhập tên nhân viên: ");
+	    nhanVien[index].tenNV = sc.next();
+	    System.out.print("Nhân viên FullTime?: ");
+	    nhanVien[index].loaiNhanVienFT = sc.nextBoolean();
+	    System.out.print("Nhập số điện thoại nhân viên: ");
+	    nhanVien[index].sDT = sc.nextInt();
+	    System.out.print("Nhập địa chỉ nhân viên: ");
+	    nhanVien[index].diaChi = sc.next();
+	    System.out.print("Nhập năm sinh nhân viên: ");
+	    nhanVien[index].namSinh = sc.nextInt();
 	}
 	
 
