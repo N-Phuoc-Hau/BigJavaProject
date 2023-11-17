@@ -10,26 +10,19 @@ public class HoaDon {
 
 	private String ngayTao;
 
-	public int tinhTong;
-
 	public int giaTien;
-
-	public KhachHang[] k;
-
-	public NhanVien[] nv;
-
-	public SanPham[] sp;
 
 	private ArrayList<SanPham> danhSachMatHang;
 
 	public HoaDon(String maHD, String ngayTao) {
         this.maHD = maHD;
         this.ngayTao = ngayTao;
+		this.giaTien = giaTien;
         this.danhSachMatHang = new ArrayList<>();
     }
 
 	public void Menu() {
-
+		System.out.println(maHD);
 	}
 
 	public String getMaHD(){
@@ -61,19 +54,15 @@ public class HoaDon {
 
 	public double tinhTongDoanhThu() {
 		double tongCong = 0;
-        for (SanPham matHang : danhSachMatHang) {
-            tongCong += matHang.tinhThanhTien();
+        for (SanPham sanPham : danhSachMatHang) {
+            tongCong += sanPham.tinhThanhTien();
         }
         return tongCong;
 	}
 
-	public double capNhatGia() {
+	public double capNhatGia(SanPham sanPham) {
 		double giaCapNhat = 0;
-		giaCapNhat = matHang.tinhThanhTien();
+		giaCapNhat = sanPham.tinhThanhTien();
 		return giaCapNhat;
 	}
-	// @Override
-    // public String toString() {
-    //     return tenMatHang + " - Đơn giá: " + giaSP + " - Số lượng: " + soLuong + " - Thành tiền: " + tinhThanhTien();
-    // }
 }
