@@ -2,18 +2,24 @@ package BaiTapLonOOP;
 
 public class SanPham extends HoaDon {
 
-	private int maSP;
-
 	private String tenSP;
 
 	private double giaSP;
 
 	private int soLuongSP;
 
-	public NhanVien[] nv;
+	public SanPham(String tenSP, double giaSP, int soLuongSP) {
+        this.tenSP = tenSP;
+        this.giaSP = giaSP;
+        this.soLuongSP = soLuongSP;
+    }
+	public String getTenMatHang() {
+        return tenSP;
+    }
 
-	public HoaDon hd;
-
+    public int getSoLuong() {
+        return soLuongSP;
+    }
 	public void xoaSP() {
 
 	}
@@ -32,5 +38,10 @@ public class SanPham extends HoaDon {
 	public void timKiemSP() {
 
 	}
-
+	public double tinhThanhTien(){
+		return giaSP * soLuongSP;
+	}
+	public String toString() {
+        return tenSP + " - Đơn giá: " + giaSP + " - Số lượng: " + soLuongSP;
+	}
 }
