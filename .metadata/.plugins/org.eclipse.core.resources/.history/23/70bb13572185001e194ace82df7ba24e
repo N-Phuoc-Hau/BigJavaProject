@@ -13,12 +13,12 @@ public class NhanVien {
 
 	private String diaChi;
 
-	private String sDT;
+	private int sDT;
 		
-	private String namSinh;
+	private int namSinh;
 
 	public NhanVien(int maNV, String tenNV, boolean loaiNhanVienFT,
-			String diaChi, String namSinh, String sDT) {
+			String diaChi, int namSinh, int sDT) {
 		this.maNV = maNV;
 		this.tenNV = tenNV;
 		this.loaiNhanVienFT = loaiNhanVienFT;
@@ -51,11 +51,11 @@ public class NhanVien {
 		this.loaiNhanVienFT = loaiNhanVienFT;
 	}
 
-	public String getsDT() {
+	public int getsDT() {
 		return sDT;
 	}
 
-	public void setsDT(String sDT) {
+	public void setsDT(int sDT) {
 		this.sDT = sDT;
 	}
 
@@ -67,11 +67,11 @@ public class NhanVien {
 		this.diaChi = diaChi;
 	}
 
-	public String getNamSinh() {
+	public int getNamSinh() {
 		return namSinh;
 	}
 
-	public void setNamSinh(String namSinh) {
+	public void setNamSinh(int namSinh) {
 		this.namSinh = namSinh;
 	}
 	public void NhanVienFT() {
@@ -130,11 +130,11 @@ public class NhanVien {
 	    System.out.print("Nhân viên FullTime?: ");
 	    nv.loaiNhanVienFT = sc.hasNextBoolean();
 	    System.out.print("Nhập số điện thoại nhân viên: ");
-	    nv.sDT = sc.next();
+	    nv.sDT = sc.nextInt();
 	    System.out.print("Nhập năm sinh nhân viên: ");
-	    nv.namSinh = sc.next();
+	    nv.namSinh = sc.nextInt();
 	    System.out.print("Nhập địa chỉ nhân viên: ");
-	    nv.diaChi = sc.nextLine();
+	    nv.diaChi = sc.next();
 	    nv = nhanVien[index] ;
 	}
 
@@ -159,14 +159,14 @@ public class NhanVien {
 		manv += 1;
 	    System.out.print("Nhập tên nhân viên: ");
 	    String ten = sc.nextLine();
+	    System.out.print("Nhập địa chỉ nhân viên: ");
+	    String diachi = sc.next();
 	    System.out.print("Nhân viên FullTime?: ");
 	    boolean loai = sc.nextBoolean();
 	    System.out.print("Nhập số điện thoại nhân viên: ");
-	    String sdt = sc.next();
+	    int sdt = sc.nextInt();
 	    System.out.print("Nhập năm sinh nhân viên: ");
-	    String nam = sc.next();
-	    System.out.print("Nhập địa chỉ nhân viên: ");
-	    String diachi = sc.nextLine();
+	    int nam = sc.nextInt();
 	    
 		
 		NhanVien nvx = new NhanVien(manv,ten,loai,diachi,nam,sdt);

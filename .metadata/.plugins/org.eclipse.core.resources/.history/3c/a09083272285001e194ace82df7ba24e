@@ -166,7 +166,7 @@ public class NhanVien {
 	    System.out.print("Nhập năm sinh nhân viên: ");
 	    String nam = sc.next();
 	    System.out.print("Nhập địa chỉ nhân viên: ");
-	    String diachi = sc.nextLine();
+	    String diachi = sc.next();
 	    
 		
 		NhanVien nvx = new NhanVien(manv,ten,loai,diachi,nam,sdt);
