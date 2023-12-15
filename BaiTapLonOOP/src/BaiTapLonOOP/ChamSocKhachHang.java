@@ -25,10 +25,10 @@ public class ChamSocKhachHang {
 	public void themKhachHang() {
 		int maKhachHang = danhSachKH.size() + 1; // Tạo mã khách hàng tự động
 		
-		System.out.print("Nhập họ và tên khách hàng: ");
+		System.out.print("Nhập họ tên khách hàng: ");
 		String hoTen = SC.nextLine();
 		
-		System.out.print("Nhập số điện thoại: ");
+		System.out.print("Nhập số điện thoại khách hàng: ");
 		int soDienThoai = SC.nextInt();
 		
 		System.out.print("Là thành viên (true/false): ");
