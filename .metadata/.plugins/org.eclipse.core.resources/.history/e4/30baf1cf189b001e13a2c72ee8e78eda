@@ -16,7 +16,7 @@ public class MainHau {
         while(true){
         	
         	// Hiển thị tiêu đề
-            System.out.println("Vui lòng đăng nhập:--------------------");
+            System.out.println("Vui lòng đăng nhập:-----------");
 
             // Hiển thị yêu cầu nhập tên đăng nhập
             System.out.print("Tên đăng nhập: ");
