@@ -76,7 +76,7 @@ public class MainHau {
 			break;
 		case 2:
 			// Thá»±c hiá»‡n cÃ´ng viá»‡c 2
-			System.out.println("");
+			System.out.println(");
 			break;
 		case 3:
 			// Thá»±c hiá»‡n cÃ´ng viá»‡c 3

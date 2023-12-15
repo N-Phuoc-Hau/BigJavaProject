@@ -1,4 +1,4 @@
-package BaiTapLonOOP;
+package main;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -31,14 +31,14 @@ public class QuanLyNhanVien {
 		ds.forEach(ds -> ds.hienThi());
 	}
 	public void hienThiTheoMa(){
-		System.out.println("Nháº­p mÃ£ NhÃ¢n ViÃªn cáº§n xÃ³a: ");
+		System.out.println("Nhập mã Nhân Viên cần xóa: ");
 		int manv = sc.nextInt();
 		for (int i = 1; i <= ds.size(); i++) {
 			if(i == manv) ds.get(i).hienThi();
 		}
 	}
 	public void hienThiTheoTen(){
-		System.out.println("Nháº­p TÃªn NhÃ¢n ViÃªn cáº§n xÃ³a: ");
+		System.out.println("Nhập Tên Nhân Viên cần xóa: ");
 		String tenNV = sc.nextLine();
 		for(int i = 1; i <= ds.size(); i++){
 			if (ds.get(i).getTenNV().equals(tenNV)) {
@@ -48,7 +48,7 @@ public class QuanLyNhanVien {
 		System.out.println("Khong tim thay nhan vien co ten: " + tenNV);
 	}
 	public void hienThiTheoGT(){
-		System.out.println("Nháº­p Giá»›i tÃ­nh NhÃ¢n ViÃªn cáº§n xÃ³a: ");
+		System.out.println("Nhập Giới tính Nhân Viên cần xóa: ");
 		String tenNV = sc.nextLine();
 		for(int i = 1; i <= ds.size(); i++){
 			if (ds.get(i).getTenNV().equals(tenNV)) {
@@ -58,14 +58,14 @@ public class QuanLyNhanVien {
 		System.out.println("Khong tim thay nhan vien co GT: " + tenNV);
 	}
 	public void hienThiTheoQQ(){
-		System.out.println("Nháº­p QuÃª QuÃ¡n NhÃ¢n ViÃªn cáº§n xÃ³a: ");
+		System.out.println("Nhập Quê Quán Nhân Viên cần xóa: ");
 		String tenNV = sc.nextLine();
 		for(int i = 1; i <= ds.size(); i++){
 			if (ds.get(i).getTenNV().equals(tenNV)) {
 				ds.get(i).hienThi();
 			}
 		}
-		System.out.println("Khong tim thay nhan vien co QuÃª quÃ¡n: " + tenNV);
+		System.out.println("Khong tim thay nhan vien co Quê quán: " + tenNV);
 	}
 
 	public void them() throws ParseException {
@@ -88,7 +88,7 @@ public class QuanLyNhanVien {
 	}
 
 	public void xoaNVTheoMa() {
-		System.out.println("Nháº­p mÃ£ NhÃ¢n ViÃªn cáº§n xÃ³a: ");
+		System.out.println("Nhập mã Nhân Viên cần xóa: ");
 		int manv = sc.nextInt();
 		
 		for (int i = 1; i <= ds.size(); i++) {
@@ -99,12 +99,12 @@ public class QuanLyNhanVien {
 		}
 	}
 	public void xoaNVTheoTen() {
-		System.out.print("Nháº­p tÃªn NhÃ¢n ViÃªn cáº§n xÃ³a: ");
+		System.out.print("Nhập tên Nhân Viên cần xóa: ");
 		String tenNV = sc.nextLine();
 		for(int i = 1; i <= ds.size(); i++){
 			if (ds.get(i).getTenNV().equals(tenNV)) {
 				ds.remove(i - 1);
-				System.out.println("Da xoa nhÃ¢n viÃªn co ten la: " + tenNV);
+				System.out.println("Da xoa nhân viên co ten la: " + tenNV);
 				return; 
 			}
 		}
@@ -138,36 +138,36 @@ public class QuanLyNhanVien {
 		String duongDan = "src/data/NhanVienPT.txt";
         try (FileWriter writer = new FileWriter(duongDan)) {
             for (NhanVien nv : ds) {
-                // Ghi thÃ´ng tin sáº£n pháº©m vÃ o táº­p tin sá»­ dá»¥ng toString
+                // Ghi thông tin sản phẩm vào tập tin sử dụng toString
                 if (nv instanceof NhanVienPT) {
                    writer.write(nv.toString() + System.lineSeparator());
      	       }
             }
         } catch (IOException e) {
-            System.out.println("Lá»—i khi ghi táº­p tin: " + e.getMessage());
-            throw e; // Re-throw Ä‘á»ƒ cho phÃ©p lá»›p gá»�i xá»­ lÃ½ lá»—i náº¿u cáº§n
+            System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
+            throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
         }
         String duongDan1 = "src/data/NhanVienFT.txt";
         try (FileWriter writer = new FileWriter(duongDan1)) {
             for (NhanVien nv : ds) {
-                // Ghi thÃ´ng tin sáº£n pháº©m vÃ o táº­p tin sá»­ dá»¥ng toString
+                // Ghi thông tin sản phẩm vào tập tin sử dụng toString
                 if (nv instanceof NhanVienFT) {
                    writer.write(nv.toString() + System.lineSeparator());
      	       }
             }
         } catch (IOException e) {
-            System.out.println("Lá»—i khi ghi táº­p tin: " + e.getMessage());
-            throw e; // Re-throw Ä‘á»ƒ cho phÃ©p lá»›p gá»�i xá»­ lÃ½ lá»—i náº¿u cáº§n
+            System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
+            throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
         }
 
-        System.out.println("Ä�Ã£ ghi dá»¯ liá»‡u vÃ o táº­p tin thÃ nh cÃ´ng.");
+        System.out.println("Đã ghi dữ liệu vào tập tin thành công.");
     }
 	
 	public void suaTTNC()throws ParseException{
 		System.out.println("Sua thong tin nhan Vien: ---------");
 		System.out.print("FullTime:True === Partime:false   : ");
 		boolean chon = sc.nextBoolean();
-		System.out.print("MÃ£ NhÃ¢n viÃªn: ");
+		System.out.print("Mã Nhân viên: ");
 		int manv = sc.nextInt();
 		manv -= 1;
 		for (int i = 0; i < ds.size(); i++) {	
@@ -202,20 +202,20 @@ public class QuanLyNhanVien {
 		System.out.println("Ma hoac loai Nhan Vien khong dung");
 		}
 	public void docTapTinPT() throws ParseException, IOException {
-	    // Táº¡o Ä‘á»‘i tÆ°á»£ng File Ä‘á»ƒ Ä‘áº¡i diá»‡n cho táº­p tin
+	    // Tạo đối tượng File để đại diện cho tập tin
 	    File file = new File("src/data/NhanVienPT.txt");
 
-	    // Má»Ÿ táº­p tin
+	    // Mở tập tin
 	    FileReader fileReader = new FileReader(file);
 
-	    // Ä�á»�c tá»«ng dÃ²ng dá»¯ liá»‡u cá»§a táº­p tin
+	    // Đọc từng dòng dữ liệu của tập tin
 	    BufferedReader bufferedReader = new BufferedReader(fileReader);
 	    String line;
 	    while ((line = bufferedReader.readLine()) != null) {
-	        // Xá»­ lÃ½ dá»¯ liá»‡u cá»§a dÃ²ng
+	        // Xử lý dữ liệu của dòng
 	        String[] data = line.split(";");
 
-	        // Táº¡o Ä‘á»‘i tÆ°á»£ng NhanVien
+	        // Tạo đối tượng NhanVien
 	        NhanVienPT nv = new NhanVienPT(
 	            data[0],
 	            data[1],
@@ -226,29 +226,29 @@ public class QuanLyNhanVien {
 	            Integer.parseInt(data[6])
 	        );
 
-	        // ThÃªm Ä‘á»‘i tÆ°á»£ng NhanVien vÃ o ArrayList
+	        // Thêm đối tượng NhanVien vào ArrayList
 	        ds.add(nv);
 	    }
 
-	    // Ä�Ã³ng táº­p tin
+	    // Đóng tập tin
 	    bufferedReader.close();
 	}
 	
 	public void docTapTinFT() throws ParseException, IOException {
-	    // Táº¡o Ä‘á»‘i tÆ°á»£ng File Ä‘á»ƒ Ä‘áº¡i diá»‡n cho táº­p tin
+	    // Tạo đối tượng File để đại diện cho tập tin
 	    File file = new File("src/data/NhanVienFT.txt");
 
-	    // Má»Ÿ táº­p tin
+	    // Mở tập tin
 	    FileReader fileReader = new FileReader(file);
 
-	    // Ä�á»�c tá»«ng dÃ²ng dá»¯ liá»‡u cá»§a táº­p tin
+	    // Đọc từng dòng dữ liệu của tập tin
 	    BufferedReader bufferedReader = new BufferedReader(fileReader);
 	    String line;
 	    while ((line = bufferedReader.readLine()) != null) {
-	        // Xá»­ lÃ½ dá»¯ liá»‡u cá»§a dÃ²ng
+	        // Xử lý dữ liệu của dòng
 	        String[] data = line.split(";");
 
-	        // Táº¡o Ä‘á»‘i tÆ°á»£ng NhanVien
+	        // Tạo đối tượng NhanVien
 	        NhanVienFT nv = new NhanVienFT(
 	            data[0],
 	            data[1],
@@ -260,11 +260,11 @@ public class QuanLyNhanVien {
 	            data[7]
 	        );
 
-	        // ThÃªm Ä‘á»‘i tÆ°á»£ng NhanVien vÃ o ArrayList
+	        // Thêm đối tượng NhanVien vào ArrayList
 	        ds.add(nv);
 	    }
 
-	    // Ä�Ã³ng táº­p tin
+	    // Đóng tập tin
 	    bufferedReader.close();
 	}
 	public void setLthang(int index, long l) {
