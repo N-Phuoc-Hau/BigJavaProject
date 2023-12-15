@@ -1,16 +1,15 @@
 package BaiTapLonOOP;
 
-import java.util.Date;
 import java.util.Scanner;
 
-public class KhachHang extends ChamSocKhachHang {
+public class KhachHang {
 	private static final Scanner SC = new Scanner(System.in);
-	private int maKH;
+	private static int dem;
+	private int maKH = ++dem;
 	private String hoTen;
 	private int soDT;
 	private int cccd;
 	private boolean isThanhVien;
-	//public HoaDon[] hd;
 
 	public int getMaKH() {
 		return maKH;
@@ -58,15 +57,15 @@ public class KhachHang extends ChamSocKhachHang {
 		this.soDT = soDT;
 		this.isThanhVien = isThanhVien;
 	}
-	
-	public KhachHang(String hoTen, int cccd, int soDT){
+
+	public KhachHang(String hoTen, int cccd, int soDT) {
 		this.hoTen = hoTen;
-		this.cccd=cccd;
-		this.soDT=soDT;
+		this.cccd = cccd;
+		this.soDT = soDT;
 	}
 
 	// In danh sách khách hàng
-	public void inDanhSachKH() {
+	public void hienThi() {
 		System.out.println("Mã khách hàng: " + this.getMaKH());
 		System.out.println("Họ tên: " + this.getHoTen());
 		System.out.println("Số điện thoại: " + this.getSoDT());
@@ -77,15 +76,9 @@ public class KhachHang extends ChamSocKhachHang {
 		}
 		System.out.println("-----------------------");
 	}
-	
 
-	
-	
-	
-	
-    
-    
-    
-
+	public String toString() {
+		return maKH + ";" + hoTen + ";" + soDT + ";" + isThanhVien();
+	}
 
 }
