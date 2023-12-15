@@ -83,7 +83,5 @@ public class NhanVienFT extends NhanVien {
 	}
 	public void setNgayBDLam(Date ngayBDLam) {
 		this.ngayBDLam = ngayBDLam;
-
 	}
-}
 

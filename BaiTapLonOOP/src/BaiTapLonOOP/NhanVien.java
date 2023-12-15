@@ -44,7 +44,7 @@ public class NhanVien {
 		System.out.printf("Ma Nhan vien: %d\n", this.maNV);
 		System.out.printf("Ten Nhan vien: %s\n", this.tenNV);
 		System.out.printf("Gioi tinh: %s\n", this.gioiTinh);
-		System.out.printf("Dịa chi Nhan vien: %s\n", this.diaChi);
+		System.out.printf("Dá»‹a chi Nhan vien: %s\n", this.diaChi);
 		System.out.printf("Ngay sinh Nhan vien: %s\n", F.format(this.ngaySinh));
 		System.out.printf("Loai Nhan vien: %s\n", this.loaiNV ? "FullTime" : "PartTime");
 	}
@@ -59,7 +59,7 @@ public class NhanVien {
 //		this.get()
 //	}
 	public void ghiFilePT(ArrayList<NhanVienPT> ds) throws FileNotFoundException {
-        // Tạo đối tượng File để đại diện cho tập tin
+        // Táº¡o Ä‘á»‘i tÆ°á»£ng File Ä‘á»ƒ Ä‘áº¡i diá»‡n cho táº­p tin
         File file;
 
         file = new File("src/data/NhanVienFT.txt");
@@ -70,25 +70,25 @@ public class NhanVien {
 
         
 
-        // Tạo đối tượng PrintWriter để ghi dữ liệu vào tập tin
+        // Táº¡o Ä‘á»‘i tÆ°á»£ng PrintWriter Ä‘á»ƒ ghi dá»¯ liá»‡u vÃ o táº­p tin
         PrintWriter printWriter = new PrintWriter(file);
 
-        // Ghi dữ liệu của các đối tượng NhanVien vào tập tin
+        // Ghi dá»¯ liá»‡u cá»§a cÃ¡c Ä‘á»‘i tÆ°á»£ng NhanVien vÃ o táº­p tin
         for (NhanVienPT nv : ds) {
         	if(nv.isLoaiNV() == false)
             printWriter.println(nv.getTenNV() + ";" + nv.getGioiTinh() + ";" + nv.getDiaChi() + ";" + nv.getNgaySinh() + ";" + Boolean.toString(nv.loaiNV) + ";" + nv.getLuongNV() + ";" + nv.getSoGioLamViec());
         }
 
-        // Đóng đối tượng PrintWriter
+        // Ä�Ã³ng Ä‘á»‘i tÆ°á»£ng PrintWriter
         printWriter.close();
     }
 	public void ghiFileFT(ArrayList<NhanVienFT> ds) throws FileNotFoundException {
-        // Tạo đối tượng File để đại diện cho tập tin
+        // Táº¡o Ä‘á»‘i tÆ°á»£ng File Ä‘á»ƒ Ä‘áº¡i diá»‡n cho táº­p tin
         File file;
         
         file = new File("src/data/NhanVienFT.txt");
 
-        // Tạo đối tượng PrintWriter để ghi dữ liệu vào tập tin
+        // Táº¡o Ä‘á»‘i tÆ°á»£ng PrintWriter Ä‘á»ƒ ghi dá»¯ liá»‡u vÃ o táº­p tin
         PrintWriter printWriter = new PrintWriter(file);
 
         for (NhanVienFT nv : ds) {
@@ -96,9 +96,9 @@ public class NhanVien {
                 printWriter.println(nv.getTenNV() + ";" + nv.getGioiTinh() + ";" + nv.getDiaChi() + ";" + nv.getNgaySinh() + ";" + Boolean.toString(nv.loaiNV) + ";" + nv.getlThang() + ";" + nv.getNghiPhep());
 
                 }
-        // Ghi dữ liệu của đối tượng NhanVien vào tập tin
+        // Ghi dá»¯ liá»‡u cá»§a Ä‘á»‘i tÆ°á»£ng NhanVien vÃ o táº­p tin
 
-        // Đóng đối tượng PrintWriter
+        // Ä�Ã³ng Ä‘á»‘i tÆ°á»£ng PrintWriter
         printWriter.close();
     }
 	public String toString() {
@@ -106,36 +106,36 @@ public class NhanVien {
             tenNV + ';' + gioiTinh + ';' + diaChi + ';' + F.format(ngaySinh) + ';' + loaiNV ;
     }
 	public void ghiFile(ArrayList<NhanVien> ds) throws FileNotFoundException {
-        // Tạo đối tượng File để đại diện cho tập tin
+        // Táº¡o Ä‘á»‘i tÆ°á»£ng File Ä‘á»ƒ Ä‘áº¡i diá»‡n cho táº­p tin
         File file = null;
 
         if (ds.isEmpty()) {
             return;
         }
 
-        // Kiểm tra loại nhân viên
+        // Kiá»ƒm tra loáº¡i nhÃ¢n viÃªn
         for (int i = 0; i < ds.size(); i++) {
 
             PrintWriter printWriter = new PrintWriter(file);
         	if (ds.get(i).loaiNV) {
-                // Nếu là nhân viên full-time
+                // Náº¿u lÃ  nhÃ¢n viÃªn full-time
                 file = new File("src/data/NhanVienFT.txt");
                 printWriter.println(ds.get(i).toString());
             } else {
-                // Nếu là nhân viên part-time
+                // Náº¿u lÃ  nhÃ¢n viÃªn part-time
                 file = new File("src/data/NhanVienPT.txt");
                 printWriter.println(ds.get(i).toString());
             }
 
-            // Tạo đối tượng PrintWriter để ghi dữ liệu vào tập tin
+            // Táº¡o Ä‘á»‘i tÆ°á»£ng PrintWriter Ä‘á»ƒ ghi dá»¯ liá»‡u vÃ o táº­p tin
             
-            // Ghi dữ liệu của các đối tượng NhanVien vào tập tin
+            // Ghi dá»¯ liá»‡u cá»§a cÃ¡c Ä‘á»‘i tÆ°á»£ng NhanVien vÃ o táº­p tin
 
             printWriter.close();
 		}	
         
 
-        // Đóng đối tượng PrintWriter
+        // Ä�Ã³ng Ä‘á»‘i tÆ°á»£ng PrintWriter
     }
 	public boolean isLoaiNV() {
 		return loaiNV;
@@ -223,3 +223,4 @@ public class NhanVien {
 	
 
 }
+
