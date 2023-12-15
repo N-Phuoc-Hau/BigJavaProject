@@ -1,0 +1,21 @@
+package BTH5;
+
+import java.util.ArrayList;
+
+public class QuanLyHocVien {
+	private ArrayList<HocVien> ds = new ArrayList<>();
+
+	public void them(HocVien hv){
+		ds.add(hv);
+	}
+	
+	public void hienThi(){
+		for(HocVien h : ds)
+			h.hienThi();
+	}
+	
+	public ArrayList<HocVien> getDs() {
+		return ds;
+	}
+
+}
