@@ -34,9 +34,9 @@ public class MainTN {
 //////////////////////////////		
 //		try {
 //            ql.ghiTapTin("./src/ortherFile/data/quanlysanpham.txt");
-//            System.out.println("Đã ghi dữ liệu vào tập tin thành công.");
+//            System.out.println("Ä�Ã£ ghi dá»¯ liá»‡u vÃ o táº­p tin thÃ nh cÃ´ng.");
 //        } catch (IOException e) {
-//            System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
+//            System.out.println("Lá»—i khi ghi táº­p tin: " + e.getMessage());
 //        }
 /////////////////////////////		
 		//Xoa theo ten san pham
@@ -78,13 +78,13 @@ public class MainTN {
 //		System.out.print("->>>Nhap ten san pham muon tim: ");
 //		String ten = SC.nextLine();
 //		ql.timKiemTheoTen(ten);
-//		String tenSPCanTim = "Tên sản phẩm cần tìm";
+//		String tenSPCanTim = "TÃªn sáº£n pháº©m cáº§n tÃ¬m";
 //	    SanPham ketQuaTimKiem = ql.timKiemTheoTen(ten);
 //
 //	    if (ketQuaTimKiem == null) {
-//	        System.out.println("Không tìm thấy sản phẩm có tên: " + ten);
+//	        System.out.println("KhÃ´ng tÃ¬m tháº¥y sáº£n pháº©m cÃ³ tÃªn: " + ten);
 //	    } else {
-//	        System.out.println("Sản phẩm có tên " + ten);
+//	        System.out.println("Sáº£n pháº©m cÃ³ tÃªn " + ten);
 //	        System.out.println(ketQuaTimKiem);
 //	    }
 		

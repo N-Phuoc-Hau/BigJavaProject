@@ -17,36 +17,36 @@ public class QuanLySanPham {
 	private ArrayList<SanPham> ds = new ArrayList<>();
 	private static final Scanner SC = new Scanner(System.in);
 	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
-	private List<SanPham> danhSachDaMua; // Danh sách sản phẩm đã mua
+	private List<SanPham> danhSachDaMua; // Danh sÃ¡ch sáº£n pháº©m Ä‘Ã£ mua
 
-	//Phương thức khởi tạo
+	//PhÆ°Æ¡ng thá»©c khá»Ÿi táº¡o
 	public QuanLySanPham() {
 		this.ds = new ArrayList<>();
 		danhSachDaMua = new ArrayList<>();
 	}
 
-	//Phương thức thêm sản phẩm
+	//PhÆ°Æ¡ng thá»©c thÃªm sáº£n pháº©m
 	public void themSP(SanPham sp) {
 		ds.add(sp);
 	}
  
-	//Phương thức xóa sản phẩm theo mã và tên sản phẩm
+	//PhÆ°Æ¡ng thá»©c xÃ³a sáº£n pháº©m theo mÃ£ vÃ  tÃªn sáº£n pháº©m
 	public void xoaSPTheoTen(String tenSP) {
 		Iterator<SanPham> iterator = ds.iterator();
 		while (iterator.hasNext()) {
 			SanPham sanPham = iterator.next();
-			// In giá trị để debug
-			System.out.println("Tên SP trong danh sách: [" + sanPham.getTenSP()
+			// In giÃ¡ trá»‹ Ä‘á»ƒ debug
+			System.out.println("TÃªn SP trong danh sÃ¡ch: [" + sanPham.getTenSP()
 					+ "]");
-			// Sử dụng phương thức trim() để loại bỏ khoảng trắng ở đầu và cuối
-			// tên sản phẩm
+			// Sá»­ dá»¥ng phÆ°Æ¡ng thá»©c trim() Ä‘á»ƒ loáº¡i bá»� khoáº£ng tráº¯ng á»Ÿ Ä‘áº§u vÃ  cuá»‘i
+			// tÃªn sáº£n pháº©m
 			if (sanPham.getTenSP().trim().equalsIgnoreCase(tenSP.trim())) {
 				iterator.remove();
-				System.out.println("Đã xóa sản phẩm có tên là: " + tenSP);
+				System.out.println("Ä�Ã£ xÃ³a sáº£n pháº©m cÃ³ tÃªn lÃ : " + tenSP);
 				return;
 			}
 		}
-		System.out.println("Không tìm thấy sản phẩm có tên: " + tenSP);
+		System.out.println("KhÃ´ng tÃ¬m tháº¥y sáº£n pháº©m cÃ³ tÃªn: " + tenSP);
 	}
 
 	public void xoaSPTheoMa(int maSP) {
@@ -56,19 +56,19 @@ public class QuanLySanPham {
 			if (sp.getMaSP() == maSP) {
 				iterator.remove();
 				System.out.println("Da xoa hoa don co ma: " + maSP);
-				return; // Bạn có thể tiếp tục vòng lặp nếu muốn xóa nhiều hóa
-						// đơn có cùng mã
+				return; // Báº¡n cÃ³ thá»ƒ tiáº¿p tá»¥c vÃ²ng láº·p náº¿u muá»‘n xÃ³a nhiá»�u hÃ³a
+						// Ä‘Æ¡n cÃ³ cÃ¹ng mÃ£
 			}
 		}
 		System.out.println("Khong tim thay hoa don co ma: " + maSP);
 	}
 
-	//Phương thức hiển thị danh sách sản phẩm
+	//PhÆ°Æ¡ng thá»©c hiá»ƒn thá»‹ danh sÃ¡ch sáº£n pháº©m
 	public void hienThi() {
 		ds.forEach(hd -> hd.hienThi());
 	}
 
-	//Phương thức nhập sản phẩm mới
+	//PhÆ°Æ¡ng thá»©c nháº­p sáº£n pháº©m má»›i
 	public void nhapSanPham() throws ParseException {
 		System.out.print("Nhap ten san pham: ");
 		String m = SC.nextLine();
@@ -93,12 +93,12 @@ public class QuanLySanPham {
 			themSP(sp);
 		} catch (ParseException e) {
 			System.out.println("Loi!!!");
-			throw e; // Ném lại ngoại lệ cho phía gọi
+			throw e; // NÃ©m láº¡i ngoáº¡i lá»‡ cho phÃ­a gá»�i
 		}
 	}
 
 	
-//Phương thức đọc tập tin
+//PhÆ°Æ¡ng thá»©c Ä‘á»�c táº­p tin
 	public void docTapTin(String duongDan) throws FileNotFoundException,
 			ParseException {
 		File f = new File(duongDan);
@@ -119,21 +119,21 @@ public class QuanLySanPham {
 		}
 	}
 
-	//Phương thức ghi tập tin
+	//PhÆ°Æ¡ng thá»©c ghi táº­p tin
 	public void ghiTapTin(String duongDan) throws IOException {
 		try (FileWriter writer = new FileWriter(duongDan)) {
 			for (SanPham sp : ds) {
-				// Ghi thông tin sản phẩm vào tập tin sử dụng toString
+				// Ghi thÃ´ng tin sáº£n pháº©m vÃ o táº­p tin sá»­ dá»¥ng toString
 				writer.write(sp.toString() + System.lineSeparator());
 			}
-			System.out.println("Đã ghi dữ liệu vào tập tin thành công.");
+			System.out.println("Ä�Ã£ ghi dá»¯ liá»‡u vÃ o táº­p tin thÃ nh cÃ´ng.");
 		} catch (IOException e) {
-			System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
-			throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
+			System.out.println("Lá»—i khi ghi táº­p tin: " + e.getMessage());
+			throw e; // Re-throw Ä‘á»ƒ cho phÃ©p lá»›p gá»�i xá»­ lÃ½ lá»—i náº¿u cáº§n
 		}
 	}
 
-	//Phương thứ tìm kiếm tên và mã sản phẩm
+	//PhÆ°Æ¡ng thá»© tÃ¬m kiáº¿m tÃªn vÃ  mÃ£ sáº£n pháº©m
 	public SanPham timKiem(int maSP) {
 		for (SanPham h : ds) {
 			if (h.getMaSP() == maSP)
@@ -143,33 +143,33 @@ public class QuanLySanPham {
 		return null;
 	}
 
-	//Phương thức cập nhật giá sản phẩm
+	//PhÆ°Æ¡ng thá»©c cáº­p nháº­t giÃ¡ sáº£n pháº©m
 	public void capNhatGiaTien(int maSanPham, int giaMoi) {
 		for (SanPham sp : ds) {
 			if (sp.getMaSP() == maSanPham) {
 				sp.setGiaTien(giaMoi);
-				System.out.println("Đã cập nhật giá sản phẩm " + maSanPham
-						+ " thành " + giaMoi);
+				System.out.println("Ä�Ã£ cáº­p nháº­t giÃ¡ sáº£n pháº©m " + maSanPham
+						+ " thÃ nh " + giaMoi);
 				return;
 			}
 		}
-		System.out.println("Không tìm thấy sản phẩm có mã " + maSanPham);
+		System.out.println("KhÃ´ng tÃ¬m tháº¥y sáº£n pháº©m cÃ³ mÃ£ " + maSanPham);
 	}
 
-	// Phương thức để tìm kiếm sản phẩm theo tên
+	// PhÆ°Æ¡ng thá»©c Ä‘á»ƒ tÃ¬m kiáº¿m sáº£n pháº©m theo tÃªn
 	public SanPham timKiemTheoTen(String tenSP) {
 		for (SanPham sp : ds) {
-			// Sử dụng phương thức trim() để loại bỏ khoảng trắng ở đầu và cuối
-			// tên sản phẩm
+			// Sá»­ dá»¥ng phÆ°Æ¡ng thá»©c trim() Ä‘á»ƒ loáº¡i bá»� khoáº£ng tráº¯ng á»Ÿ Ä‘áº§u vÃ  cuá»‘i
+			// tÃªn sáº£n pháº©m
 			if (sp.getTenSP().trim().equalsIgnoreCase(tenSP.trim())) {
-				return sp; // Trả về sản phẩm nếu tìm thấy
+				return sp; // Tráº£ vá»� sáº£n pháº©m náº¿u tÃ¬m tháº¥y
 			}
 		}
 
-		return null; // Trả về null nếu không tìm thấy sản phẩm
+		return null; // Tráº£ vá»� null náº¿u khÃ´ng tÃ¬m tháº¥y sáº£n pháº©m
 	}
 
-	//Phương thức tính tổng số lượng sản phẩm
+	//PhÆ°Æ¡ng thá»©c tÃ­nh tá»•ng sá»‘ lÆ°á»£ng sáº£n pháº©m
 	public int tinhTongSoLuong() {
 		int tongSoLuong = 0;
 		for (SanPham sp : ds) {
@@ -179,9 +179,9 @@ public class QuanLySanPham {
 		return tongSoLuong;
 	}
 
-	// Phương thức hiển thị danh sách đã mua
+	// PhÆ°Æ¡ng thá»©c hiá»ƒn thá»‹ danh sÃ¡ch Ä‘Ã£ mua
 	public void hienThiDanhSachDaMua1() {
-		System.out.println("Danh sách sản phẩm đã mua:");
+		System.out.println("Danh sÃ¡ch sáº£n pháº©m Ä‘Ã£ mua:");
 		for (SanPham sp : danhSachDaMua) {
 			System.out.println(sp);
 		}
@@ -189,77 +189,77 @@ public class QuanLySanPham {
 
 	public void hienThiDanhSachDaMua() {
 		if (danhSachDaMua.isEmpty()) {
-			System.out.println("Danh sách sản phẩm đã mua trống.");
+			System.out.println("Danh sÃ¡ch sáº£n pháº©m Ä‘Ã£ mua trá»‘ng.");
 		} else {
-			System.out.println("Danh sách sản phẩm đã mua:");
+			System.out.println("Danh sÃ¡ch sáº£n pháº©m Ä‘Ã£ mua:");
 			for (SanPham sp : danhSachDaMua) {
 				System.out.println(sp);
 			}
 		}
 	}
 
-	// Phương thức để nhập số lượng muốn mua và tính số sản phẩm còn lại
+	// PhÆ°Æ¡ng thá»©c Ä‘á»ƒ nháº­p sá»‘ lÆ°á»£ng muá»‘n mua vÃ  tÃ­nh sá»‘ sáº£n pháº©m cÃ²n láº¡i
 	public void muaSanPham() throws ParseException {
 		Scanner scanner = new Scanner(System.in);
 
-		// Hiển thị danh sách sản phẩm
+		// Hiá»ƒn thá»‹ danh sÃ¡ch sáº£n pháº©m
 		// hienThiDanhSachSanPham();
 
-		// Nhập mã sản phẩm
-		System.out.print("Nhập mã sản phẩm muốn mua: ");
+		// Nháº­p mÃ£ sáº£n pháº©m
+		System.out.print("Nháº­p mÃ£ sáº£n pháº©m muá»‘n mua: ");
 		int maSanPham = scanner.nextInt();
 
-		// Tìm sản phẩm theo mã
+		// TÃ¬m sáº£n pháº©m theo mÃ£
 		SanPham sanPham = timKiem(maSanPham);
 
 		if (sanPham != null) {
-			// Hiển thị thông tin sản phẩm
-			System.out.println("Thông tin sản phẩm:");
+			// Hiá»ƒn thá»‹ thÃ´ng tin sáº£n pháº©m
+			System.out.println("ThÃ´ng tin sáº£n pháº©m:");
 			System.out.println(sanPham);
 
-			// Nhập số lượng muốn mua
-			System.out.print("Nhập số lượng muốn mua: ");
+			// Nháº­p sá»‘ lÆ°á»£ng muá»‘n mua
+			System.out.print("Nháº­p sá»‘ lÆ°á»£ng muá»‘n mua: ");
 			int soLuongMua = scanner.nextInt();
 
 			if (soLuongMua > 0 && soLuongMua <= sanPham.getSoLuong()) {
-				// Giảm số lượng sản phẩm
+				// Giáº£m sá»‘ lÆ°á»£ng sáº£n pháº©m
 				sanPham.giamSoLuong(soLuongMua);
-				System.out.println("Đã mua " + soLuongMua + " sản phẩm "
+				System.out.println("Ä�Ã£ mua " + soLuongMua + " sáº£n pháº©m "
 						+ sanPham.getTenSP());
 
-				// Thêm sản phẩm vào danh sách đã mua
+				// ThÃªm sáº£n pháº©m vÃ o danh sÃ¡ch Ä‘Ã£ mua
 				String d;
 				do {
-					System.out.print("Ngày tạo hóa đơn (dd/MM/yyyy): ");
+					System.out.print("NgÃ y táº¡o hÃ³a Ä‘Æ¡n (dd/MM/yyyy): ");
 					d = scanner.nextLine();
 					if (d.isEmpty()) {
 						System.out
-								.println("Chuỗi không được rỗng! Hãy nhập lại!");
+								.println("Chuá»—i khÃ´ng Ä‘Æ°á»£c rá»—ng! HÃ£y nháº­p láº¡i!");
 					}
 				} while (d.isEmpty());
 
 				System.out.println("-----------------------------------");
-				System.out.println("Sau khi nhập hóa đơn: ");
+				System.out.println("Sau khi nháº­p hÃ³a Ä‘Æ¡n: ");
 				try {
 					Date date = F.parse(d);
 					SanPham sanPhamDaMua = new SanPham(sanPham.getTenSP(),
 							sanPham.getGiaTien(), soLuongMua, date);
 					danhSachDaMua.add(sanPhamDaMua);
 				} catch (ParseException e) {
-					System.out.println("Lỗi!!!");
-					throw e; // Ném lại ngoại lệ cho phía gọi
+					System.out.println("Lá»—i!!!");
+					throw e; // NÃ©m láº¡i ngoáº¡i lá»‡ cho phÃ­a gá»�i
 				}
 			} else {
 				System.out
-						.println("Số lượng mua không hợp lệ hoặc không đủ hàng.");
+						.println("Sá»‘ lÆ°á»£ng mua khÃ´ng há»£p lá»‡ hoáº·c khÃ´ng Ä‘á»§ hÃ ng.");
 			}
 		} else {
-			System.out.println("Không tìm thấy sản phẩm có mã " + maSanPham);
+			System.out.println("KhÃ´ng tÃ¬m tháº¥y sáº£n pháº©m cÃ³ mÃ£ " + maSanPham);
 		}
 		hienThiDanhSachDaMua();
 	}
 
-	//Phương thức sắp xếp sản phẩm theo giá giảm dần
+	//PhÆ°Æ¡ng thá»©c sáº¯p xáº¿p sáº£n pháº©m theo giÃ¡ giáº£m dáº§n
 	public void sapXepGiamTheoGia() {
 		this.ds.sort((sp1, sp2) -> {
 			int k = sp1.getGiaTien() - sp2.getGiaTien();
@@ -271,7 +271,6 @@ public class QuanLySanPham {
 			return 0;
 		});
 	}
-
 	public ArrayList<SanPham> getDs() {
 		return ds;
 	}
