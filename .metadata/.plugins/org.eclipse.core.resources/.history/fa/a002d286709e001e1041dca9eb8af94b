@@ -1,0 +1,36 @@
+package BaiTapLonOOP;
+import java.util.Scanner;
+public class Main{
+	public static void main(String[] agrs){
+		Scanner sc = new Scanner(System.in);
+		int chon;
+		int chon1;
+		do{
+			chon = sc.nextInt();
+			switch(chon){
+				case 1:{
+					do{
+						chon1 = sc.nextInt();
+						System.out.print("Quan ly nhan vien");
+					}while(chon1 < 1 || chon1 > 5);
+				    break;
+				}
+				case 2:{
+					System.out.print("Quan ca phe");
+		
+				    break;
+				}
+				case 3:{
+					System.out.print("Cham soc khach hang");
+					break;
+				}
+				case 4:{
+					System.out.print("Thoat");
+					break;
+				}
+				  default:{
+				}
+			}
+		}while(chon > 4 || chon < 1);
+	}
+}
