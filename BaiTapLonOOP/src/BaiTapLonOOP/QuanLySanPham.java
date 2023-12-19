@@ -17,29 +17,29 @@ public class QuanLySanPham {
 	private ArrayList<SanPham> ds = new ArrayList<>();
 	private static final Scanner SC = new Scanner(System.in);
 	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
-	private List<SanPham> danhSachDaMua; // Danh sÃ¡ch sáº£n pháº©m Ä‘Ã£ mua
+	private List<SanPham> danhSachDaMua; // Danh sach san pham da mua
 
-	//PhÆ°Æ¡ng thá»©c khá»Ÿi táº¡o
+	//Phuong thuc khoi tao
 	public QuanLySanPham() {
 		this.ds = new ArrayList<>();
 		danhSachDaMua = new ArrayList<>();
 	}
 
-	//PhÆ°Æ¡ng thá»©c thÃªm sáº£n pháº©m
+	//Phuong thuc them san pham
 	public void themSP(SanPham sp) {
 		ds.add(sp);
 	}
  
-	//PhÆ°Æ¡ng thá»©c xÃ³a sáº£n pháº©m theo mÃ£ vÃ  tÃªn sáº£n pháº©m
+	//Xoa san pham theo ten va theo ma san pham
 	public void xoaSPTheoTen(String tenSP) {
 		Iterator<SanPham> iterator = ds.iterator();
 		while (iterator.hasNext()) {
 			SanPham sanPham = iterator.next();
-			// In giÃ¡ trá»‹ Ä‘á»ƒ debug
+			// In gia tri debug
 			System.out.println("TÃªn SP trong danh sÃ¡ch: [" + sanPham.getTenSP()
 					+ "]");
-			// Sá»­ dá»¥ng phÆ°Æ¡ng thá»©c trim() Ä‘á»ƒ loáº¡i bá»� khoáº£ng tráº¯ng á»Ÿ Ä‘áº§u vÃ  cuá»‘i
-			// tÃªn sáº£n pháº©m
+			// Su dung phuong thuc trim() de loai bo khoang trang o dau va cuoi
+			// ten san pham
 			if (sanPham.getTenSP().trim().equalsIgnoreCase(tenSP.trim())) {
 				iterator.remove();
 				System.out.println("Ä�Ã£ xÃ³a sáº£n pháº©m cÃ³ tÃªn lÃ : " + tenSP);
@@ -56,19 +56,18 @@ public class QuanLySanPham {
 			if (sp.getMaSP() == maSP) {
 				iterator.remove();
 				System.out.println("Da xoa hoa don co ma: " + maSP);
-				return; // Báº¡n cÃ³ thá»ƒ tiáº¿p tá»¥c vÃ²ng láº·p náº¿u muá»‘n xÃ³a nhiá»�u hÃ³a
-						// Ä‘Æ¡n cÃ³ cÃ¹ng mÃ£
+				return; // Co the dung vong lap
 			}
 		}
 		System.out.println("Khong tim thay hoa don co ma: " + maSP);
 	}
 
-	//PhÆ°Æ¡ng thá»©c hiá»ƒn thá»‹ danh sÃ¡ch sáº£n pháº©m
+	//Phuong thuc hien thi danh sach san pham
 	public void hienThi() {
 		ds.forEach(hd -> hd.hienThi());
 	}
 
-	//PhÆ°Æ¡ng thá»©c nháº­p sáº£n pháº©m má»›i
+	//Phuong thuc them san pham moi
 	public void nhapSanPham() throws ParseException {
 		System.out.print("Nhap ten san pham: ");
 		String m = SC.nextLine();
@@ -93,12 +92,12 @@ public class QuanLySanPham {
 			themSP(sp);
 		} catch (ParseException e) {
 			System.out.println("Loi!!!");
-			throw e; // NÃ©m láº¡i ngoáº¡i lá»‡ cho phÃ­a gá»�i
+			throw e; // Nem ngoai le cho phia goi
 		}
 	}
 
 	
-//PhÆ°Æ¡ng thá»©c Ä‘á»�c táº­p tin
+	//Phuong thuc doc tap tin
 	public void docTapTin(String duongDan) throws FileNotFoundException,
 			ParseException {
 		File f = new File(duongDan);
@@ -119,21 +118,21 @@ public class QuanLySanPham {
 		}
 	}
 
-	//PhÆ°Æ¡ng thá»©c ghi táº­p tin
+	//Phuong thuc ghi tap tin
 	public void ghiTapTin(String duongDan) throws IOException {
 		try (FileWriter writer = new FileWriter(duongDan)) {
 			for (SanPham sp : ds) {
-				// Ghi thÃ´ng tin sáº£n pháº©m vÃ o táº­p tin sá»­ dá»¥ng toString
+				// Ghi thong tin san pham vao tap tin 
 				writer.write(sp.toString() + System.lineSeparator());
 			}
 			System.out.println("Ä�Ã£ ghi dá»¯ liá»‡u vÃ o táº­p tin thÃ nh cÃ´ng.");
 		} catch (IOException e) {
 			System.out.println("Lá»—i khi ghi táº­p tin: " + e.getMessage());
-			throw e; // Re-throw Ä‘á»ƒ cho phÃ©p lá»›p gá»�i xá»­ lÃ½ lá»—i náº¿u cáº§n
+			throw e; // Goi xu li loi neu can
 		}
 	}
 
-	//PhÆ°Æ¡ng thá»© tÃ¬m kiáº¿m tÃªn vÃ  mÃ£ sáº£n pháº©m
+	//Phuong thuc tim kiem theo ma san pham
 	public SanPham timKiem(int maSP) {
 		for (SanPham h : ds) {
 			if (h.getMaSP() == maSP)
