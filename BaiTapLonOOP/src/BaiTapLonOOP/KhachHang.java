@@ -64,7 +64,7 @@ public class KhachHang {
 		this.soDT = soDT;
 	}
 
-	// In danh sách khách hàng
+	// In danh sách khách hang
 	public void hienThi() {
 		System.out.println("Mã khách hàng: " + this.getMaKH());
 		System.out.println("Họ tên: " + this.getHoTen());
