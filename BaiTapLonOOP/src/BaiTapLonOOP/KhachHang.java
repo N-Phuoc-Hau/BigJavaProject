@@ -79,7 +79,7 @@ public class KhachHang {
 	}
 
 	public String toString() {
-		return maKH + ";" + hoTen + ";" + soDT + ";" + isThanhVien();
+		return maKH + ";" + hoTen + ";" + soDT + ";" + isThanhVien;
 	}
 
 }
