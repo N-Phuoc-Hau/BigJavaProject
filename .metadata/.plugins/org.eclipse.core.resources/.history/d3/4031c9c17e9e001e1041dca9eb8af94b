@@ -45,14 +45,13 @@ public class Main{
 	public static void menuNV() {
 		// System.out.println("------------------------------MENU------------------------------");
 		System.out.println("QUAN LY NHAN VIEN");
-		System.out.println("1. HIEN THI TAT CA");
+		System.out.println("1. TRA CUU THEO TEN");
 		System.out.println("2. TRA CUU THEO MA NHAN VIEN");
 		System.out.println("3. TRA CUU GIOI TINH");
-		System.out.println("4. TRA CUU THEO TEN");
-		System.out.println("5. SUA DOI CO BAN");
-		System.out.println("6. SUA DOI NANG CAO");
-		System.out.println("7. THEM NHAN VIEN");
-		System.out.println("8. XOA NHAN VIEN");
+		System.out.println("4. SUA DOI CO BAN");
+		System.out.println("5. SUA DOI NANG CAO");
+		System.out.println("6. THEM NHAN VIEN");
+		System.out.println("7. XOA NHAN VIEN");
 		System.out.println("QUAY LAI");
 	}
 
@@ -118,26 +117,21 @@ public class Main{
 						break;
 					case 2:
 						System.out.println("2. TRA CUU THEO MA NHAN VIEN");
-						qlnv.hienThiTheoTen();
 						break;
 					case 3: 
 						System.out.println("3. TRA CUU GIOI TINH");
 						break;
-					case 4:
-						System.out.println("4. TRA CUU THEO TEN");
-						qlnv.hienThi();
-						break;
 					case 5:
-						System.out.println("5. SUA DOI CO BAN");
+						System.out.println("4. SUA DOI CO BAN");
 						break;
 					case 6:
-						System.out.println("6. SUA DOI NANG CAO");
+						System.out.println("5. SUA DOI NANG CAO");
 						break;
 					case 7: 
-						System.out.println("7. THEM NHAN VIEN");
+						System.out.println("6. THEM NHAN VIEN");
 						break;
 					case 8:
-						System.out.println("8. XOA NHAN VIEN");
+						System.out.println("7. XOA NHAN VIEN");
 						break;
 					case 9:
 						System.out.println("QUAY LAI");

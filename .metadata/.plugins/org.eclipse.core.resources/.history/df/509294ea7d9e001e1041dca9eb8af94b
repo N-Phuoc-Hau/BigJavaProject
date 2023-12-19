@@ -210,7 +210,7 @@ public class QuanLyNhanVien {
 		}
 	public void docTapTinPT() throws ParseException, IOException {
 	    // Tạo đối tượng File để đại diện cho tập tin
-	    File file = new File("src/BaiTapLonOOP/dataa/NhanVienPT.txt");
+	    File file = new File("src/data/NhanVienPT.txt");
 
 	    // Mở tập tin
 	    FileReader fileReader = new FileReader(file);
@@ -243,7 +243,7 @@ public class QuanLyNhanVien {
 	
 	public void docTapTinFT() throws ParseException, IOException {
 	    // Tạo đối tượng File để đại diện cho tập tin
-	    File file = new File("src/BaiTapLonOOP/dataa/NhanVienFT.txt");
+	    File file = new File("src/data/NhanVienFT.txt");
 
 	    // Mở tập tin
 	    FileReader fileReader = new FileReader(file);

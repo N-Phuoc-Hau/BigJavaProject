@@ -118,7 +118,6 @@ public class Main{
 						break;
 					case 2:
 						System.out.println("2. TRA CUU THEO MA NHAN VIEN");
-						qlnv.hienThiTheoTen();
 						break;
 					case 3: 
 						System.out.println("3. TRA CUU GIOI TINH");
