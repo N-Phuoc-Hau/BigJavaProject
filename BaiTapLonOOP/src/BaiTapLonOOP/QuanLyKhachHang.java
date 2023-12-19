@@ -50,13 +50,12 @@ public class QuanLyKhachHang {
 		String hoTen = SC.nextLine();
 
 		System.out.print("Nhập số điện thoại khách hàng: ");
-		int soDienThoai = SC.nextInt();
+		String soDienThoai = SC.nextLine();
 
 		System.out.print("Là thành viên (true/false): ");
 		boolean laThanhVien = SC.nextBoolean();
 
-		KhachHang khachHang = new KhachHang(maKhachHang, hoTen, soDienThoai,
-				laThanhVien);
+		KhachHang khachHang = new KhachHang(hoTen, soDienThoai,laThanhVien);
 		danhSachKH.add(khachHang);
 		System.out.println("Thêm khách hàng thành công!");
 		System.out.println("---------------");
@@ -115,7 +114,7 @@ public class QuanLyKhachHang {
 				System.out.print("Họ và tên: ");
 				String hoTenMoi = SC.nextLine();
 				System.out.print("Số điện thoại: ");
-				int soDienThoaiMoi = SC.nextInt();
+				String soDienThoaiMoi = SC.nextLine();
 				System.out.print("Là thành viên (true/false): ");
 				boolean isThanhVien = SC.nextBoolean();
 
@@ -166,11 +165,11 @@ public class QuanLyKhachHang {
 		File f=new File(duongDan);
 		try(Scanner SC = new Scanner(f)){
 			while(SC.hasNext()){
-				int maKH  = SC.nextInt();
 				String hoTen = SC.nextLine();
-				int soDT=SC.nextInt();
-				boolean isThanhVien = SC.nextBoolean();
-				KhachHang kh = new KhachHang(maKH,hoTen,soDT,isThanhVien);
+				String c = SC.nextLine();
+				int cccd = Integer.parseInt(c);
+				String soDT=SC.nextLine();
+				KhachHang kh = new KhachHang(hoTen, cccd, soDT);
 				danhSachKH.add(kh);
 			}
 			SC.close();

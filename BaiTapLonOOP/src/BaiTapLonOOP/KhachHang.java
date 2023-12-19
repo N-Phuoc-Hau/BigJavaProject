@@ -8,7 +8,7 @@ public class KhachHang {
 	private static int dem;
 	private int maKH = ++dem;
 	private String hoTen;
-	private int soDT;
+	private String soDT;
 	private int cccd;
 	private boolean isThanhVien;
 
@@ -28,11 +28,11 @@ public class KhachHang {
 		this.hoTen = hoTen;
 	}
 
-	public int getSoDT() {
+	public String getSoDT() {
 		return soDT;
 	}
 
-	public void setSoDT(int soDT) {
+	public void setSoDT(String soDT) {
 		this.soDT = soDT;
 	}
 
@@ -52,14 +52,13 @@ public class KhachHang {
 		this.cccd = cccd;
 	}
 
-	public KhachHang(int maKH, String hoTen, int soDT, boolean isThanhVien) throws ParseException {
-		this.maKH = maKH;
+	public KhachHang(String hoTen, String soDT, boolean isThanhVien) throws ParseException {
 		this.hoTen = hoTen;
 		this.soDT = soDT;
 		this.isThanhVien = isThanhVien;
 	}
 
-	public KhachHang(String hoTen, int cccd, int soDT) {
+	public KhachHang(String hoTen, int cccd, String soDT) {
 		this.hoTen = hoTen;
 		this.cccd = cccd;
 		this.soDT = soDT;
