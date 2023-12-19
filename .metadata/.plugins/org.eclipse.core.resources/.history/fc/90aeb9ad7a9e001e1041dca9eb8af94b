@@ -139,6 +139,21 @@ public class NhanVien {
 		return loaiNV;
 	}
 
+	public NhanVienPT getPt() {
+		return pt;
+	}
+
+	public void setPt(NhanVienPT pt) {
+		this.pt = pt;
+	}
+
+	public NhanVienFT getFt() {
+		return ft;
+	}
+
+	public void setFt(NhanVienFT ft) {
+		this.ft = ft;
+	}
 
 	public void setLoaiNV(boolean loaiNV) {
 		this.loaiNV = loaiNV;
