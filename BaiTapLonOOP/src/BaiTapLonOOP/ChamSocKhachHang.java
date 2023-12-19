@@ -1,11 +1,12 @@
 package BaiTapLonOOP;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ChamSocKhachHang extends KhachHang {
-	public ChamSocKhachHang(int maKH, String hoTen, int soDT, boolean isThanhVien) {
+	public ChamSocKhachHang(int maKH, String hoTen, int soDT, boolean isThanhVien) throws ParseException {
 		super(maKH, hoTen, soDT, isThanhVien);
 	}
 

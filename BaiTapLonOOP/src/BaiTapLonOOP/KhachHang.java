@@ -1,5 +1,6 @@
 package BaiTapLonOOP;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class KhachHang {
@@ -51,7 +52,7 @@ public class KhachHang {
 		this.cccd = cccd;
 	}
 
-	public KhachHang(int maKH, String hoTen, int soDT, boolean isThanhVien) {
+	public KhachHang(int maKH, String hoTen, int soDT, boolean isThanhVien) throws ParseException {
 		this.maKH = maKH;
 		this.hoTen = hoTen;
 		this.soDT = soDT;
@@ -64,11 +65,11 @@ public class KhachHang {
 		this.soDT = soDT;
 	}
 
-	// In danh sách khách hang
+	// In danh sách khách hàng
 	public void hienThi() {
-		System.out.println("Mã khách hàng: " + this.getMaKH());
-		System.out.println("Họ tên: " + this.getHoTen());
-		System.out.println("Số điện thoại: " + this.getSoDT());
+		System.out.println("Mã khách hàng: " + this.maKH);
+		System.out.println("Họ tên: " + this.hoTen);
+		System.out.println("Số điện thoại: " + this.soDT);
 		if (this.isThanhVien()) {
 			System.out.println("Là thành viên");
 		} else {
