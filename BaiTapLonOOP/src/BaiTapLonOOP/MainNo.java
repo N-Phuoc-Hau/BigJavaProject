@@ -5,10 +5,11 @@ import java.text.ParseException;
 
 public class MainNo {
 		public static void main(String[] args) throws FileNotFoundException, ParseException {
+
 			KhachHang kh1 = new KhachHang(1, "Nguyễn Văn A", 123456789, true);
 			KhachHang kh2 = new KhachHang(2, "Trần Thị B", 987654321, false);
 			KhachHang kh3 = new KhachHang(3, "Lê Văn C", 987654321, false);
-//			ChamSocKhachHang cs1 = new ChamSocKhachHang(1, "Nguyễn Văn A", 123456789, true);
+			ChamSocKhachHang cs1 = new ChamSocKhachHang(1, "Nguyễn Văn A", 123456789, true);
 
 			QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
 			danhSachKH.them(kh1);
@@ -43,10 +44,8 @@ public class MainNo {
 			
 			
 		
-			
-		
 			cs1.tichDiem();
 			cs1.taoGiamGia();
->>>>>>> f34341f5a515df39967cf531ef2476695673c4d2
+
 		}
 }		
