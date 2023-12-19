@@ -22,7 +22,6 @@ public class Main{
 		      if ("admin".equals(username) && "123456".equals(password)) {
 		          // Thông tin đăng nhập đúng
 		          System.out.println("Đăng nhập thành công");
-		          break;
 		      } else {
 		          // Thông tin đăng nhập sai
 		          System.out.println("Đăng nhập thất bại");
