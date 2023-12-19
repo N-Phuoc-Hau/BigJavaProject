@@ -105,6 +105,7 @@ public class Main{
 				menuNV();
 				do{
 
+					System.out.println("1. TRA CUU THEO TEN");
 					chon1 = sc.nextInt();
 					switch (chon1){
 					case 1:

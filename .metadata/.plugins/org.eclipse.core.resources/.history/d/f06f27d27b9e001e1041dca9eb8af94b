@@ -104,36 +104,22 @@ public class Main{
 				// Thực hiện công việc 1
 				menuNV();
 				do{
-
 					chon1 = sc.nextInt();
 					switch (chon1){
 					case 1:
-						System.out.println("1. TRA CUU THEO TEN");
 						break;
 					case 2:
-						System.out.println("2. TRA CUU THEO MA NHAN VIEN");
 						break;
 					case 3: 
-						System.out.println("3. TRA CUU GIOI TINH");
 						break;
 					case 4:
-						System.out.println("4. SUA DOI CO BAN");
 						break;
 					case 5:
-						System.out.println("5. SUA DOI NANG CAO");
 						break;
 					case 6: 
-						System.out.println("6. THEM NHAN VIEN");
-						break;
-					case 7:
-						System.out.println("7. XOA NHAN VIEN");
-						break;
-					case 8:
-						System.out.println("QUAY LAI");
 						break;
 					}
-					if(chon1 == 8) break;
-				}while(chon1 > 1 || chon1 < 8);
+				}while(chon1 > 1 || chon1 < 6);
 				System.out.println("Đã thực hiện công việc 1");
 				break;
 			case 2:
