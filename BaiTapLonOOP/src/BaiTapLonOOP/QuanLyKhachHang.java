@@ -1,5 +1,8 @@
 package BaiTapLonOOP;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -40,20 +43,19 @@ public class QuanLyKhachHang {
 		System.out.println("Không tìm thấy khách hàng có tên: " + hoTen);
 	}
 
-	public void themKhachHang() {
+	public void themKhachHang() throws ParseException {
 		int maKhachHang = danhSachKH.size() + 1; // Tạo mã khách hàng tự động
 
 		System.out.print("Nhập họ tên khách hàng: ");
 		String hoTen = SC.nextLine();
 
 		System.out.print("Nhập số điện thoại khách hàng: ");
-		int soDienThoai = SC.nextInt();
+		String soDienThoai = SC.nextLine();
 
 		System.out.print("Là thành viên (true/false): ");
 		boolean laThanhVien = SC.nextBoolean();
 
-		KhachHang khachHang = new KhachHang(maKhachHang, hoTen, soDienThoai,
-				laThanhVien);
+		KhachHang khachHang = new KhachHang(hoTen, soDienThoai,laThanhVien);
 		danhSachKH.add(khachHang);
 		System.out.println("Thêm khách hàng thành công!");
 		System.out.println("---------------");
@@ -112,7 +114,7 @@ public class QuanLyKhachHang {
 				System.out.print("Họ và tên: ");
 				String hoTenMoi = SC.nextLine();
 				System.out.print("Số điện thoại: ");
-				int soDienThoaiMoi = SC.nextInt();
+				String soDienThoaiMoi = SC.nextLine();
 				System.out.print("Là thành viên (true/false): ");
 				boolean isThanhVien = SC.nextBoolean();
 
@@ -156,6 +158,21 @@ public class QuanLyKhachHang {
 			for (KhachHang khachHang : ketQuaTimKiem) {
 				khachHang.hienThi();
 			}
+		}
+	}
+	
+	public void docTapTin(String duongDan) throws FileNotFoundException, ParseException{
+		File f=new File(duongDan);
+		try(Scanner SC = new Scanner(f)){
+			while(SC.hasNext()){
+				String hoTen = SC.nextLine();
+				String c = SC.nextLine();
+				int cccd = Integer.parseInt(c);
+				String soDT=SC.nextLine();
+				KhachHang kh = new KhachHang(hoTen, cccd, soDT);
+				danhSachKH.add(kh);
+			}
+			SC.close();
 		}
 	}
 

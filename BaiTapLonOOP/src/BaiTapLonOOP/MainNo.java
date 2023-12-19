@@ -1,12 +1,15 @@
 package BaiTapLonOOP;
 
-public class MainNo {
-		public static void main(String[] args) {
+import java.io.FileNotFoundException;
+import java.text.ParseException;
 
-			KhachHang kh1 = new KhachHang(1, "Nguyễn Văn A", 123456789, true);
-			KhachHang kh2 = new KhachHang(2, "Trần Thị B", 987654321, false);
-			KhachHang kh3 = new KhachHang(3, "Lê Văn C", 987654321, false);
-			ChamSocKhachHang cs1 = new ChamSocKhachHang(1, "Nguyễn Văn A", 123456789, true);
+public class MainNo {
+		public static void main(String[] args) throws FileNotFoundException, ParseException {
+
+			KhachHang kh1 = new KhachHang("Nguyễn Văn A", "123456789", true);
+			KhachHang kh2 = new KhachHang("Trần Thị B", "987654321", false);
+			KhachHang kh3 = new KhachHang("Lê Văn C", "987654321", false);
+	//		ChamSocKhachHang cs1 = new ChamSocKhachHang(1, "Nguyễn Văn A", 123456789, true);
 
 			QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
 			danhSachKH.them(kh1);
@@ -17,11 +20,11 @@ public class MainNo {
 			danhSachKH.hienThi();
 			
 			System.out.println("THÊM KHÁCH HÀNG");
-			danhSachKH.themKhachHang();
-			danhSachKH.hienThi();
+//			danhSachKH.themKhachHang();
+//			danhSachKH.hienThi();
 			
 			System.out.println("XÓA KHÁCH HÀNG");
-			danhSachKH.xoaKHTheoMa();
+//			danhSachKH.xoaKHTheoMa();
 ////		danhSachKH.hienThi();
 			
 			System.out.println("SỬA THÔNG TIN KHÁCH HÀNG");
@@ -31,7 +34,18 @@ public class MainNo {
 //			System.out.println("TÌM KIẾM KHÁCH HÀNG");
 //			danhSachKH.timKiemKH();
 			
-			cs1.tichDiem();
-			cs1.taoGiamGia();
+
+	//		cs1.tichDiem();
+	//		cs1.taoGiamGia();
+			System.out.println("DS SAU KHI DOC FILE");
+			String duongDan = "src/BaiTapLonOOP.dataa/KhachHang.txt";
+			danhSachKH.docTapTin(duongDan);
+			danhSachKH.hienThi();
+			
+			
+		
+//			cs1.tichDiem();
+	//		cs1.taoGiamGia();
+
 		}
 }		

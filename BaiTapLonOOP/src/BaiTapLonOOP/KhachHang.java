@@ -1,5 +1,6 @@
 package BaiTapLonOOP;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class KhachHang {
@@ -7,7 +8,7 @@ public class KhachHang {
 	private static int dem;
 	private int maKH = ++dem;
 	private String hoTen;
-	private int soDT;
+	private String soDT;
 	private int cccd;
 	private boolean isThanhVien;
 
@@ -27,11 +28,11 @@ public class KhachHang {
 		this.hoTen = hoTen;
 	}
 
-	public int getSoDT() {
+	public String getSoDT() {
 		return soDT;
 	}
 
-	public void setSoDT(int soDT) {
+	public void setSoDT(String soDT) {
 		this.soDT = soDT;
 	}
 
@@ -51,24 +52,23 @@ public class KhachHang {
 		this.cccd = cccd;
 	}
 
-	public KhachHang(int maKH, String hoTen, int soDT, boolean isThanhVien) {
-		this.maKH = maKH;
+	public KhachHang(String hoTen, String soDT, boolean isThanhVien) throws ParseException {
 		this.hoTen = hoTen;
 		this.soDT = soDT;
 		this.isThanhVien = isThanhVien;
 	}
 
-	public KhachHang(String hoTen, int cccd, int soDT) {
+	public KhachHang(String hoTen, int cccd, String soDT) {
 		this.hoTen = hoTen;
 		this.cccd = cccd;
 		this.soDT = soDT;
 	}
 
-	// In danh sách khách hang
+	// In danh sách khách hàng
 	public void hienThi() {
-		System.out.println("Mã khách hàng: " + this.getMaKH());
-		System.out.println("Họ tên: " + this.getHoTen());
-		System.out.println("Số điện thoại: " + this.getSoDT());
+		System.out.println("Mã khách hàng: " + this.maKH);
+		System.out.println("Họ tên: " + this.hoTen);
+		System.out.println("Số điện thoại: " + this.soDT);
 		if (this.isThanhVien()) {
 			System.out.println("Là thành viên");
 		} else {
@@ -78,7 +78,7 @@ public class KhachHang {
 	}
 
 	public String toString() {
-		return maKH + ";" + hoTen + ";" + soDT + ";" + isThanhVien();
+		return maKH + ";" + hoTen + ";" + soDT + ";" + isThanhVien;
 	}
 
 }

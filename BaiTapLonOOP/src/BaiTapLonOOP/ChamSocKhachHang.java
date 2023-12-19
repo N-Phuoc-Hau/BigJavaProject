@@ -1,12 +1,13 @@
 package BaiTapLonOOP;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ChamSocKhachHang extends KhachHang {
-	public ChamSocKhachHang(int maKH, String hoTen, int soDT, boolean isThanhVien) {
-		super(maKH, hoTen, soDT, isThanhVien);
+	public ChamSocKhachHang(String hoTen, String soDT, boolean isThanhVien) throws ParseException {
+		super(hoTen, soDT, isThanhVien);
 	}
 
 	private static final Scanner SC = new Scanner(System.in);
@@ -49,7 +50,7 @@ public class ChamSocKhachHang extends KhachHang {
         setCccd(SC.nextInt());
 
         System.out.print("Nhập số điện thoại: ");
-        setSoDT(SC.nextInt());
+        setSoDT(SC.nextLine());
 
         new KhachHang(getHoTen(), getCccd(), getSoDT());
 
