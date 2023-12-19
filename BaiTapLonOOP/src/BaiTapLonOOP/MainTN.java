@@ -22,7 +22,7 @@ public class MainTN {
 		ql.themSP(sp2);
 		
 		
-		String duongDan = "./src/ortherFile/data/quanlihoadon.txt";
+		String duongDan = "./src/BaiTapLonOOP.dataa/danhsachsanpham.txt";
 		ql.docTapTin(duongDan);
 
 		ql.hienThi();
@@ -34,9 +34,9 @@ public class MainTN {
 //////////////////////////////		
 //		try {
 //            ql.ghiTapTin("./src/ortherFile/data/quanlysanpham.txt");
-//            System.out.println("Ä�Ã£ ghi dá»¯ liá»‡u vÃ o táº­p tin thÃ nh cÃ´ng.");
+//            System.out.println("Da ghi du lieu vao tap tin thanh cong.");
 //        } catch (IOException e) {
-//            System.out.println("Lá»—i khi ghi táº­p tin: " + e.getMessage());
+//            System.out.println("Loi ghi tap tin: " + e.getMessage());
 //        }
 /////////////////////////////		
 		//Xoa theo ten san pham
@@ -57,7 +57,7 @@ public class MainTN {
 		ql.nhapSanPham();
 //		ql.hienThi();
 //		
-		String duongDandoc1 = "./src/ortherFile/data/quanlysanpham.txt";
+		String duongDandoc1 = "./src/BaiTapLonOOP.dataa/danhsachsanphambanduoc.txt";
 		ql.ghiTapTin(duongDandoc1);
 //		System.out.println("--->>>>>>>Cap nhat gia san pham: ");
 //		System.out.print("->>>>Nhap ma san pham: ");
@@ -78,13 +78,13 @@ public class MainTN {
 //		System.out.print("->>>Nhap ten san pham muon tim: ");
 //		String ten = SC.nextLine();
 //		ql.timKiemTheoTen(ten);
-//		String tenSPCanTim = "TÃªn sáº£n pháº©m cáº§n tÃ¬m";
+//		String tenSPCanTim = "Ten san pham can tim";
 //	    SanPham ketQuaTimKiem = ql.timKiemTheoTen(ten);
 //
 //	    if (ketQuaTimKiem == null) {
-//	        System.out.println("KhÃ´ng tÃ¬m tháº¥y sáº£n pháº©m cÃ³ tÃªn: " + ten);
+//	        System.out.println("Khong tim thay san pham can tim co : " + ten);
 //	    } else {
-//	        System.out.println("Sáº£n pháº©m cÃ³ tÃªn " + ten);
+//	        System.out.println("San pham co ten " + ten);
 //	        System.out.println(ketQuaTimKiem);
 //	    }
 		

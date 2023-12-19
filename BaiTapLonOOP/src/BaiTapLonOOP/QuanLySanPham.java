@@ -36,17 +36,17 @@ public class QuanLySanPham {
 		while (iterator.hasNext()) {
 			SanPham sanPham = iterator.next();
 			// In gia tri debug
-			System.out.println("TÃªn SP trong danh sÃ¡ch: [" + sanPham.getTenSP()
+			System.out.println("Ten SP trong danh sach: [" + sanPham.getTenSP()
 					+ "]");
 			// Su dung phuong thuc trim() de loai bo khoang trang o dau va cuoi
 			// ten san pham
 			if (sanPham.getTenSP().trim().equalsIgnoreCase(tenSP.trim())) {
 				iterator.remove();
-				System.out.println("Ä�Ã£ xÃ³a sáº£n pháº©m cÃ³ tÃªn lÃ : " + tenSP);
+				System.out.println("Da xoa san pham co ten la : " + tenSP);
 				return;
 			}
 		}
-		System.out.println("KhÃ´ng tÃ¬m tháº¥y sáº£n pháº©m cÃ³ tÃªn: " + tenSP);
+		System.out.println("Khong tim thay san pham co ten: " + tenSP);
 	}
 
 	public void xoaSPTheoMa(int maSP) {
@@ -125,9 +125,9 @@ public class QuanLySanPham {
 				// Ghi thong tin san pham vao tap tin 
 				writer.write(sp.toString() + System.lineSeparator());
 			}
-			System.out.println("Ä�Ã£ ghi dá»¯ liá»‡u vÃ o táº­p tin thÃ nh cÃ´ng.");
+			System.out.println("Da ghi thong tin vao tap tin thanh cong!!!");
 		} catch (IOException e) {
-			System.out.println("Lá»—i khi ghi táº­p tin: " + e.getMessage());
+			System.out.println("Loi ghi tap tin: " + e.getMessage());
 			throw e; // Goi xu li loi neu can
 		}
 	}
@@ -142,33 +142,32 @@ public class QuanLySanPham {
 		return null;
 	}
 
-	//PhÆ°Æ¡ng thá»©c cáº­p nháº­t giÃ¡ sáº£n pháº©m
+	//Phuong thuc cap nhat gia tien
 	public void capNhatGiaTien(int maSanPham, int giaMoi) {
 		for (SanPham sp : ds) {
 			if (sp.getMaSP() == maSanPham) {
 				sp.setGiaTien(giaMoi);
-				System.out.println("Ä�Ã£ cáº­p nháº­t giÃ¡ sáº£n pháº©m " + maSanPham
-						+ " thÃ nh " + giaMoi);
+				System.out.println("Da cap nhat gia san pham " + maSanPham
+						+ " thanh " + giaMoi);
 				return;
 			}
 		}
-		System.out.println("KhÃ´ng tÃ¬m tháº¥y sáº£n pháº©m cÃ³ mÃ£ " + maSanPham);
+		System.out.println("Khong tim thay san pham co ma " + maSanPham);
 	}
 
-	// PhÆ°Æ¡ng thá»©c Ä‘á»ƒ tÃ¬m kiáº¿m sáº£n pháº©m theo tÃªn
+	// Phuong thuc tim kiem theo ten san pham
 	public SanPham timKiemTheoTen(String tenSP) {
 		for (SanPham sp : ds) {
-			// Sá»­ dá»¥ng phÆ°Æ¡ng thá»©c trim() Ä‘á»ƒ loáº¡i bá»� khoáº£ng tráº¯ng á»Ÿ Ä‘áº§u vÃ  cuá»‘i
-			// tÃªn sáº£n pháº©m
+			// Su dung phuong thuc trim() de loai bo khoang trang o ten san pham
 			if (sp.getTenSP().trim().equalsIgnoreCase(tenSP.trim())) {
-				return sp; // Tráº£ vá»� sáº£n pháº©m náº¿u tÃ¬m tháº¥y
+				return sp; //Tra ve san pham neu tim thay
 			}
 		}
 
-		return null; // Tráº£ vá»� null náº¿u khÃ´ng tÃ¬m tháº¥y sáº£n pháº©m
+		return null; //Tra ve neu khong tim thay san pham
 	}
 
-	//PhÆ°Æ¡ng thá»©c tÃ­nh tá»•ng sá»‘ lÆ°á»£ng sáº£n pháº©m
+	//Phuong thuc tinh tong so luong san pham
 	public int tinhTongSoLuong() {
 		int tongSoLuong = 0;
 		for (SanPham sp : ds) {
@@ -178,9 +177,9 @@ public class QuanLySanPham {
 		return tongSoLuong;
 	}
 
-	// PhÆ°Æ¡ng thá»©c hiá»ƒn thá»‹ danh sÃ¡ch Ä‘Ã£ mua
+	// Phuong thuc hien thi danh sach san pham da mua
 	public void hienThiDanhSachDaMua1() {
-		System.out.println("Danh sÃ¡ch sáº£n pháº©m Ä‘Ã£ mua:");
+		System.out.println("Danh sach san pham da mua:");
 		for (SanPham sp : danhSachDaMua) {
 			System.out.println(sp);
 		}
@@ -188,77 +187,77 @@ public class QuanLySanPham {
 
 	public void hienThiDanhSachDaMua() {
 		if (danhSachDaMua.isEmpty()) {
-			System.out.println("Danh sÃ¡ch sáº£n pháº©m Ä‘Ã£ mua trá»‘ng.");
+			System.out.println("Danh sach san pham da mua trong.");
 		} else {
-			System.out.println("Danh sÃ¡ch sáº£n pháº©m Ä‘Ã£ mua:");
+			System.out.println("Danh sach san pham da mua:");
 			for (SanPham sp : danhSachDaMua) {
 				System.out.println(sp);
 			}
 		}
 	}
 
-	// PhÆ°Æ¡ng thá»©c Ä‘á»ƒ nháº­p sá»‘ lÆ°á»£ng muá»‘n mua vÃ  tÃ­nh sá»‘ sáº£n pháº©m cÃ²n láº¡i
+	// Phuong thuc de nhap so luong muon mua va tinh so luong san pham con lai
 	public void muaSanPham() throws ParseException {
 		Scanner scanner = new Scanner(System.in);
 
-		// Hiá»ƒn thá»‹ danh sÃ¡ch sáº£n pháº©m
+		// Hien thi danh sach san pham
 		// hienThiDanhSachSanPham();
 
-		// Nháº­p mÃ£ sáº£n pháº©m
-		System.out.print("Nháº­p mÃ£ sáº£n pháº©m muá»‘n mua: ");
+		// Nhap ma san pham 
+		System.out.print("Nhap ma san pham muon mua: ");
 		int maSanPham = scanner.nextInt();
 
-		// TÃ¬m sáº£n pháº©m theo mÃ£
+		// Tim kiem san pham theo ma san pham
 		SanPham sanPham = timKiem(maSanPham);
 
 		if (sanPham != null) {
-			// Hiá»ƒn thá»‹ thÃ´ng tin sáº£n pháº©m
-			System.out.println("ThÃ´ng tin sáº£n pháº©m:");
+			// Hien thi thong tin san pham
+			System.out.println("Thong tin san pham:");
 			System.out.println(sanPham);
 
-			// Nháº­p sá»‘ lÆ°á»£ng muá»‘n mua
-			System.out.print("Nháº­p sá»‘ lÆ°á»£ng muá»‘n mua: ");
+			// Nhap so luong san pham mua
+			System.out.print("Nhap so luong mua: ");
 			int soLuongMua = scanner.nextInt();
 
 			if (soLuongMua > 0 && soLuongMua <= sanPham.getSoLuong()) {
-				// Giáº£m sá»‘ lÆ°á»£ng sáº£n pháº©m
+				// Gia so luong san pham xuong
 				sanPham.giamSoLuong(soLuongMua);
-				System.out.println("Ä�Ã£ mua " + soLuongMua + " sáº£n pháº©m "
+				System.out.println("Da mua " + soLuongMua + " san pham "
 						+ sanPham.getTenSP());
 
-				// ThÃªm sáº£n pháº©m vÃ o danh sÃ¡ch Ä‘Ã£ mua
+				// Them san pham vao danh sach san pham da mua
 				String d;
 				do {
-					System.out.print("NgÃ y táº¡o hÃ³a Ä‘Æ¡n (dd/MM/yyyy): ");
+					System.out.print("Ngay tao hoa don (dd/MM/yyyy): ");
 					d = scanner.nextLine();
 					if (d.isEmpty()) {
 						System.out
-								.println("Chuá»—i khÃ´ng Ä‘Æ°á»£c rá»—ng! HÃ£y nháº­p láº¡i!");
+								.println("Chuoi khong duoc rong! Hay nhap lai");
 					}
 				} while (d.isEmpty());
 
 				System.out.println("-----------------------------------");
-				System.out.println("Sau khi nháº­p hÃ³a Ä‘Æ¡n: ");
+				System.out.println("Sau khi nhap hoa don: ");
 				try {
 					Date date = F.parse(d);
 					SanPham sanPhamDaMua = new SanPham(sanPham.getTenSP(),
 							sanPham.getGiaTien(), soLuongMua, date);
 					danhSachDaMua.add(sanPhamDaMua);
 				} catch (ParseException e) {
-					System.out.println("Lá»—i!!!");
-					throw e; // NÃ©m láº¡i ngoáº¡i lá»‡ cho phÃ­a gá»�i
+					System.out.println("Loi!!!");
+					throw e; // Nem ngoai le cho phia goi
 				}
 			} else {
 				System.out
-						.println("Sá»‘ lÆ°á»£ng mua khÃ´ng há»£p lá»‡ hoáº·c khÃ´ng Ä‘á»§ hÃ ng.");
+						.println("So luong san pham khong hop le hoac khong du hang!! Xin hay bo sung.");
 			}
 		} else {
-			System.out.println("KhÃ´ng tÃ¬m tháº¥y sáº£n pháº©m cÃ³ mÃ£ " + maSanPham);
+			System.out.println("Khong tim thay san pham co ma " + maSanPham);
 		}
 		hienThiDanhSachDaMua();
 	}
 
-	//PhÆ°Æ¡ng thá»©c sáº¯p xáº¿p sáº£n pháº©m theo giÃ¡ giáº£m dáº§n
+	//Phuong thuc sap xep san pham theo gia giam dan
 	public void sapXepGiamTheoGia() {
 		this.ds.sort((sp1, sp2) -> {
 			int k = sp1.getGiaTien() - sp2.getGiaTien();
