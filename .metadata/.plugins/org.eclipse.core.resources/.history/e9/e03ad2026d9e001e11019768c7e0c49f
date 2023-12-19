@@ -44,7 +44,7 @@ public class NhanVien {
 		System.out.printf("Ma Nhan vien: %d\n", this.maNV);
 		System.out.printf("Ten Nhan vien: %s\n", this.tenNV);
 		System.out.printf("Gioi tinh: %s\n", this.gioiTinh);
-		System.out.printf("Dia chi Nhan vien: %s\n", this.diaChi);
+		System.out.printf("Dá»‹a chi Nhan vien: %s\n", this.diaChi);
 		System.out.printf("Ngay sinh Nhan vien: %s\n", F.format(this.ngaySinh));
 		System.out.printf("Loai Nhan vien: %s\n", this.loaiNV ? "FullTime" : "PartTime");
 	}

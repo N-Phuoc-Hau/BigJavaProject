@@ -136,24 +136,6 @@ public class Main{
 			switch (choice) {
 			case 1:
 				// Thực hiện công việc 1
-				menuNV();
-				do{
-					chon1 = sc.nextInt();
-					switch (chon1){
-					case 1:
-						break;
-					case 2:
-						break;
-					case 3: 
-						break;
-					case 4:
-						break;
-					case 5:
-						break;
-					case 6: 
-						break;
-					}
-				}while(chon1 > 1 || chon1 < 6);
 				System.out.println("Đã thực hiện công việc 1");
 				break;
 			case 2:
@@ -179,24 +161,7 @@ public class Main{
 				System.out.println("Đã thực hiện công việc 2");
 				break;
 			case 3:
-				menuSP();
-				do{
-					chon3 = sc.nextInt();
-					switch (chon3){
-					case 1:
-						break;
-					case 2:
-						break;
-					case 3: 
-						break;
-					case 4:
-						break;
-					case 5:
-						break;
-					case 6: 
-						break;
-					}
-				}while(chon3 > 1 || chon3 < 6);
+				// Thực hiện công việc 3
 				System.out.println("Đã thực hiện công việc 3");
 				break;
 			case 0:

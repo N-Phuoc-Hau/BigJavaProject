@@ -1,6 +1,5 @@
 package BaiTapLonOOP;
-
-import java.util.Scanner;
+java.util.Scanner;
 
 public class GiaoDienQuanLy{
 	public static void main(String[] agrs){

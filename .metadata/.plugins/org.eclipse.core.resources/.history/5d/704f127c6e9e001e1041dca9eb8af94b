@@ -1,0 +1,28 @@
+package BaiTapLonOOP;
+
+public class Main{
+	public static void main(String[] agrs){
+		int chon = 0;
+		switch(chon){
+			case 1:{
+				System.out.print("Quan ly nhan vien");
+			    break;
+			}
+			case 2:{
+				System.out.print("Quan ca phe");
+	
+			    break;
+			}
+			case 3:{
+				System.out.print("Cham soc khach hang");
+				break;
+			}
+			case 4:{
+				System.out.print("Thoat");
+				break;
+			}
+			  default:{
+			}
+		}
+	}
+}
