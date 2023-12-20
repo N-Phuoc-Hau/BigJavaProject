@@ -2,6 +2,8 @@ package BaiTapLonOOP;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,11 +45,14 @@ public class QuanLyKhachHang {
 		System.out.println("Không tìm thấy khách hàng có tên: " + hoTen);
 	}
 
-	public void themKhachHang() throws ParseException {
-		int maKhachHang = danhSachKH.size() + 1; // Tạo mã khách hàng tự động
+	public void themKhachHang() throws ParseException{
+	//	int maKhachHang = danhSachKH.size() + 1; // Tạo mã khách hàng tự động
 
 		System.out.print("Nhập họ tên khách hàng: ");
 		String hoTen = SC.nextLine();
+		
+		System.out.print("Nhập ngày sinh khách hàng: ");
+		String ngaySinh = SC.nextLine();
 
 		System.out.print("Nhập số điện thoại khách hàng: ");
 		String soDienThoai = SC.nextLine();
@@ -55,7 +60,7 @@ public class QuanLyKhachHang {
 		System.out.print("Là thành viên (true/false): ");
 		boolean laThanhVien = SC.nextBoolean();
 
-		KhachHang khachHang = new KhachHang(hoTen, soDienThoai,laThanhVien);
+		KhachHang khachHang = new KhachHang(hoTen,ngaySinh, soDienThoai,laThanhVien);
 		danhSachKH.add(khachHang);
 		System.out.println("Thêm khách hàng thành công!");
 		System.out.println("---------------");
@@ -161,19 +166,51 @@ public class QuanLyKhachHang {
 		}
 	}
 	
-	public void docTapTin(String duongDan) throws FileNotFoundException, ParseException{
-		File f=new File(duongDan);
-		try(Scanner SC = new Scanner(f)){
-			while(SC.hasNext()){
-				String hoTen = SC.nextLine();
-				String c = SC.nextLine();
-				int cccd = Integer.parseInt(c);
-				String soDT=SC.nextLine();
-				KhachHang kh = new KhachHang(hoTen, cccd, soDT);
-				danhSachKH.add(kh);
-			}
-			SC.close();
-		}
+	public void docTapTin(String duongDan) throws FileNotFoundException, ParseException {
+	    File f = new File(duongDan);
+	    try (Scanner SC = new Scanner(f)) {
+	        while (SC.hasNext()) {
+	            String hoTen = SC.nextLine();
+	            String ngaySinh = SC.nextLine();
+	            String soDT = SC.nextLine();
+	            boolean isThanhVien = Boolean.parseBoolean(SC.nextLine());
+	            if (SC.hasNext()) {
+	                SC.nextLine();
+	            }
+	            KhachHang kh = new KhachHang(hoTen, ngaySinh, soDT, isThanhVien);
+	            danhSachKH.add(kh);
+
+	            System.out.println("Đã đọc: " + hoTen + " - " + ngaySinh + " - " + soDT + " - " + isThanhVien);
+	        }
+	    }
 	}
+	
+	public void ghiTapTin(String duongDan) throws IOException {
+        try (Scanner input = new Scanner(System.in);
+             FileWriter writer = new FileWriter(duongDan, true)) {  // Đặt tham số true để không ghi đè tập tin
+            System.out.print("Nhập họ tên khách hàng: ");
+            String hoTen = input.nextLine();
+            System.out.print("Nhập ngày sinh khách hàng: ");
+            String ngaySinh = input.nextLine();
+            System.out.print("Nhập số điện thoại khách hàng: ");
+            String soDienThoai = input.nextLine();
+            System.out.print("Là thành viên (true/false): ");
+            boolean laThanhVien = input.nextBoolean();
+           
+            writer.write(hoTen + "\n");
+            writer.write(ngaySinh + "\n");
+            writer.write(soDienThoai + "\n");
+            writer.write(laThanhVien + "\n");
+
+            System.out.println("Ghi tập tin thành công!");
+        } catch (IOException e) {
+            System.err.println("Lỗi khi ghi tập tin: " + e.getMessage());
+            throw e;
+        }
+    }
+	
+
+	
+	
 
 }
