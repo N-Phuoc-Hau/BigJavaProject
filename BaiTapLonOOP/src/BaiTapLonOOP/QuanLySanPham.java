@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class QuanLySanPham {
 	private ArrayList<SanPham> ds = new ArrayList<>();
@@ -256,6 +257,24 @@ public class QuanLySanPham {
 		}
 		hienThiDanhSachDaMua();
 	}
+	
+	//Tim kiem danh sach san pham da mua theo ten san pham
+		public List<SanPham> timKiemSanPhamDaMua(String tenSanPhamCanTim) {
+	        String tenSanPhamTimKiem = tenSanPhamCanTim.toLowerCase(); // Chuyển về chữ thường
+
+	        return danhSachDaMua.stream()
+	            .filter(sp -> sp.getTenSP().toLowerCase().contains(tenSanPhamTimKiem))
+	            .collect(Collectors.toList());
+	    }
+	
+	//Phuong thuc tinh tong tien trong danh sach da mua
+		public double tinhTongTien() {
+	        double tongTien = 0;
+	        for (SanPham sp : danhSachDaMua) {
+	            tongTien += sp.getGiaTien() * sp.getSoLuong();
+	        }
+	        return tongTien;
+	    }
 
 	//Phuong thuc sap xep san pham theo gia giam dan
 	public void sapXepGiamTheoGia() {
