@@ -1,13 +1,11 @@
 package BaiTapLonOOP;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class ChamSocKhachHang extends KhachHang {
-	public ChamSocKhachHang(String hoTen, String soDT, boolean isThanhVien) throws ParseException {
-		super(hoTen, soDT, isThanhVien);
+	public ChamSocKhachHang(String hoTen,String ngaySinh, String soDT, boolean isThanhVien) throws ParseException {
+		super(hoTen,ngaySinh, soDT, isThanhVien);
 	}
 
 	private static final Scanner SC = new Scanner(System.in);
@@ -42,17 +40,17 @@ public class ChamSocKhachHang extends KhachHang {
     }
 
 	//Tích điểm
-	public int tichDiem() {
-        System.out.print("Nhập tên khách hàng: ");
-        setHoTen(SC.nextLine());
-
-        System.out.print("Nhập số CMND/CCCD: ");
-        setCccd(SC.nextInt());
-
-        System.out.print("Nhập số điện thoại: ");
-        setSoDT(SC.nextLine());
-
-        new KhachHang(getHoTen(), getCccd(), getSoDT());
+	public int tichDiem() throws ParseException {
+		System.out.print("Nhập họ tên khách hàng: ");
+		String hoTen = SC.nextLine();
+		System.out.print("Nhập ngày sinh khách hàng: ");
+		String ngaySinh = SC.nextLine();
+		System.out.print("Nhập số điện thoại khách hàng: ");
+		String soDienThoai = SC.nextLine();
+		System.out.print("Là thành viên (true/false): ");
+		boolean laThanhVien = SC.nextBoolean();
+ 
+        KhachHang kh = new KhachHang(hoTen,ngaySinh, soDienThoai,laThanhVien);
 
         System.out.print("Nhập tổng giá trị hóa đơn: ");
         int tongGiaTriHoaDon = SC.nextInt();

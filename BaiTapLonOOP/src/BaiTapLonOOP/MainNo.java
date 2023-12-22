@@ -1,15 +1,16 @@
 package BaiTapLonOOP;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.ParseException;
 
 public class MainNo {
-		public static void main(String[] args) throws FileNotFoundException, ParseException {
+		public static void main(String[] args) throws ParseException, IOException {
 
-			KhachHang kh1 = new KhachHang("Nguyễn Văn A", "123456789", true);
-			KhachHang kh2 = new KhachHang("Trần Thị B", "987654321", false);
-			KhachHang kh3 = new KhachHang("Lê Văn C", "987654321", false);
-	//		ChamSocKhachHang cs1 = new ChamSocKhachHang(1, "Nguyễn Văn A", 123456789, true);
+			KhachHang kh1 = new KhachHang("Nguyễn Văn A","03/08/2004", "123456789", true);
+			KhachHang kh2 = new KhachHang("Trần Thị B","03/09/2000", "987654321", false);
+			KhachHang kh3 = new KhachHang("Lê Văn C","07/08/2010", "987654321", false);
+	//		ChamSocKhachHang cs1 = new ChamSocKhachHang("Nguyễn Văn A", 123456789, true);
 
 			QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
 			danhSachKH.them(kh1);
@@ -38,8 +39,12 @@ public class MainNo {
 	//		cs1.tichDiem();
 	//		cs1.taoGiamGia();
 			System.out.println("DS SAU KHI DOC FILE");
-			String duongDan = "src/BaiTapLonOOP.dataa/KhachHang.txt";
+			String duongDan = "src/BaiTapLonOOP/data/KhachHang.txt";
 			danhSachKH.docTapTin(duongDan);
+			danhSachKH.hienThi();
+			//String duongDanGhi = "src/BaiTapLonOOP/data/KhachHang.txt";
+	//		danhSachKH.ghiTapTin(duongDan);
+			danhSachKH.themKhachHang();
 			danhSachKH.hienThi();
 			
 			
