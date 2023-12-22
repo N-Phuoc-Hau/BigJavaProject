@@ -295,4 +295,13 @@ public class QuanLySanPham {
 	public void setDs(ArrayList<SanPham> ds) {
 		this.ds = ds;
 	}
+
+	public List<SanPham> getDanhSachDaMua() {
+		return danhSachDaMua;
+	}
+
+	public void setDanhSachDaMua(List<SanPham> danhSachDaMua) {
+		this.danhSachDaMua = danhSachDaMua;
+	}
+	
 }
