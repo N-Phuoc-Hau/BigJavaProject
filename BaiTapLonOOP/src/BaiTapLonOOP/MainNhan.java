@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 
-public class MainTN {
+public class MainNhan {
 
 	public static final Scanner SC = new Scanner(System.in);
 	public static void main(String[] args) throws ParseException, IOException{
 		QuanLySanPham ql = new QuanLySanPham();
-		KhachHang khachHang = new KhachHang("Nguyen Van A", 123456, "0123456789");
+		KhachHang khachHang = new KhachHang("Nguyen Van A", "03/02/2021" ,"12121212", true);
 		QuanLyKhachHang ds = new QuanLyKhachHang();
 //		SanPham sp1 = new SanPham("Cafe Sua", 35000, 1, "25/10/2023");
 //		SanPham sp2 = new SanPham("Tra Dao Cam Xa", 20000, 8, "25/10/2023");
@@ -111,7 +111,7 @@ public class MainTN {
 					ds.themKhachHang();
 					int choice1;
 					do{
-						ql.muaSanPham(khachHang);
+						ql.muaSanPham();
 						System.out.print("Đã thực hiện\nBan muon mua tiep khong(1/0)?: ");
 						choice1 = SC.nextInt();
 					} while(choice1 == 1);
@@ -256,3 +256,4 @@ public class MainTN {
 //		ql.hienThi();
 	}
 }
+
