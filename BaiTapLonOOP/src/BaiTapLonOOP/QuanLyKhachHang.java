@@ -187,7 +187,7 @@ public class QuanLyKhachHang {
 	
 	public void ghiTapTin(String duongDan) throws IOException {
         try (Scanner input = new Scanner(System.in);
-             FileWriter writer = new FileWriter(duongDan, true)) {  // Đặt tham số true để không ghi đè tập tin
+             FileWriter writer = new FileWriter(duongDan, true)) {  //True để không ghi đè tập tin
             System.out.print("Nhập họ tên khách hàng: ");
             String hoTen = input.nextLine();
             System.out.print("Nhập ngày sinh khách hàng: ");
