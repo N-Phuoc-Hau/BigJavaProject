@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,8 +19,8 @@ public class QuanLyKhachHang {
 		this.danhSachKH = new ArrayList<>();
 	}
 
-	public void them(KhachHang kh) {
-		danhSachKH.add(kh);
+	public void them(KhachHang... kh) {
+		danhSachKH.addAll(Arrays.asList(kh));
 	}
 
 	public void hienThi() {
@@ -26,16 +28,17 @@ public class QuanLyKhachHang {
 	}
 
 	public void hienThiTheoMa() {
-		System.out.println("Nhập mã khách hàng cần hiển thị: ");
+		System.out.print("Nhập mã khách hàng cần hiển thị: ");
 		int maKH = SC.nextInt();
 		for (int i = 1; i <= danhSachKH.size(); i++) {
 			if (i == maKH)
-				danhSachKH.get(i).hienThi();
+				danhSachKH.get(i-1).hienThi();
 		}
+		System.out.println("Không tìm thấy khách hàng có mã: " + maKH);
 	}
 
 	public void hienThiTheoTen() {
-		System.out.println("Nhập Tên khách hàng cần hiển thị: ");
+		System.out.print("Nhập Tên khách hàng cần hiển thị: ");
 		String hoTen = SC.nextLine();
 		for (int i = 1; i <= danhSachKH.size(); i++) {
 			if (danhSachKH.get(i).getHoTen().equals(hoTen)) {
@@ -87,21 +90,17 @@ public class QuanLyKhachHang {
 
 	public void xoaKHTheoTen() {
 		System.out.print("Nhập tên khách hàng cần xóa: ");
-		int tenKhachHangXoa = SC.nextInt();
-		boolean found = false;
-
-		for (KhachHang khachHang : danhSachKH) {
-			if (khachHang.getMaKH() == tenKhachHangXoa) {
-				danhSachKH.remove(khachHang);
-				System.out.println("Xóa khách hàng thành công!");
-				found = true;
-				break;
+	    String tenKH = SC.nextLine();
+		Iterator<KhachHang> iterator = danhSachKH.iterator();
+		while (iterator.hasNext()) {
+			KhachHang kh = iterator.next();
+			if (kh.getHoTen().trim().equalsIgnoreCase(tenKH.trim())) {
+				iterator.remove();	
+				System.out.println("Đã xóa khách hàng có tên là: " + tenKH);
+				return;
 			}
 		}
-		if (!found) {
-			System.out.println("Không tìm thấy khách hàng có tên "
-					+ tenKhachHangXoa);
-		}
+		System.out.println("Không tìm thấy khách hàng có tên: " + tenKH);
 	}
 
 	public void suaThongTinKH() {
@@ -141,33 +140,56 @@ public class QuanLyKhachHang {
 		}
 	}
 
-	public void timKiemKH() {
-		System.out.print("Nhập từ khóa tìm kiếm: ");
-		String tuKhoa = SC.nextLine();
+	public void timKiemTheoMaKH() {
+        System.out.print("Nhập mã khách hàng cần tìm kiếm: ");
+        int maCanTim = SC.nextInt();
 
-		List<KhachHang> ketQuaTimKiem = new ArrayList<>();
-		for (KhachHang khachHang : danhSachKH) {
-			if (String.valueOf(khachHang.getSoDT()).contains(tuKhoa)
-					|| khachHang.getHoTen().contains(tuKhoa)
-					|| String.valueOf(khachHang.getMaKH()).contains(tuKhoa)) {
-				ketQuaTimKiem.add(khachHang);
-			}
-		}
+        boolean timThay = false;
 
-		if (ketQuaTimKiem.isEmpty()) {
-			System.out
-					.println("Không tìm thấy khách hàng nào phù hợp với từ khóa \""
-							+ tuKhoa + "\".");
-		} else {
-			System.out.println("Kết quả tìm kiếm:");
-			for (KhachHang khachHang : ketQuaTimKiem) {
-				khachHang.hienThi();
-			}
-		}
+        for (KhachHang khachHang : danhSachKH) {
+            if (khachHang.getMaKH() == maCanTim) {
+                System.out.println("Khách hàng đã tìm thấy:");
+                khachHang.hienThi();
+                timThay = true;
+                break;
+            }
+        }
+
+        if (!timThay) {
+            System.out.println("Không tìm thấy khách hàng có mã tương ứng.");
+        }
+    }
+	
+	public void timKiemTheoTenKH() {
+        System.out.print("Nhập tên khách hàng cần tìm: ");
+        String tenKH = SC.nextLine();
+        boolean timThay = false;
+
+        for (KhachHang kh : danhSachKH) {
+            if (kh.getHoTen().trim().equalsIgnoreCase(tenKH.trim())) {
+                kh.hienThi();  
+                timThay = true;
+                break;
+            }
+        }
+
+        if (!timThay) {
+            System.out.println("Không tìm thấy khách hàng có tên: " + tenKH);
+        }
+    }
+	
+	public KhachHang layKhachHangTheoMa(int maKhachHangCanTim) {
+	    for (KhachHang kh : danhSachKH) {
+	        if (kh.getMaKH() == maKhachHangCanTim) {
+	            return kh;
+	        }
+	    }
+	    System.out.println("Không tìm thấy khách hàng với mã: " + maKhachHangCanTim);
+	    return null;
 	}
 	
-	public void docTapTin(String duongDan) throws FileNotFoundException, ParseException {
-	    File f = new File(duongDan);
+	public void docTapTinKH(String duongDanKH) throws FileNotFoundException, ParseException {
+	    File f = new File(duongDanKH);
 	    try (Scanner SC = new Scanner(f)) {
 	        while (SC.hasNext()) {
 	            String hoTen = SC.nextLine();
@@ -181,6 +203,26 @@ public class QuanLyKhachHang {
 	            danhSachKH.add(kh);
 
 	            System.out.println("Đã đọc: " + hoTen + " - " + ngaySinh + " - " + soDT + " - " + isThanhVien);
+	        }
+	    }
+	}
+	
+	public void docTapTinCSKH(String duongDanCSKH) throws FileNotFoundException, ParseException {
+	    File f = new File(duongDanCSKH);
+	    try (Scanner SC = new Scanner(f)) {
+	        while (SC.hasNext()) {
+	            String hoTen = SC.nextLine();
+	            String ngaySinh = SC.nextLine();
+	            String soDT = SC.nextLine();
+	            boolean isThanhVien = Boolean.parseBoolean(SC.nextLine());
+	            int diem = SC.nextByte();
+	            if (SC.hasNext()) {
+	                SC.nextLine();
+	            }
+	            KhachHang kh = new ChamSocKhachHang(hoTen, ngaySinh, soDT, isThanhVien, diem);
+	            danhSachKH.add(kh);
+
+	            System.out.println("Đã đọc: " + hoTen + " - " + ngaySinh + " - " + soDT + " - " + isThanhVien + " - " + diem);
 	        }
 	    }
 	}

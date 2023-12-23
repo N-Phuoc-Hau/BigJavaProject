@@ -4,19 +4,28 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 public class ChamSocKhachHang extends KhachHang {
-	public ChamSocKhachHang(String hoTen,String ngaySinh, String soDT, boolean isThanhVien) throws ParseException {
-		super(hoTen,ngaySinh, soDT, isThanhVien);
-	}
-
 	private static final Scanner SC = new Scanner(System.in);
 	private int diem;
+
+	public ChamSocKhachHang(String hoTen,String ngaySinh, String soDT, boolean isThanhVien, int diem) throws ParseException {
+		super(hoTen,ngaySinh, soDT, isThanhVien);
+		this.diem=diem;
+	}
 	
+
 	public int getDiem() {
 		return diem;
 	}
 
 	public void setDiem(int diem) {
 		this.diem = diem;
+	}
+	
+	@Override
+	public void hienThi(){
+		super.hienThi();
+		System.out.println("Số điểm hiện tại: "+this.diem);
+		System.out.println("--------------------------");
 	}
 
 	//Tạo giảm giá
@@ -75,8 +84,10 @@ public class ChamSocKhachHang extends KhachHang {
         String feedback = SC.nextLine();
         
         System.out.println("Feedback của bạn: " + feedback);
-        System.out.print("CẢM ƠN tất cả các KHÁCH HÀNG đã luôn yêu quý chúng tôi, luôn ủng hộ và góp ý.");
+        System.out.println("CẢM ƠN tất cả các KHÁCH HÀNG đã luôn yêu quý chúng tôi, luôn ủng hộ và góp ý.");
     }
+	
+	
 	
 }
 
