@@ -107,10 +107,9 @@ public class Main{
 			switch (choice) {
 			case 1:
 				khoa();
-				do{
 				// Thực hiện công việc 1
 				menuNV();
-				
+				do{
 
 					chon1 = sc.nextInt();
 					switch (chon1){

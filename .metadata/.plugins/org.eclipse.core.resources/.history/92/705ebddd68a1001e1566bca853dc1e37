@@ -115,9 +115,7 @@ public class MainNhan {
 						System.out.println("Chương trình kết thúc.");
 						break;
 					}
-				if(choice1 == 0) break;
-				} while (choice1 < 7 || choice1 > 0);
-				break;
+				} while (choice1 < 7 || choice1 > 0);break;
 			case 2:
 				int choice2;
 				do {
@@ -195,8 +193,6 @@ public class MainNhan {
 						System.out.println("Chương trình kết thúc.");
 						break;
 					}
-
-					if(choice2 == 0) break;
 				} while (choice2 < 6 || choice2 > 0);
 				break;
 			case 0:
@@ -206,7 +202,6 @@ public class MainNhan {
 			default:
 				// Hiển thị thông báo nếu lựa chọn không hợp lệ
 				System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
-				break;
 			}
 			String duongDandoc = "./src/BaiTapLonOOP/data/danhsachsanpham.txt";
 			ql.ghiTapTin(duongDandoc);
