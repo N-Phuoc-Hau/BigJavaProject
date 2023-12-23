@@ -10,8 +10,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class NhanVien {
-	private NhanVienFT ft;
-	private NhanVienPT pt;
 	protected static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 	private static final Scanner sc = new Scanner(System.in);
 	private static int dem;
@@ -141,21 +139,6 @@ public class NhanVien {
 		return loaiNV;
 	}
 
-	public NhanVienPT getPt() {
-		return pt;
-	}
-
-	public void setPt(NhanVienPT pt) {
-		this.pt = pt;
-	}
-
-	public NhanVienFT getFt() {
-		return ft;
-	}
-
-	public void setFt(NhanVienFT ft) {
-		this.ft = ft;
-	}
 
 	public void setLoaiNV(boolean loaiNV) {
 		this.loaiNV = loaiNV;

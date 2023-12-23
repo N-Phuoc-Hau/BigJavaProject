@@ -2,11 +2,9 @@ package BaiTapLonOOP;
 
 import java.io.BufferedReader;
 import java.io.File;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +28,15 @@ public class QuanLyNhanVien {
 	public void hienThi() {
 		ds.forEach(ds -> ds.hienThi());
 	}
+	/*
+	System.out.println("1. TRA CUU THEO TEN");
+	System.out.println("2. TRA CUU THEO MA NHAN VIEN");
+	System.out.println("3. TRA CUU GIOI TINH");
+	System.out.println("4. SUA DOI CO BAN");
+	System.out.println("5. SUA DOI NANG CAO");
+	System.out.println("6. THEM NHAN VIEN");
+	System.out.println("7. XOA NHAN VIEN");
+	*/
 	public void hienThiTheoMa(){
 		System.out.println("Nhập mã Nhân Viên cần xóa: ");
 		int manv = sc.nextInt();
@@ -203,7 +210,7 @@ public class QuanLyNhanVien {
 		}
 	public void docTapTinPT() throws ParseException, IOException {
 	    // Tạo đối tượng File để đại diện cho tập tin
-	    File file = new File("src/data/NhanVienPT.txt");
+	    File file = new File("src/BaiTapLonOOP/dataa/NhanVienPT.txt");
 
 	    // Mở tập tin
 	    FileReader fileReader = new FileReader(file);
@@ -236,7 +243,7 @@ public class QuanLyNhanVien {
 	
 	public void docTapTinFT() throws ParseException, IOException {
 	    // Tạo đối tượng File để đại diện cho tập tin
-	    File file = new File("src/data/NhanVienFT.txt");
+	    File file = new File("src/BaiTapLonOOP/dataa/NhanVienFT.txt");
 
 	    // Mở tập tin
 	    FileReader fileReader = new FileReader(file);

@@ -1,9 +1,15 @@
 package BaiTapLonOOP;
+<<<<<<< HEAD
+import java.io.IOException;
+import java.text.ParseException;
+=======
+
+>>>>>>> 284804b71dc0b116d442728c92c5fb5e8ee328c2
 import java.util.Scanner;
 public class Main{
-	
+
+	private static QuanLyNhanVien qlnv = new QuanLyNhanVien();
 	public static void khoa(){
-		
 		Scanner sc = new Scanner(System.in);
 		do{
 
@@ -43,7 +49,14 @@ public class Main{
 	public static void menuNV() {
 		// System.out.println("------------------------------MENU------------------------------");
 		System.out.println("QUAN LY NHAN VIEN");
-		System.out.println("");
+		System.out.println("1. HIEN THI TAT CA");
+		System.out.println("2. TRA CUU THEO MA NHAN VIEN");
+		System.out.println("3. TRA CUU GIOI TINH");
+		System.out.println("4. TRA CUU THEO TEN");
+		System.out.println("5. SUA DOI CO BAN");
+		System.out.println("6. SUA DOI NANG CAO");
+		System.out.println("7. THEM NHAN VIEN");
+		System.out.println("8. XOA NHAN VIEN");
 		System.out.println("QUAY LAI");
 	}
 
@@ -78,7 +91,9 @@ public class Main{
 		System.out.println("QUAY LAI");
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException, IOException {
+		qlnv.docTapTinFT();
+		qlnv.docTapTinPT();
 		int chon1, chon2, chon3;
 		Scanner sc = new Scanner(System.in);
 		int choice;
@@ -98,22 +113,42 @@ public class Main{
 				// Thực hiện công việc 1
 				menuNV();
 				do{
+
 					chon1 = sc.nextInt();
 					switch (chon1){
 					case 1:
+						System.out.println("1. TAT CA NHAN VIEN");
+						qlnv.hienThi();
 						break;
 					case 2:
+						System.out.println("2. TRA CUU THEO MA NHAN VIEN");
+						qlnv.hienThiTheoTen();
 						break;
 					case 3: 
+						System.out.println("3. TRA CUU GIOI TINH");
 						break;
 					case 4:
+						System.out.println("4. TRA CUU THEO TEN");
+						qlnv.hienThi();
 						break;
 					case 5:
+						System.out.println("5. SUA DOI CO BAN");
 						break;
-					case 6: 
+					case 6:
+						System.out.println("6. SUA DOI NANG CAO");
+						break;
+					case 7: 
+						System.out.println("7. THEM NHAN VIEN");
+						break;
+					case 8:
+						System.out.println("8. XOA NHAN VIEN");
+						break;
+					case 9:
+						System.out.println("QUAY LAI");
 						break;
 					}
-				}while(chon1 > 1 || chon1 < 6);
+					if(chon1 == 8) break;
+				}while(chon1 > 1 || chon1 < 8);
 				System.out.println("Đã thực hiện công việc 1");
 				break;
 			case 2:
