@@ -19,7 +19,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class QuanLyNhanVien {
 
-	private SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+	private SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 	private Scanner sc = new Scanner(System.in);
 	private List<NhanVien> ds = new ArrayList<>();
 	public QuanLyNhanVien() {
@@ -74,17 +74,16 @@ public class QuanLyNhanVien {
 	public void ghiFileBH() throws IOException, ParseException{
 
 		System.out.println("Nhap Ma Nhan Vien ban hang: ");
-		String i = sc.nextLine();
-		int id = Integer.parseInt(i);
-		System.out.print("Ngay tao hoa don (dd/MM/yyyy HH:mm): ");
+		int id = Integer.parseInt(sc.nextLine());
+		System.out.print("Ngay tao hoa don (dd/MM/yyyy): ");
 		String d = sc.nextLine();
 		Date date = F.parse(d);
 		
 		NhanVien nv = timKiem(id);
 		String duongDan = "src/BaiTapLonOOP/data/DSBanHang.txt";
-        try (FileWriter writer = new FileWriter(duongDan, true)) {
+        try (FileWriter writer = new FileWriter(duongDan)) {
                 // Ghi thông tin sản phẩm vào tập tin sử dụng toString
-                   writer.write(i + ';' + nv.getTenNV()+ ';' + F.format(date) + System.lineSeparator());
+                   writer.write(nv.getTenNV()+ ';' + F.format(date) + System.lineSeparator());
         } catch (IOException e) {
             System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
             throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần

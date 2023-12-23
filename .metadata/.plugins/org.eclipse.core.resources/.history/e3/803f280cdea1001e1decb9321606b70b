@@ -19,7 +19,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class QuanLyNhanVien {
 
-	private SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+	private SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 	private Scanner sc = new Scanner(System.in);
 	private List<NhanVien> ds = new ArrayList<>();
 	public QuanLyNhanVien() {
@@ -76,7 +76,7 @@ public class QuanLyNhanVien {
 		System.out.println("Nhap Ma Nhan Vien ban hang: ");
 		String i = sc.nextLine();
 		int id = Integer.parseInt(i);
-		System.out.print("Ngay tao hoa don (dd/MM/yyyy HH:mm): ");
+		System.out.print("Ngay tao hoa don (dd/MM/yyyy): ");
 		String d = sc.nextLine();
 		Date date = F.parse(d);
 		

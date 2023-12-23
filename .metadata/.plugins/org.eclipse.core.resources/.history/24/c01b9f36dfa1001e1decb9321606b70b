@@ -140,7 +140,7 @@ public class MainNhan {
 					switch (choice2) {
 					case 1:
 						while (true) {
-//							ds.themKhachHang();
+							ds.themKhachHang();
 							ql.muaSanPham();
 							System.out
 									.print("Đã thực hiện\nBan muon mua tiep khong(1/0)?: ");
