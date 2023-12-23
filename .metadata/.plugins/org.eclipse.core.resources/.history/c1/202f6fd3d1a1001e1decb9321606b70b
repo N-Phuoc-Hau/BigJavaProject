@@ -100,7 +100,7 @@ public class QuanLyNhanVien {
 	}
 
 	public void them() throws ParseException {
-		System.out.println("Tuyen them nhan vien PT: ---------");
+		System.out.print("Tuyen them nhan vien PT: ---------");
 		System.out.print("Nhap ten:");
 		String name = sc.nextLine();
 		System.out.print("Nhap gioi tinh:");
@@ -144,7 +144,7 @@ public class QuanLyNhanVien {
 	public void suaTTCB() throws ParseException {
 		System.out.println("Sua thong tin nhan Vien: ---------\n");
 		System.out.println("Nhap ma Nhan Vien: ");
-		int manv = Integer.parseInt(sc.nextLine());
+		int manv = sc.nextInt();
 		for (int i = 1; i <= ds.size(); i++) {
 			if (i == manv) {
 				--i;

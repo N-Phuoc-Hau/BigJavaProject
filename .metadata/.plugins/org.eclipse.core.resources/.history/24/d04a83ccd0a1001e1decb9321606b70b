@@ -69,38 +69,33 @@ public class QuanLyNhanVien {
 		}
 		System.out.println("Đã thực hiện yêu cầu!!");
 	}
-	public List<NhanVien> timKiemGT(String kw){
+	public List<NhanVien> timKiem(String kw){
 			return ds.stream().filter(nv->nv.getGioiTinh().contains(kw)).
 					collect(Collectors.toList());
 	}
 	public void hienThiTheoGT(){
 		System.out.println("Nhập Giới tính Nhân Viên cần tìm: ");
 		String gt = sc.nextLine();
-		List<NhanVien> nv = timKiemGT(gt);
+		List<NhanVien> nv = timKiem(gt);
 		for(int i = 1; i <= nv.size(); i++){
 			nv.get(i-1).hienThi();
 		}
 		if(nv.size() == 0) 
 			System.out.println("Khong tim thay nhan vien co gioi tinh: " + gt);
 	}
-
-	public List<NhanVien> timKiemQQ(String kw){
-			return ds.stream().filter(nv->nv.getGioiTinh().contains(kw)).
-					collect(Collectors.toList());
-	}
 	public void hienThiTheoQQ(){
 		System.out.println("Nhập Quê Quán Nhân Viên cần tìm: ");
-		String qq = sc.nextLine();
-		List<NhanVien> nv = timKiemQQ(qq);
-		for(int i = 1; i <= nv.size(); i++){
-			nv.get(i-1).hienThi();
+		String tenNV = sc.nextLine();
+		for(int i = 1; i <= ds.size(); i++){
+			if (ds.get(i).getTenNV().equals(tenNV)) {
+				ds.get(i).hienThi();
+			}
 		}
-		if(nv.size() == 0) 
-			System.out.println("Khong tim thay nhan vien co que quan: " + qq);
+		System.out.println("Khong tim thay nhan vien co Quê quán: " + tenNV);
 	}
 
 	public void them() throws ParseException {
-		System.out.println("Tuyen them nhan vien PT: ---------");
+		System.out.print("Tuyen them nhan vien PT: ---------");
 		System.out.print("Nhap ten:");
 		String name = sc.nextLine();
 		System.out.print("Nhap gioi tinh:");
@@ -178,7 +173,7 @@ public class QuanLyNhanVien {
             System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
             throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
         }
-        String duongDan1 = "src/BaiTapLonOOP/data/NhanVienFT.txt";
+        String duongDan1 = "src/data/NhanVienFT.txt";
         try (FileWriter writer = new FileWriter(duongDan1)) {
             for (NhanVien nv : ds) {
                 // Ghi thông tin sản phẩm vào tập tin sử dụng toString

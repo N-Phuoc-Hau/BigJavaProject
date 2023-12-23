@@ -100,7 +100,7 @@ public class QuanLyNhanVien {
 	}
 
 	public void them() throws ParseException {
-		System.out.println("Tuyen them nhan vien PT: ---------");
+		System.out.print("Tuyen them nhan vien PT: ---------");
 		System.out.print("Nhap ten:");
 		String name = sc.nextLine();
 		System.out.print("Nhap gioi tinh:");
@@ -178,7 +178,7 @@ public class QuanLyNhanVien {
             System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
             throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
         }
-        String duongDan1 = "src/BaiTapLonOOP/data/NhanVienFT.txt";
+        String duongDan1 = "src/data/NhanVienFT.txt";
         try (FileWriter writer = new FileWriter(duongDan1)) {
             for (NhanVien nv : ds) {
                 // Ghi thông tin sản phẩm vào tập tin sử dụng toString

@@ -54,7 +54,7 @@ public class Main{
 		System.out.println("6. SUA DOI NANG CAO");
 		System.out.println("7. THEM NHAN VIEN");
 		System.out.println("8. XOA NHAN VIEN");
-		System.out.println("0. QUAY LAI");
+		System.out.println("QUAY LAI");
 	}
 
 	public static void menuSP() {
@@ -150,7 +150,6 @@ public class Main{
 					}
 					if(chon1 == 0) break;
 				}while(chon1 > 1 || chon1 < 9);
-				qlnv.ghiTapTin();
 				System.out.println("Đã thực hiện công việc 1");
 				break;
 			case 2:
