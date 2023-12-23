@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class MainNhan {
 
+	private static QuanLyNhanVien qlnv = new QuanLyNhanVien();
 	public static final Scanner SC = new Scanner(System.in);
 
 	public static void main(String[] args) throws ParseException, IOException {
@@ -24,7 +25,8 @@ public class MainNhan {
 		ql.docTapTin(duongDan);
 		Scanner scanner = new Scanner(System.in);
 		int choice;
-
+		qlnv.docTapTinFT();
+		qlnv.docTapTinPT();
 		// Bắt đầu vòng lặp
 		while (true) {
 			// Hiển thị menu và yêu cầu người dùng nhập lựa chọn
@@ -121,6 +123,7 @@ public class MainNhan {
 			case 2:
 				int choice2;
 				do {
+					
 				System.out.println("QUAN LY HOA DON");
 				System.out.println("1. MUA SAN PHAM");
 				System.out.println("2. HIEN THI DANH SACH SAN PHAM DA MUA");
@@ -195,7 +198,8 @@ public class MainNhan {
 						System.out.println("Chương trình kết thúc.");
 						break;
 					}
-
+					qlnv.ghiFileBH(
+							);
 					if(choice2 == 0) break;
 				} while (choice2 < 6 || choice2 > 0);
 				break;

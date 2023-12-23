@@ -21,7 +21,6 @@ public class QuanLyNhanVien {
 
 	private SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 	private Scanner sc = new Scanner(System.in);
-
 	private List<NhanVien> ds = new ArrayList<>();
 	public QuanLyNhanVien() {
 		this.ds = new ArrayList<>();
@@ -68,6 +67,27 @@ public class QuanLyNhanVien {
 				System.out.println("Khong tim thay nhan vien co ten: " + tenNV);
 		}
 		System.out.println("Đã thực hiện yêu cầu!!");
+	}
+	public NhanVien timKiem(int id){
+		return ds.stream().filter(sp->sp.getMaNV()==id).findFirst().get();
+	}
+	public void ghiFileBH() throws IOException, ParseException{
+
+		System.out.println("Nhap Ma Nhan Vien ban hang: ");
+		int id = Integer.parseInt(sc.nextLine());
+		System.out.print("Ngay tao hoa don (dd/MM/yyyy): ");
+		String d = sc.nextLine();
+		Date date = F.parse(d);
+		
+		NhanVien nv = timKiem(id);
+		String duongDan = "src/BaiTapLonOOP/data/DSBanHang.txt";
+        try (FileWriter writer = new FileWriter(duongDan)) {
+                // Ghi thông tin sản phẩm vào tập tin sử dụng toString
+                   writer.write(nv.getMaNV()+';'+nv.getTenNV()+ ';' + F.format(date) + System.lineSeparator());
+        } catch (IOException e) {
+            System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
+            throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
+        }
 	}
 	public List<NhanVien> timKiemGT(String kw){
 			return ds.stream().filter(nv->nv.getGioiTinh().contains(kw)).

@@ -31,14 +31,14 @@ public class SanPham {
 
 	public void hienThi() {
 		System.out
-				.printf("\n-----------------------------------------------------\n");
+				.print("\n-----------------------------------------------------\n");
 		System.out.printf("Ma san pham: %d\n", this.maSP);
 		System.out.printf("Ten san pham: %s\n", this.tenSP);
 		System.out.printf("Gia san pham: %d\n", this.giaTien);
 		System.out.printf("So luong: %d\n", this.soLuong);
 		System.out.printf("Ngay tao hoa don: %s\n", F.format(this.ngayTao));
 		System.out
-				.printf("\n-----------------------------------------------------\n");
+				.print("\n-----------------------------------------------------\n");
 	}
 
 	public int capNhatGia(int giaMoi) {
