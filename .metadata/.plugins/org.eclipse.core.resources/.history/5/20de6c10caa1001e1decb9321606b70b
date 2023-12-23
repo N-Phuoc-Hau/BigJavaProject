@@ -2,6 +2,10 @@ package BaiTapLonOOP;
 
 import java.io.IOException;
 import java.text.ParseException;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 779aa0c7d2250833686da7f843ad439adcda2e13
 import java.util.Scanner;
 public class Main{
 
@@ -87,8 +91,6 @@ public class Main{
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
-		qlnv.docTapTinFT();
-		qlnv.docTapTinPT();
 		int chon1, chon2, chon3;
 		Scanner sc = new Scanner(System.in);
 		int choice;

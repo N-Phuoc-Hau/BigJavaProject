@@ -2,6 +2,10 @@ package BaiTapLonOOP;
 
 import java.io.IOException;
 import java.text.ParseException;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 779aa0c7d2250833686da7f843ad439adcda2e13
 import java.util.Scanner;
 public class Main{
 
@@ -144,12 +148,12 @@ public class Main{
 						System.out.println("8. XOA NHAN VIEN");
 						qlnv.xoaNVTheoMa();
 						break;
-					case 0:
+					case 9:
 						System.out.println("QUAY LAI");
 						break;
 					}
-					if(chon1 == 0) break;
-				}while(chon1 > 1 || chon1 < 9);
+					if(chon1 == 8) break;
+				}while(chon1 > 1 || chon1 < 8);
 				System.out.println("Đã thực hiện công việc 1");
 				break;
 			case 2:
