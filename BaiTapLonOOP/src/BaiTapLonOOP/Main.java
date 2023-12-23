@@ -2,6 +2,10 @@ package BaiTapLonOOP;
 
 import java.io.IOException;
 import java.text.ParseException;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 779aa0c7d2250833686da7f843ad439adcda2e13
 import java.util.Scanner;
 public class Main{
 
@@ -69,14 +73,12 @@ public class Main{
 
 	public static void menuKH() {
 		System.out.println("QUAN LY KHACH HANG");
-		System.out.println("1. HIỂN THỊ KHÁCH HÀNG THEO MÃ");
-		System.out.println("2. HIỂN THỊ KHÁCH HÀNG THEO TÊN");
-		System.out.println("3. THÊM KHÁCH HÀNG");
-		System.out.println("4. XÓA KHÁCH HÀNG THEO MÃ");
-		System.out.println("5. XÓA KHÁCH HÀNG THEO TÊN");
-		System.out.println("6. SỬA THÔNG TIN KHÁCH HÀNG");
-		System.out.println("7. TÌM KIẾM KHÁCH HÀNG");
-
+		System.out.println("1. HIỂN THỊ KHÁCH HÀNG");
+		System.out.println("2. THÊM KHÁCH HÀNG");
+		System.out.println("3. XÓA KHÁCH HÀNG");
+		System.out.println("4. SỬA THÔNG TIN KHÁCH HÀNG");
+		System.out.println("5. TÌM KIẾM KHÁCH HÀNG");
+		System.out.println("6. SẮP XẾP KHÁCH HÀNG");
 		System.out.println("QUAY LAI");
 	}
 

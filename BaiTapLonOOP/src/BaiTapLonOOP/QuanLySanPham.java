@@ -71,7 +71,7 @@ public class QuanLySanPham {
 	}
 
 	//Phương thức nhập sản phẩm mới
-	public void nhapSanPham() throws ParseException {
+	public void nhapSanPham() throws ParseException, IOException {
 		System.out.print("Nhap ten san pham: ");
 		String m = SC.nextLine();
 		System.out.print("Nhap gia san pham: ");
