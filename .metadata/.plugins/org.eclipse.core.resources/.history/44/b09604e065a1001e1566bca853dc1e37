@@ -40,9 +40,6 @@ public class MainNhan {
 			// Xử lý lựa chọn sử dụng switch-case
 			switch (choice) {
 			case 1:
-
-				int choice1;
-				do {
 				System.out.println("QUAN LY SAN PHAM");
 				System.out.println("1. THEM SAN PHAM");
 				System.out.println("2. HIEN THI DANH SACH SAN PHAM");
@@ -51,18 +48,18 @@ public class MainNhan {
 				System.out.println("5. TIM KIEM SAN PHAM");
 				System.out.println("6. CAP NHAT GIA TIEN");
 				System.out.println("0. QUAY LAI");
-				
+				int choice1;
 				System.out.print("Nhập lựa chọn của bạn: ");
 				choice1 = SC.nextInt();
-				int luachon1;
-				switch (choice1) {
+				do {
+					int luachon1;
+					switch (choice1) {
 					case 1:
 						ql.nhapSanPham();
 						System.out.print("\nĐã thực hiện!");
 						break;
 					case 2:
 						ql.hienThi();
-						System.out.println("\nĐã thực hiện!");
 						break;
 					case 3:
 						double tongSoLuong = ql.tinhTongSoLuong();
@@ -115,11 +112,9 @@ public class MainNhan {
 						System.out.println("Chương trình kết thúc.");
 						break;
 					}
-				} while (choice1 < 7 || choice1 > 0);
+				} while (choice1 == 1);
 				break;
 			case 2:
-				int choice2;
-				do {
 				System.out.println("QUAN LY HOA DON");
 				System.out.println("1. MUA SAN PHAM");
 				System.out.println("2. HIEN THI DANH SACH SAN PHAM DA MUA");
@@ -128,10 +123,11 @@ public class MainNhan {
 						.println("4. SAP XEP DANH SACH SAN PHAM THEO GIA TIEN");
 				System.out.println("5. TIM KIEM SAN PHAM THEO TEN SAN PHAM");
 				System.out.println("0. QUAY LAI");
+				int choice2;
 				System.out.print("Nhập lựa chọn của bạn: ");
 				choice2 = SC.nextInt();
 				SC.nextLine();
-				
+				do {
 					int luachon2 =0;
 					switch (choice2) {
 					case 1:
@@ -194,7 +190,7 @@ public class MainNhan {
 						System.out.println("Chương trình kết thúc.");
 						break;
 					}
-				} while (choice2 < 6 || choice2 > 0);
+				} while (choice2 == 1);
 				break;
 			case 0:
 				// Kết thúc vòng lặp khi lựa chọn là 0
@@ -204,7 +200,7 @@ public class MainNhan {
 				// Hiển thị thông báo nếu lựa chọn không hợp lệ
 				System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
 			}
-			String duongDandoc = "./src/BaiTapLonOOP/data/danhsachsanpham.txt";
+			String duongDandoc = "./src/BaiTapOOP/data/danhsachsanpham.txt";
 			ql.ghiTapTin(duongDandoc);
 		}
 
