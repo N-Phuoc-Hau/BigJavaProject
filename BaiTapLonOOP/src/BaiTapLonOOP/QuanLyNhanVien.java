@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
+import java.io.FileNotFoundException;
+import java.lang.ArrayIndexOutOfBoundsException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -142,7 +144,7 @@ public class QuanLyNhanVien {
 		}
 	}
 	public void ghiTapTin() throws IOException {
-		String duongDan = "src/data/NhanVienPT.txt";
+		String duongDan = "src/BaiTapLonOOP/data/NhanVienPT.txt";
         try (FileWriter writer = new FileWriter(duongDan)) {
             for (NhanVien nv : ds) {
                 // Ghi thông tin sản phẩm vào tập tin sử dụng toString
@@ -210,7 +212,7 @@ public class QuanLyNhanVien {
 		}
 	public void docTapTinPT() throws ParseException, IOException {
 	    // Tạo đối tượng File để đại diện cho tập tin
-	    File file = new File("src/BaiTapLonOOP/dataa/NhanVienPT.txt");
+	    File file = new File("src/BaiTapLonOOP/data/NhanVienPT.txt");
 
 	    // Mở tập tin
 	    FileReader fileReader = new FileReader(file);
@@ -243,7 +245,7 @@ public class QuanLyNhanVien {
 	
 	public void docTapTinFT() throws ParseException, IOException {
 	    // Tạo đối tượng File để đại diện cho tập tin
-	    File file = new File("src/BaiTapLonOOP/dataa/NhanVienFT.txt");
+	    File file = new File("src/BaiTapLonOOP/data/NhanVienFT.txt");
 
 	    // Mở tập tin
 	    FileReader fileReader = new FileReader(file);

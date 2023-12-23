@@ -20,7 +20,7 @@ public class MainNhan {
 		// SanPham sp6 = new SanPham("MatCha Da Xay", 35000, 10, "25/10/2023");
 		// SanPham sp7 = new SanPham("Caffee Sua Tuoi", 18000, 10,
 		// "25/10/2023");
-		String duongDan = "./src/ortherFile/data/quanlihoadon.txt";
+		String duongDan = "src/BaiTapLonOOP/data/danhsachsanphambanduoc.txt";
 		ql.docTapTin(duongDan);
 		Scanner scanner = new Scanner(System.in);
 		int choice;
@@ -200,7 +200,7 @@ public class MainNhan {
 				// Hiển thị thông báo nếu lựa chọn không hợp lệ
 				System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
 			}
-			String duongDandoc = "./src/ortherFile/data/quanlysanpham.txt";
+			String duongDandoc = "./src/BaiTapOOP/data/danhsachsanpham.txt";
 			ql.ghiTapTin(duongDandoc);
 		}
 
