@@ -75,6 +75,7 @@ public class Main{
 		System.out.println("3. XÓA KHÁCH HÀNG");
 		System.out.println("4. SỬA THÔNG TIN KHÁCH HÀNG");
 		System.out.println("5. TÌM KIẾM KHÁCH HÀNG");
+		System.out.println("6. SẮP XẾP KHÁCH HÀNG");
 		System.out.println("QUAY LAI");
 	}
 

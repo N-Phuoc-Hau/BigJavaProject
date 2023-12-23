@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -176,6 +178,24 @@ public class QuanLyKhachHang {
         if (!timThay) {
             System.out.println("Không tìm thấy khách hàng có tên: " + tenKH);
         }
+    }
+	
+	// Phương thức sắp xếp theo tên khách hàng
+	public void sapXepTheoTen() {
+        Collections.sort(danhSachKH, Comparator.comparing(KhachHang::getHoTen));
+        System.out.println("Đã sắp xếp danh sách theo tên.");
+    }
+	
+	// Phương thức sắp xếp theo mã khách hàng
+    public void sapXepTheoMaKH() {
+        Collections.sort(danhSachKH, Comparator.comparingInt(KhachHang::getMaKH));
+        System.out.println("Đã sắp xếp danh sách theo mã khách hàng.");
+    }
+
+    // Phương thức sắp xếp theo ngày sinh
+    public void sapXepTheoNgaySinh() {
+        Collections.sort(danhSachKH, Comparator.comparing(KhachHang::getNgaySinh));
+        System.out.println("Đã sắp xếp danh sách theo ngày sinh.");
     }
 	
 	public KhachHang layKhachHangTheoMa(int maKhachHangCanTim) {

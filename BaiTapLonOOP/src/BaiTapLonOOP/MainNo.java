@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class MainNo {
 	private static final Scanner SC = new Scanner(System.in);
 		public static void main(String[] args) throws ParseException, IOException, InterruptedException {
-			KhachHang kh1 = new KhachHang("Nguyễn Văn A","03/08/2004", "123456789", true);
+			KhachHang kh1 = new KhachHang("Nguyễn Văn A","03/08/2005", "123456789", false);
 			KhachHang kh2 = new KhachHang("Trần Thị B","03/09/2000", "987654321", false);
 			KhachHang kh3 = new KhachHang("Lê Văn C","07/08/2010", "987654321", false);
-			KhachHang kh4 = new ChamSocKhachHang("Lý Thái D", "01/02/1234", "012345679", true, 0);
-			ChamSocKhachHang kh5 = new ChamSocKhachHang("Ngô Phước E", "06/06/2004", "07986456123", false, 0);
+			KhachHang kh4 = new ChamSocKhachHang("Lý Thái D", "01/02/2007", "012345679", true, 0);
+			ChamSocKhachHang kh5 = new ChamSocKhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 0);
 			
 			QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
 		
@@ -19,9 +19,7 @@ public class MainNo {
 			
 //			System.out.println("DS SAU KHI DOC FILE");
 //			String duongDanKH = "src/BaiTapLonOOP/data/KhachHang.txt";
-	//		String duongDanCSKH = "src/BaiTapLonOOP/data/ChamSocKhachHang.txt";
 	//		danhSachKH.docTapTinKH(duongDanKH);
-	//		danhSachKH.docTapTinCSKH(duongDanCSKH);
 	//		danhSachKH.hienThi();
 			//String duongDanGhi = "src/BaiTapLonOOP/data/KhachHang.txt";
 	//		danhSachKH.ghiTapTin(duongDan);
@@ -37,9 +35,10 @@ public class MainNo {
 				System.out.println("3. XÓA KHÁCH HÀNG");
 				System.out.println("4. SỬA THÔNG TIN KHÁCH HÀNG");				
 				System.out.println("5. TÌM KIẾM KHÁCH HÀNG");
-				System.out.println("6. TẠO GIẢM GIÁ CHO KHÁCH HÀNG");
-				System.out.println("7. TÍCH ĐIỂM CHO KHÁCH HÀNG");
-				System.out.println("8. FEEDBACK CỦA KHÁCH HÀNG");
+				System.out.println("6. SẮP XẾP KHÁCH HÀNG");
+				System.out.println("7. TẠO GIẢM GIÁ CHO KHÁCH HÀNG");
+				System.out.println("8. TÍCH ĐIỂM CHO KHÁCH HÀNG");
+				System.out.println("9. FEEDBACK CỦA KHÁCH HÀNG");
 				System.out.println("0. QUAY LAI");
 				System.out.print("Nhập lựa chọn của bạn: ");
 
@@ -47,7 +46,7 @@ public class MainNo {
 
 				switch (chon) {
 				case 1:
-					System.out.println("1. Hiển thị danh sách khách hàng");
+					System.out.println("1. Hiển thị toàn bộ khách hàng");
 					System.out.println("2. Hiển thị khách hàng theo Mã");
 					System.out.println("3. Hiển thị khách hàng theo Tên");
 					System.out.print(">>>>>Nhập lựa chọn của bạn: ");
@@ -105,6 +104,28 @@ public class MainNo {
 					}
 					break;
 				case 6:
+					System.out.println("1. Sắp xếp theo mã");
+					System.out.println("2. Sắp xếp theo tên");
+					System.out.println("3. Sắp xếp theo ngày sinh");
+					System.out.print(">>>>>Nhập lựa chọn của bạn: ");
+					int chon6 = SC.nextInt();
+                    SC.nextLine();
+					danhSachKH.sapXepTheoMaKH();
+					danhSachKH.hienThi();
+					if(chon6==1){
+						danhSachKH.sapXepTheoMaKH();						
+					}
+					else if(chon6 == 2){
+						danhSachKH.sapXepTheoTen();						
+					}
+					else if(chon6==3){
+						danhSachKH.sapXepTheoNgaySinh();
+					}
+					else {
+						System.out.println("Lựa chọn không hợp lệ.");
+					}
+					break;
+				case 7:
 					System.out.println("Bạn muốn tạo giảm giá cho khách hàng nào?");
 				    System.out.print("Nhập mã khách hàng: ");
 				    int maKhachHangGiamGia = SC.nextInt();
@@ -117,13 +138,13 @@ public class MainNo {
 				            ChamSocKhachHang chamSocKhachHang = (ChamSocKhachHang) khachHangGiamGia;
 				            chamSocKhachHang.taoGiamGia();
 				        } else {
-				            System.out.println("Khách hàng không hỗ trợ giảm giá.");
+				            System.out.println("Khách hàng không hỗ trợ giảm giá do chưa là thành viên.");
 				        }
 				    } else {
 				        System.out.println("Không tìm thấy khách hàng.");
 				    }
 				    break;
-				case 7:
+				case 8:
 					System.out.println("Bạn muốn tích điểm cho khách hàng nào?");
 				    System.out.print("Nhập mã khách hàng: ");
 				    int maKhachHangTichDiem = SC.nextInt();
@@ -134,13 +155,13 @@ public class MainNo {
 				            ChamSocKhachHang chamSocKhachHang = (ChamSocKhachHang) khachHangTichDiem;
 				            chamSocKhachHang.tichDiem();
 				        } else {
-				            System.out.println("Khách hàng không hỗ trợ tích điểm.");
+				            System.out.println("Khách hàng không hỗ trợ tích điểm do chưa là thành viên.");
 				        }
 				    } else {
 				        System.out.println("Không tìm thấy khách hàng.");
 				    }
 					break;
-				case 8:
+				case 9:
 					System.out.println("Bạn muốn nhập feedback?");
 				    System.out.print("Nhập mã khách hàng: ");
 				    int maKhachHangfb = SC.nextInt();
@@ -157,6 +178,7 @@ public class MainNo {
 				        System.out.println("Không tìm thấy khách hàng.");
 				    }
 					break;
+				
 				case 0:
 					System.out.println("Cảm ơn bạn đã sử dụng chương trình.");
 					return;
