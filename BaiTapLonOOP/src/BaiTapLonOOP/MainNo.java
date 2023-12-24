@@ -27,6 +27,7 @@ public class MainNo {
 //			danhSachKH.hienThi();
 			int chon;
 			
+			
 			while (true) {
 				// Hiển thị menu và yêu cầu người dùng nhập lựa chọn
 				System.out.println("========QUẢN LÝ KHÁCH HÀNG========");

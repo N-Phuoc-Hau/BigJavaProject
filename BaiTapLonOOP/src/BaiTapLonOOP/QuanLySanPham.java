@@ -263,8 +263,7 @@ public class QuanLySanPham {
 					throw e; // Ném lại ngoại lệ cho phía gọi
 				}
 			} else {
-				System.out
-						.println("Số lượng mua không hợp lệ hoặc không đủ hàng.");
+				System.out.println("Số lượng mua không hợp lệ hoặc không đủ hàng.");
 			}
 		} else {
 			System.out.println("Không tìm thấy sản phẩm có mã " + maSanPham);

@@ -35,19 +35,13 @@ public class ChamSocKhachHang extends KhachHang {
 		System.out.print("Nhập tổng giá trị hóa đơn: ");
 		double tongGiaTriHoaDon = SC.nextDouble();
 
-		if (tongGiaTriHoaDon >= 200000) {
+		if (tongGiaTriHoaDon >= 300000) {
 			double giamGia = tongGiaTriHoaDon * 0.1;
 			tongGiaTriHoaDon -= giamGia;
 			System.out.println("Sau khi giảm giá 10%: " + tongGiaTriHoaDon);
 		} else {
 			System.out.println("Không có giảm giá cho hóa đơn này.");
 		}
-
-		System.out.print("Nhập số lượng sản phẩm đã mua: ");
-		int soLuongSanPham = SC.nextInt();
-
-		int soSanPhamTang = soLuongSanPham / 4;
-		System.out.println("Số sản phẩm được tặng: " + soSanPhamTang);
 	}
 
 	// Gửi Feedback

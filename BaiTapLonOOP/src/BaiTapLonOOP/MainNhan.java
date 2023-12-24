@@ -11,17 +11,32 @@ public class MainNhan {
 	public static final Scanner SC = new Scanner(System.in);
 
 	public static void main(String[] args) throws ParseException, IOException {
-		QuanLySanPham ql = new QuanLySanPham();
-		QuanLyKhachHang ds = new QuanLyKhachHang();
-		// SanPham sp1 = new SanPham("Cafe Sua", 35000, 1, "25/10/2023");
-		// SanPham sp2 = new SanPham("Tra Dao Cam Xa", 20000, 8, "25/10/2023");
-		// SanPham sp3 = new SanPham("Caffee Sua", 25000, 10, "25/10/2023");
-		// SanPham sp4 = new SanPham("Tra Xanh", 30000, 10, "25/10/2023");
-		// SanPham sp5 = new SanPham("Bac Xiu", 25000, 10, "25/10/2023");
-		// SanPham sp6 = new SanPham("MatCha Da Xay", 35000, 10, "25/10/2023");
-		// SanPham sp7 = new SanPham("Caffee Sua Tuoi", 18000, 10,
-		// "25/10/2023");
-		String duongDan = "src/BaiTapLonOOP/data/danhsachsanphambanduoc.txt";
+		KhachHang kh1 = new KhachHang("Nguyễn Văn A","03/08/2005", "123456789", false);
+		KhachHang kh2 = new KhachHang("Trần Thị B","03/09/2000", "987654321", false);
+		KhachHang kh3 = new KhachHang("Lê Văn C","07/08/2010", "987654321", false);
+		KhachHang kh4 = new ChamSocKhachHang("Lý Thái D", "01/02/2007", "012345679", true, 0);
+		ChamSocKhachHang kh5 = new ChamSocKhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 0);
+		QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
+		danhSachKH.them(kh1,kh2,kh3,kh4, kh5);
+	
+		 SanPham sp1 = new SanPham("Cafe Sua", 35000, 30, "25/10/2023");
+		 SanPham sp2 = new SanPham("Tra Dao Cam Xa", 20000, 8, "25/10/2023");
+		 SanPham sp3 = new SanPham("Caffee Sua", 25000, 10, "25/10/2023");
+		 SanPham sp4 = new SanPham("Tra Xanh", 30000, 10, "25/10/2023");
+		 SanPham sp5 = new SanPham("Bac Xiu", 25000, 10, "25/10/2023");
+		 SanPham sp6 = new SanPham("MatCha Da Xay", 35000, 10, "25/10/2023");
+		 SanPham sp7 = new SanPham("Caffee Sua Tuoi", 18000, 10, "25/10/2023");
+		 
+		 QuanLySanPham ql = new QuanLySanPham();
+		 ql.themSP(sp1);
+		 ql.themSP(sp2);
+		 ql.themSP(sp3);
+		 ql.themSP(sp4);
+		 ql.themSP(sp5);
+		 ql.themSP(sp6);
+		 ql.themSP(sp7);
+		 
+		 String duongDan = "src/BaiTapLonOOP/data/danhsachsanphambanduoc.txt";
 		ql.docTapTin(duongDan);
 		Scanner scanner = new Scanner(System.in);
 		int choice;
@@ -150,14 +165,56 @@ public class MainNhan {
 						}
 						break;
 					case 2:
-						ds.hienThi();
+						danhSachKH.hienThi();
 						ql.hienThiDanhSachDaMua();
 						break;
-					case 3:
+					case 3:            
 						double tongTien = ql.tinhTongTien();
-						System.out
-								.println("Tong tien trong danh sach da mua la: "
-										+ tongTien);
+						System.out.println("Tong tien trong danh sach da mua la: "+ tongTien);
+						System.out.println("1. Tích Điểm");
+						System.out.println("2. Tạo giảm giá");
+						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
+						int chon3 = SC.nextInt();
+						SC.nextLine();
+						if(chon3==1){
+							System.out.println("Bạn muốn tích điểm cho khách hàng nào?");
+							System.out.print("Nhập mã khách hàng: ");
+							int maKhachHangTichDiem = SC.nextInt();
+							SC.nextLine(); 
+							KhachHang khachHangTichDiem = danhSachKH.layKhachHangTheoMa(maKhachHangTichDiem);
+							if (khachHangTichDiem != null) {
+								if (khachHangTichDiem instanceof ChamSocKhachHang) {
+									ChamSocKhachHang chamSocKhachHang = (ChamSocKhachHang) khachHangTichDiem;
+									chamSocKhachHang.tichDiem();
+								} else {
+									System.out.println("Khách hàng không hỗ trợ tích điểm do chưa là thành viên.");
+								}
+							} else {
+								System.out.println("Không tìm thấy khách hàng.");
+							}							
+						}
+						else if(chon3==2){
+							System.out.println("Bạn muốn tạo giảm giá cho khách hàng nào?");
+						    System.out.print("Nhập mã khách hàng: ");
+						    int maKhachHangGiamGia = SC.nextInt();
+						    SC.nextLine(); 
+
+						    KhachHang khachHangGiamGia = danhSachKH.layKhachHangTheoMa(maKhachHangGiamGia);
+
+						    if (khachHangGiamGia != null) {
+						        if (khachHangGiamGia instanceof ChamSocKhachHang) {
+						            ChamSocKhachHang chamSocKhachHang = (ChamSocKhachHang) khachHangGiamGia;
+						            chamSocKhachHang.taoGiamGia();
+						        } else {
+						            System.out.println("Khách hàng không hỗ trợ giảm giá do chưa là thành viên.");
+						        }
+						    } else {
+						        System.out.println("Không tìm thấy khách hàng.");
+						    }
+						}
+						else {
+							System.out.println("Lựa chọn không hợp lệ.");
+						}
 						break;
 					case 4:
 						ql.sapXepGiamTheoGia();
@@ -198,8 +255,7 @@ public class MainNhan {
 						System.out.println("Chương trình kết thúc.");
 						break;
 					}
-					qlnv.ghiFileBH(
-							);
+					//qlnv.ghiFileBH();
 					if(choice2 == 0) break;
 				} while (choice2 < 6 || choice2 > 0);
 				break;
