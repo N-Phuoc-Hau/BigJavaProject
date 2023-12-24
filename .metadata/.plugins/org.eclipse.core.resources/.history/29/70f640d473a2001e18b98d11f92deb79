@@ -157,7 +157,7 @@ public class MainNhan {
 					switch (choice2) {
 					case 1:
 						while (true) {
-//							danhSachKH.themKhachHang();
+							danhSachKH.themKhachHang();
 							ql.muaSanPham(DATE);
 							System.out
 									.print("Đã thực hiện\nBan muon mua tiep khong(1/0)?: ");

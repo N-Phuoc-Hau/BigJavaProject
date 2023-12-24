@@ -239,6 +239,15 @@ public class QuanLySanPham {
 						+ sanPham.getTenSP());
 				// Thêm sản phẩm vào danh sách đã mua
 				String clear = scanner.nextLine();
+//				do {
+//
+//					
+//					if (d.isEmpty()) {
+//						System.out
+//								.println("Chuỗi không được rỗng! Hãy nhập lại!");
+//					}
+//					else break;
+//				} while (true);
 				
                 System.out.println("Đã thêm vào danh sách đã mua của khách hàng.");
 				System.out.println("-----------------------------------");

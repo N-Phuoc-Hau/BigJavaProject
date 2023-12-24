@@ -208,7 +208,7 @@ public class QuanLySanPham {
 	}
 
 	// Phương thức để nhập số lượng muốn mua và tính số sản phẩm còn lại
-	public void muaSanPham(String d) throws ParseException {
+	public void muaSanPham() throws ParseException {
 		Scanner scanner = new Scanner(System.in);
 		
 		
@@ -238,7 +238,17 @@ public class QuanLySanPham {
 				System.out.println("Đã mua " + soLuongMua + " sản phẩm "
 						+ sanPham.getTenSP());
 				// Thêm sản phẩm vào danh sách đã mua
-				String clear = scanner.nextLine();
+				System.out.print("Ngày tạo hóa đơn (dd/MM/yyyy): ");
+				String d = scanner.nextLine();
+//				do {
+//
+//					
+//					if (d.isEmpty()) {
+//						System.out
+//								.println("Chuỗi không được rỗng! Hãy nhập lại!");
+//					}
+//					else break;
+//				} while (true);
 				
                 System.out.println("Đã thêm vào danh sách đã mua của khách hàng.");
 				System.out.println("-----------------------------------");

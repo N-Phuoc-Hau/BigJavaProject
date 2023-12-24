@@ -44,11 +44,10 @@ public class MainTN {
 				System.out.println("10. SAP XEP DANH SACH SAN PHAM THEO GIA TIEN");
 				System.out.println("0. QUAY LAI");
 				System.out.print("Nhập lựa chọn của bạn: ");
+				String DATE = scanner.nextLine();
 				// Đọc lựa chọn từ người dùng
 				choice = scanner.nextInt();
 
-				System.out.print("Nhập Ngày bán hàng hôm nay(dd/MM/yyyy): ");
-				String DATE = scanner.nextLine();
 				// Xử lý lựa chọn sử dụng switch-case
 				switch (choice) {
 				case 1:

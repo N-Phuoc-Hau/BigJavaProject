@@ -208,7 +208,7 @@ public class QuanLySanPham {
 	}
 
 	// Phương thức để nhập số lượng muốn mua và tính số sản phẩm còn lại
-	public void muaSanPham(String d) throws ParseException {
+	public void muaSanPham() throws ParseException {
 		Scanner scanner = new Scanner(System.in);
 		
 		
@@ -237,8 +237,17 @@ public class QuanLySanPham {
 				sanPham.giamSoLuong(soLuongMua);
 				System.out.println("Đã mua " + soLuongMua + " sản phẩm "
 						+ sanPham.getTenSP());
+				String clear = SC.nextLine();
 				// Thêm sản phẩm vào danh sách đã mua
-				String clear = scanner.nextLine();
+				String d;
+				do {
+					System.out.print("Ngày tạo hóa đơn (dd/MM/yyyy): ");
+					d = scanner.nextLine();
+					if (d.isEmpty()) {
+						System.out
+								.println("Chuỗi không được rỗng! Hãy nhập lại!");
+					}
+				} while (d.isEmpty());
 				
                 System.out.println("Đã thêm vào danh sách đã mua của khách hàng.");
 				System.out.println("-----------------------------------");
@@ -247,7 +256,7 @@ public class QuanLySanPham {
 					
 					Date date = F.parse(d);
 					SanPham sanPhamDaMua = new SanPham(sanPham.getTenSP(),
-							sanPham.getGiaTien(), soLuongMua, F.format(date));
+							sanPham.getGiaTien(), soLuongMua, date);
 					danhSachDaMua.add(sanPhamDaMua);
 				} catch (ParseException e) {
 					System.out.println("Lỗi!!!");

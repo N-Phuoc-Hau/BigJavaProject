@@ -43,9 +43,6 @@ public class MainNhan {
 		qlnv.docTapTinFT();
 		qlnv.docTapTinPT();
 		// Bắt đầu vòng lặp
-
-		choice = scanner.nextInt();
-		System.out.print("Nhập Ngày bán hàng hôm nay(dd/MM/yyyy): ");
 		while (true) {
 			// Hiển thị menu và yêu cầu người dùng nhập lựa chọn
 			System.out.println("--------------QUAN CAFE NHO--------------");
@@ -55,6 +52,8 @@ public class MainNhan {
 			System.out.print("Nhập lựa chọn của bạn: \n------------------------");
 
 			// Đọc lựa chọn từ người dùng
+			choice = scanner.nextInt();
+			System.out.print("Nhập Ngày bán hàng hôm nay(dd/MM/yyyy): ");
 			String DATE = SC.nextLine();
 			// Xử lý lựa chọn sử dụng switch-case
 			switch (choice) {
@@ -157,7 +156,7 @@ public class MainNhan {
 					switch (choice2) {
 					case 1:
 						while (true) {
-//							danhSachKH.themKhachHang();
+//							ds.themKhachHang();
 							ql.muaSanPham(DATE);
 							System.out
 									.print("Đã thực hiện\nBan muon mua tiep khong(1/0)?: ");
