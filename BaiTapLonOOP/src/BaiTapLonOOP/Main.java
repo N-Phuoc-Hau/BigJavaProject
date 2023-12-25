@@ -83,6 +83,7 @@ public class Main{
 		System.out.println("1. TẠO GIẢM GIÁ");
 		System.out.println("2. TÍCH ĐIỂM");
 		System.out.println("3. FEEDBACK");
+		System.out.println("4. ĐẶT BÀN");
 		System.out.println("QUAY LAI");
 	}
 

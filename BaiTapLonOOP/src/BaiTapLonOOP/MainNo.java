@@ -9,11 +9,12 @@ public class MainNo {
 		public static void main(String[] args) throws ParseException, IOException, InterruptedException {
 			KhachHang kh1 = new KhachHang("Nguyễn Văn A","03/08/2005", "123456789", false);
 			KhachHang kh2 = new KhachHang("Trần Thị B","03/09/2000", "987654321", false);
-			KhachHang kh3 = new KhachHang("Lê Văn C","07/08/2010", "987654321", false);
+			KhachHang kh3 = new ChamSocKhachHang("Lê Văn C","07/08/2010", "987654321", true,0);
 			KhachHang kh4 = new ChamSocKhachHang("Lý Thái D", "01/02/2007", "012345679", true, 0);
-			ChamSocKhachHang kh5 = new ChamSocKhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 0);
+			KhachHang kh5 = new ChamSocKhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 0);
 			
 			QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
+			ChamSocKhachHang cs=new ChamSocKhachHang();
 		
 			danhSachKH.them(kh1,kh2,kh3,kh4, kh5);
 			
@@ -29,7 +30,6 @@ public class MainNo {
 			
 			
 			while (true) {
-				// Hiển thị menu và yêu cầu người dùng nhập lựa chọn
 				System.out.println("========QUẢN LÝ KHÁCH HÀNG========");
 				System.out.println("1. HIỂN THỊ KHÁCH HÀNG");
 				System.out.println("2. THÊM KHÁCH HÀNG");
@@ -40,6 +40,7 @@ public class MainNo {
 				System.out.println("7. TẠO GIẢM GIÁ CHO KHÁCH HÀNG");
 				System.out.println("8. TÍCH ĐIỂM CHO KHÁCH HÀNG");
 				System.out.println("9. FEEDBACK CỦA KHÁCH HÀNG");
+				System.out.println("10. Đặt bàn");
 				System.out.println("0. QUAY LAI");
 				System.out.print("Nhập lựa chọn của bạn: ");
 
@@ -127,59 +128,17 @@ public class MainNo {
 					}
 					break;
 				case 7:
-					System.out.println("Bạn muốn tạo giảm giá cho khách hàng nào?");
-				    System.out.print("Nhập mã khách hàng: ");
-				    int maKhachHangGiamGia = SC.nextInt();
-				    SC.nextLine(); 
-
-				    KhachHang khachHangGiamGia = danhSachKH.layKhachHangTheoMa(maKhachHangGiamGia);
-
-				    if (khachHangGiamGia != null) {
-				        if (khachHangGiamGia instanceof ChamSocKhachHang) {
-				            ChamSocKhachHang chamSocKhachHang = (ChamSocKhachHang) khachHangGiamGia;
-				            chamSocKhachHang.taoGiamGia();
-				        } else {
-				            System.out.println("Khách hàng không hỗ trợ giảm giá do chưa là thành viên.");
-				        }
-				    } else {
-				        System.out.println("Không tìm thấy khách hàng.");
-				    }
+		            cs.tinhToanGiamGia(danhSachKH);
 				    break;
 				case 8:
-					System.out.println("Bạn muốn tích điểm cho khách hàng nào?");
-				    System.out.print("Nhập mã khách hàng: ");
-				    int maKhachHangTichDiem = SC.nextInt();
-				    SC.nextLine(); 
-				    KhachHang khachHangTichDiem = danhSachKH.layKhachHangTheoMa(maKhachHangTichDiem);
-				    if (khachHangTichDiem != null) {
-				        if (khachHangTichDiem instanceof ChamSocKhachHang) {
-				            ChamSocKhachHang chamSocKhachHang = (ChamSocKhachHang) khachHangTichDiem;
-				            chamSocKhachHang.tichDiem();
-				        } else {
-				            System.out.println("Khách hàng không hỗ trợ tích điểm do chưa là thành viên.");
-				        }
-				    } else {
-				        System.out.println("Không tìm thấy khách hàng.");
-				    }
+		            cs.tinhToanTichDiem(danhSachKH);
 					break;
 				case 9:
-					System.out.println("Bạn muốn nhập feedback?");
-				    System.out.print("Nhập mã khách hàng: ");
-				    int maKhachHangfb = SC.nextInt();
-				    SC.nextLine(); 
-				    KhachHang khachHangfb = danhSachKH.layKhachHangTheoMa(maKhachHangfb);
-				    if (khachHangfb != null) {
-				        if (khachHangfb instanceof ChamSocKhachHang) {
-				            ChamSocKhachHang chamSocKhachHang = (ChamSocKhachHang) khachHangfb;
-				            chamSocKhachHang.feedBack();
-				        } else {
-				            System.out.println("Khách hàng không được hỗ trợ.");
-				        }
-				    } else {
-				        System.out.println("Không tìm thấy khách hàng.");
-				    }
+					cs.xuLyFeedBack(danhSachKH);
 					break;
-				
+				case 10:
+					danhSachKH.datBan();
+					danhSachKH.hienThiDatBan();
 				case 0:
 					System.out.println("Cảm ơn bạn đã sử dụng chương trình.");
 					return;

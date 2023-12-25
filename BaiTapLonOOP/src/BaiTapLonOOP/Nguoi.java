@@ -10,6 +10,10 @@ public abstract class Nguoi {
     protected String hoTen;
     protected Date ngaySinh;
     protected String soDT;
+    
+    public Nguoi(){
+    	
+    }
 
     public Nguoi(String hoTen, String ngaySinh, String soDT) throws ParseException {
         this.hoTen = hoTen;

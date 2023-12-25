@@ -27,6 +27,10 @@ public class KhachHang extends Nguoi{
 		this.isThanhVien = thanhVien;
 	}
 	
+	public KhachHang(){
+		
+	}
+	
 	public KhachHang(String hoTen, String ngaySinh, String soDT, boolean isThanhVien) throws ParseException {
         super(hoTen, ngaySinh, soDT);
         this.isThanhVien = isThanhVien;
