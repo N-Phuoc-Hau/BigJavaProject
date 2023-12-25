@@ -17,6 +17,7 @@ public class MainNhan {
 		KhachHang kh4 = new ChamSocKhachHang("Lý Thái D", "01/02/2007", "012345679", true, 0);
 		ChamSocKhachHang kh5 = new ChamSocKhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 0);
 		QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
+		ChamSocKhachHang cs=new ChamSocKhachHang();
 		danhSachKH.them(kh1,kh2,kh3,kh4, kh5);
 	
 		 SanPham sp1 = new SanPham("Cafe Sua", 35000, 30, "25/10/2023");
@@ -179,40 +180,10 @@ public class MainNhan {
 						int chon3 = SC.nextInt();
 						SC.nextLine();
 						if(chon3==1){
-							System.out.println("Bạn muốn tích điểm cho khách hàng nào?");
-							System.out.print("Nhập mã khách hàng: ");
-							int maKhachHangTichDiem = SC.nextInt();
-							SC.nextLine(); 
-							KhachHang khachHangTichDiem = danhSachKH.layKhachHangTheoMa(maKhachHangTichDiem);
-							if (khachHangTichDiem != null) {
-								if (khachHangTichDiem instanceof ChamSocKhachHang) {
-									ChamSocKhachHang chamSocKhachHang = (ChamSocKhachHang) khachHangTichDiem;
-									chamSocKhachHang.tichDiem();
-								} else {
-									System.out.println("Khách hàng không hỗ trợ tích điểm do chưa là thành viên.");
-								}
-							} else {
-								System.out.println("Không tìm thấy khách hàng.");
-							}							
+							cs.tinhToanTichDiem(danhSachKH);			
 						}
 						else if(chon3==2){
-							System.out.println("Bạn muốn tạo giảm giá cho khách hàng nào?");
-						    System.out.print("Nhập mã khách hàng: ");
-						    int maKhachHangGiamGia = SC.nextInt();
-						    SC.nextLine(); 
-
-						    KhachHang khachHangGiamGia = danhSachKH.layKhachHangTheoMa(maKhachHangGiamGia);
-
-						    if (khachHangGiamGia != null) {
-						        if (khachHangGiamGia instanceof ChamSocKhachHang) {
-						            ChamSocKhachHang chamSocKhachHang = (ChamSocKhachHang) khachHangGiamGia;
-						            chamSocKhachHang.taoGiamGia();
-						        } else {
-						            System.out.println("Khách hàng không hỗ trợ giảm giá do chưa là thành viên.");
-						        }
-						    } else {
-						        System.out.println("Không tìm thấy khách hàng.");
-						    }
+							cs.tinhToanGiamGia(danhSachKH);
 						}
 						else {
 							System.out.println("Lựa chọn không hợp lệ.");

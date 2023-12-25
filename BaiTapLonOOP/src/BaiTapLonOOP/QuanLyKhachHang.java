@@ -9,12 +9,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class QuanLyKhachHang {
 	private ArrayList<KhachHang> danhSachKH = new ArrayList<>();
+	private Map<Integer, String> danhSachDatBan = new HashMap<>();
 	private static final Scanner SC = new Scanner(System.in);
 
 	public QuanLyKhachHang() {
@@ -50,25 +53,32 @@ public class QuanLyKhachHang {
 		System.out.println("Không tìm thấy khách hàng có tên: " + hoTen);
 	}
 
-	public void themKhachHang() throws ParseException{
-	//	int maKhachHang = danhSachKH.size() + 1; // Tạo mã khách hàng tự động
+	public void themKhachHang() throws ParseException {
+	    System.out.print("Nhập họ tên khách hàng: ");
+	    String hoTen = SC.nextLine();
 
-		System.out.print("Nhập họ tên khách hàng: ");
-		String hoTen = SC.nextLine();
-		
-		System.out.print("Nhập ngày sinh khách hàng: ");
-		String ngaySinh = SC.nextLine();
+	    System.out.print("Nhập ngày sinh khách hàng: ");
+	    String ngaySinh = SC.nextLine();
 
-		System.out.print("Nhập số điện thoại khách hàng: ");
-		String soDienThoai = SC.nextLine();
+	    System.out.print("Nhập số điện thoại khách hàng: ");
+	    String soDienThoai = SC.nextLine();
 
-		System.out.print("Là thành viên (true/false): ");
-		boolean laThanhVien = SC.nextBoolean();
+	    System.out.print("Là thành viên (true/false): ");
+	    boolean laThanhVien = SC.nextBoolean();
 
-		KhachHang khachHang = new KhachHang(hoTen,ngaySinh, soDienThoai,laThanhVien);
-		danhSachKH.add(khachHang);
-		System.out.println("Thêm khách hàng thành công!");
-		System.out.println("---------------");
+	    KhachHang khachHang;
+
+	    if (laThanhVien) {
+	        System.out.print("Nhập điểm tích lũy: ");
+	        int diemTichLuy = SC.nextInt();
+	        khachHang = new ChamSocKhachHang(hoTen, ngaySinh, soDienThoai, true, diemTichLuy);
+	    } else {
+	        khachHang = new KhachHang(hoTen, ngaySinh, soDienThoai, false);
+	    }
+
+	    danhSachKH.add(khachHang);
+	    System.out.println("Thêm khách hàng thành công!");
+	    System.out.println("---------------");
 	}
 
 	public void xoaKHTheoMa() {
@@ -106,40 +116,55 @@ public class QuanLyKhachHang {
 	}
 
 	public void suaThongTinKH() {
-		System.out.print("Nhập mã khách hàng cần sửa: ");
-		int maKhachHang = SC.nextInt();
+	    System.out.print("Nhập mã khách hàng cần sửa: ");
+	    int maKhachHang = SC.nextInt();
 
-		boolean timThay = false;
-		for (KhachHang khachHang : danhSachKH) {
-			if (khachHang.getMaKH() == maKhachHang) {
-				System.out.println("Thông tin khách hàng cần sửa:");
-				khachHang.hienThi();
+	    boolean timThay = false;
+	    for (KhachHang khachHang : danhSachKH) {
+	        if (khachHang.getMaKH() == maKhachHang) {
+	            System.out.println("Thông tin khách hàng cần sửa:");
+	            khachHang.hienThi();
 
-				System.out.println("Nhập thông tin mới:");
-				SC.nextLine();
-				System.out.print("Họ và tên: ");
-				String hoTenMoi = SC.nextLine();
-				System.out.print("Số điện thoại: ");
-				String soDienThoaiMoi = SC.nextLine();
-				System.out.print("Là thành viên (true/false): ");
-				boolean isThanhVien = SC.nextBoolean();
+	            System.out.println("Nhập thông tin mới:");
+	            SC.nextLine();
+	            System.out.print("Họ và tên: ");
+	            String hoTenMoi = SC.nextLine();
+	            System.out.print("Số điện thoại: ");
+	            String soDienThoaiMoi = SC.nextLine();
+	            System.out.print("Là thành viên (true/false): ");
+	            boolean isThanhVienMoi = SC.nextBoolean();
 
-				khachHang.setHoTen(hoTenMoi);
-				khachHang.setSoDT(soDienThoaiMoi);
-				khachHang.setThanhVien(isThanhVien);
+	            khachHang.setHoTen(hoTenMoi);
+	            khachHang.setSoDT(soDienThoaiMoi);
+	            khachHang.setThanhVien(isThanhVienMoi);
 
-				System.out.println("Thông tin khách hàng sau khi sửa:");
-				khachHang.hienThi();
+	            if (isThanhVienMoi) {
+	                if (khachHang instanceof ChamSocKhachHang) {
+	                    ChamSocKhachHang chamSocKhachHang = (ChamSocKhachHang) khachHang;
+	                    System.out.print("Nhập điểm tích lũy mới: ");
+	                    int diemTichLuyMoi = SC.nextInt();
+	                    chamSocKhachHang.setDiem(diemTichLuyMoi);
 
-				timThay = true;
-				break;
-			}
-		}
+	                    try {
+	                        chamSocKhachHang.luuDiemVaoTepTin();
+	                    } catch (IOException e) {
+	                        System.err.println("Lỗi khi ghi tệp tin điểm tích lũy: " + e.getMessage());
+	                    }
+	                } else {
+	                    System.out.println("Khách hàng không hỗ trợ tích điểm do chưa là thành viên.");
+	                }
+	            }
 
-		if (!timThay) {
-			System.out.println("Không tìm thấy khách hàng có mã " + maKhachHang
-					+ ".");
-		}
+	            System.out.println("Thông tin khách hàng sau khi sửa:");
+	            khachHang.hienThi();
+
+	            timThay = true;
+	            break;
+	        }
+	    }
+	    if (!timThay) {
+	        System.out.println("Không tìm thấy khách hàng có mã " + maKhachHang + ".");
+	    }
 	}
 
 	public void timKiemTheoMaKH() {
@@ -208,6 +233,16 @@ public class QuanLyKhachHang {
 	    return null;
 	}
 	
+	public KhachHang layKhachHangTheoTen(String tenKhachHang) {
+        for (KhachHang kh : danhSachKH) {
+            if (kh.getHoTen().trim().equalsIgnoreCase(tenKhachHang.trim())) {
+                return kh;
+            }
+        }
+        System.out.println("Không tìm thấy khách hàng với tên: " + tenKhachHang);
+        return null;
+    }
+	
 	public void docTapTinKH(String duongDanKH) throws FileNotFoundException, ParseException {
 	    File f = new File(duongDanKH);
 	    try (Scanner SC = new Scanner(f)) {
@@ -271,8 +306,58 @@ public class QuanLyKhachHang {
         }
     }
 	
+	public void datBan() {
+        System.out.println("Chọn cách tìm khách hàng:");
+        System.out.println("1. Tìm theo Mã khách hàng");
+        System.out.println("2. Tìm theo Tên khách hàng");
+        System.out.print("Nhập lựa chọn: ");
+        int luaChon = SC.nextInt();
+        SC.nextLine();  
 
+        KhachHang khachHangDatBan = null;
+
+        switch (luaChon) {
+            case 1:
+                System.out.print("Nhập mã khách hàng đặt bàn: ");
+                int maKhachHangDatBan = SC.nextInt();
+                khachHangDatBan = layKhachHangTheoMa(maKhachHangDatBan);
+                break;
+            case 2:
+                System.out.print("Nhập tên khách hàng đặt bàn: ");
+                String tenKhachHangDatBan = SC.nextLine();
+                khachHangDatBan = layKhachHangTheoTen(tenKhachHangDatBan);
+                break;
+            default:
+                System.out.println("Lựa chọn không hợp lệ.");
+                return;
+        }
+
+        if (khachHangDatBan != null) {
+            System.out.print("Nhập thông tin đặt bàn: ");
+            String thongTinDatBan = SC.nextLine();
+
+            danhSachDatBan.put(khachHangDatBan.getMaKH(), thongTinDatBan);
+
+            System.out.println("Đặt bàn thành công!");
+        } else {
+            System.out.println("Không tìm thấy khách hàng để đặt bàn.");
+        }
+    }
 	
+	public void hienThiDatBan() {
+        System.out.println("Danh sách đặt bàn:");
+        for (Map.Entry<Integer, String> entry : danhSachDatBan.entrySet()) {
+            int maKhachHang = entry.getKey();
+            String thongTinDatBan = entry.getValue();
+            
+            KhachHang khachHang = layKhachHangTheoMa(maKhachHang);
+            if (khachHang != null) {
+                System.out.println("Mã KH: " + maKhachHang + ", Tên KH: " + khachHang.getHoTen() + ", Thông tin đặt bàn: " + thongTinDatBan);
+            } else {
+                System.out.println("Không tìm thấy thông tin khách hàng cho Mã KH: " + maKhachHang);
+            }
+        }
+    }
 	
 
 }
