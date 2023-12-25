@@ -211,7 +211,7 @@ public class QuanLyKhachHang {
             return ten.charAt(ten.lastIndexOf(' ') + 1);
         }));
 
-        System.out.println("Đã sắp xếp danh sách theo chữ cái cuối cùng trong tên.");
+        System.out.println("Đã sắp xếp danh sách theo tên.");
     }
 	
 	// Phương thức sắp xếp theo mã khách hàng
