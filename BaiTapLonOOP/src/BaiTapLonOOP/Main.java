@@ -98,14 +98,22 @@ public class Main {
 				"07986456123", true, 0);
 		QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
 		ChamSocKhachHang cs = new ChamSocKhachHang();
+		QuanLySanPham ql = new QuanLySanPham();
 		danhSachKH.them(kh1, kh2, kh3, kh4, kh5);
+
+		// Phần đọc file
+		String duongDan = "./src/BaiTapLonOOP/data/danhsachsanpham.txt";
+		ql.docTapTin(duongDan);
+		Scanner scanner = new Scanner(System.in);
 		qlnv.docTapTinFT();
 		qlnv.docTapTinPT();
 
-		QuanLySanPham ql = new QuanLySanPham();
+		// Khai báo biến:
 		int chon1, chon2, chon3, chon4;
 		Scanner sc = new Scanner(System.in);
 		int choice;
+		// Đọc lựa chọn từ người dùng
+		System.out.print("Nhập ngày bán hàng: ");
 
 		// Bắt đầu vòng lặp
 		while (true) {
@@ -183,6 +191,7 @@ public class Main {
 					System.out.println("4. XOA SAN PHAM");
 					System.out.println("5. TIM KIEM SAN PHAM");
 					System.out.println("6. CAP NHAT GIA TIEN");
+					System.out.println("7. SAP XEP SAN PHAM");
 					System.out.println("0. QUAY LAI");
 
 					System.out.print("Nhập lựa chọn của bạn: ");
@@ -243,9 +252,14 @@ public class Main {
 							luachon1 = SC.nextInt();
 						} while (luachon1 == 1);
 						break;
+					case 7:
+						System.out.println("Sắp xếp danh sách sản phẩm");
+						ql.sapXepGiamTheoGia();
+						ql.hienThi();
+						break;
 					case 0:
 						// Kết thúc vòng lặp khi lựa chọn là 0
-						System.out.println("Thoát!!!");
+						System.out.println("QUAY LAI!!!");
 						break;
 					default:
 						System.out
@@ -254,6 +268,8 @@ public class Main {
 					if (choice1 == 0)
 						break;
 				} while (choice1 < 7 || choice1 > 0);
+				String duongDan2 = "./src/BaiTapLonOOP/data/danhsachsanphambanduoc.txt";
+				ql.ghiTapTin(duongDan2);
 				break;
 			case 3:
 				khoa();
@@ -266,10 +282,6 @@ public class Main {
 					System.out.println("1. MUA SAN PHAM");
 					System.out.println("2. HIEN THI DANH SACH SAN PHAM DA MUA");
 					System.out.println("3. TINH TONG TIEN");
-					System.out
-							.println("4. SAP XEP DANH SACH SAN PHAM THEO GIA TIEN");
-					System.out
-							.println("5. TIM KIEM SAN PHAM THEO TEN SAN PHAM");
 					System.out.println("0. QUAY LAI");
 					System.out.print("Nhập lựa chọn của bạn: ");
 					choice2 = SC.nextInt();
@@ -310,40 +322,6 @@ public class Main {
 							System.out.println("Lựa chọn không hợp lệ.");
 						}
 						break;
-					case 4:
-						ql.sapXepGiamTheoGia();
-						ql.hienThi();
-						break;
-					case 5:
-						do {
-							System.out.print("Nhap ten san pham can tim: ");
-							String tenSanPhamCanTim = SC.nextLine();
-
-							// Duyet qua danh sach va in truc tiep
-							boolean timThay = false;
-							for (SanPham sp : ql.getDanhSachDaMua()) {
-								if (sp.getTenSP()
-										.toLowerCase()
-										.contains(
-												tenSanPhamCanTim.toLowerCase())) {
-									System.out.println(sp);
-									timThay = true;
-								}
-							}
-
-							if (!timThay) {
-								System.out
-										.println("Không tìm thấy sản phẩm có tên "
-												+ tenSanPhamCanTim);
-							} else {
-								System.out.println("Sản phẩm đã mua có tên "
-										+ tenSanPhamCanTim);
-							}
-							System.out
-									.print("Đã thực hiện\nBan muon mua tiep khong(1/0)?: ");
-							luachon2 = SC.nextInt();
-						} while (luachon2 == 1);
-						break;
 					case 0:
 						// Kết thúc vòng lặp khi lựa chọn là 0
 						System.out
@@ -358,6 +336,8 @@ public class Main {
 					if (choice2 == 0)
 						break;
 				} while (choice2 < 6 || choice2 > 0);
+				String duongDan1 = "./src/BaiTapLonOOP/data/danhsachsanphamdamua.txt";
+				ql.ghiTapTinDSSPBD(duongDan1);
 				break;
 			case 4:
 				khoa();
