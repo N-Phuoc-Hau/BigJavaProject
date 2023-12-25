@@ -390,8 +390,9 @@ public class Main {
 				break;
 			case 4:
 				khoa();
-				menuKH();
 				do {
+
+					menuKH();
 					chon3 = SC.nextInt();
 					switch (chon3) {
 					case 1:

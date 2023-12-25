@@ -47,7 +47,7 @@ public class QuanLyNhanVien {
 	System.out.println("7. XOA NHAN VIEN");
 	*/
 	public void hienThiTheoMa(){
-		System.out.println("Nhập mã Nhân Viên cần tìm: ");
+		System.out.print("Nhập mã Nhân Viên cần tìm: ");
 		int manv = sc.nextInt();
 		for (int i = 1; i <= ds.size()+1; i++) {
 			if(i == manv) {
@@ -60,7 +60,7 @@ public class QuanLyNhanVien {
 		
 	}
 	public void hienThiTheoTen(){
-		System.out.println("Nhập Tên Nhân Viên cần tìm: ");
+		System.out.print("Nhập Tên Nhân Viên cần tìm: ");
 		String tenNV = sc.nextLine();
 		for(int i = 1; i <= ds.size(); i++){
 			if (ds.get(i-1).getTenNV().equals(tenNV)) {
@@ -77,7 +77,7 @@ public class QuanLyNhanVien {
 	}
 	public void ghiFileBH(String d,String h) throws IOException, ParseException{
 
-		System.out.println("Nhap Ma Nhan Vien ban hang: ");
+		System.out.print("Nhap Ma Nhan Vien ban hang: ");
 		String i = sc.nextLine();
 		int id = Integer.parseInt(i);
 		d = d + ' ' + h;
@@ -98,7 +98,7 @@ public class QuanLyNhanVien {
 					collect(Collectors.toList());
 	}
 	public void hienThiTheoGT(){
-		System.out.println("Nhập Giới tính Nhân Viên cần tìm: ");
+		System.out.print("Nhập Giới tính Nhân Viên cần tìm: ");
 		String gt = sc.nextLine();
 		List<NhanVien> nv = timKiemGT(gt);
 		for(int i = 1; i <= nv.size(); i++){
@@ -113,7 +113,7 @@ public class QuanLyNhanVien {
 					collect(Collectors.toList());
 	}
 	public void hienThiTheoQQ(){
-		System.out.println("Nhập Quê Quán Nhân Viên cần tìm: ");
+		System.out.print("Nhập Quê Quán Nhân Viên cần tìm: ");
 		String qq = sc.nextLine();
 		List<NhanVien> nv = timKiemQQ(qq);
 		for(int i = 1; i <= nv.size(); i++){
@@ -155,7 +155,7 @@ public class QuanLyNhanVien {
 	}
 
 	public void xoaNVTheoMa() {
-		System.out.println("Nhập mã Nhân Viên cần xóa: ");
+		System.out.print("Nhập mã Nhân Viên cần xóa: ");
 		int manv = sc.nextInt();
 		
 		for (int i = 1; i <= ds.size(); i++) {
@@ -179,7 +179,7 @@ public class QuanLyNhanVien {
 	}
 	public void suaTTCB() throws ParseException {
 		System.out.println("Sua thong tin nhan Vien: ---------\n");
-		System.out.println("Nhap ma Nhan Vien: ");
+		System.out.print("Nhap ma Nhan Vien: ");
 		int manv = Integer.parseInt(sc.nextLine());
 		for (int i = 1; i <= ds.size(); i++) {
 			if (i == manv) {
@@ -202,87 +202,87 @@ public class QuanLyNhanVien {
 		}
 	}public void sualuong()throws ParseException{
 		System.out.println("Sua thong tin nhan Vien: ---------");
-		System.out.print("FullTime:True === Partime:false   : ");
-		boolean chon = sc.nextBoolean();
 		System.out.print("Mã Nhân viên: ");
 		int manv = sc.nextInt();
-		manv -= 1;
-		for (int i = 0; i < ds.size(); i++) {	
-				if (i == manv && chon == true) {
-					
-//					System.out.print("Nhap loai:");
-//					boolean loai = sc.nextBoolean();
-					System.out.print("Nhap luong thang:");
-					long lTh = sc.nextLong();
-//					ds.get(i).setLoaiNV(loai);
-					setLthang(i, lTh);
-					ds.get(i).hienThi();
-					return;
-				}
-				else if (i == manv && chon == false) {
-					System.out.print("Nhap loai:");
-//					boolean loai = sc.nextBoolean();
-					System.out.print("Nhap luong:");
-					int l = sc.nextInt();
-					setL(i, l);
-					ds.get(i).hienThi();
-					return;
-				}
+		for (NhanVien nv : ds) {
+			if (nv instanceof NhanVienFT && nv.getMaNV() == manv) {
+				nv.hienThi();
+				System.out.print("Nhap luong theo thang moi:");
+				int nNP = sc.nextInt();
+
+				NhanVienFT nvft = (NhanVienFT) nv;
+				nvft.setNghiPhep(nNP);
+				return;
 			}
-		System.out.println("Ma hoac loai Nhan Vien khong dung");
+			else if (nv instanceof NhanVienPT && nv.getMaNV() == manv) {
+
+				nv.hienThi();
+				System.out.print("Nhap luong theo gio moi:");
+				int sgl = sc.nextInt();
+				NhanVienPT nvpt = (NhanVienPT) nv;
+				nvpt.setSoGioLamViec(sgl);
+				return;
+			}
+            else if(nv.getMaNV() == ds.size() )
+            		System.out.println("Khong tim thay ma nhan vien");
+        }
 		}
 	public void suaTTlamviec()throws ParseException{
-		System.out.println("Sua thong tin nhan Vien: ---------");
-		System.out.print("FullTime:True === Partime:false   : ");
-		boolean chon = sc.nextBoolean();
 		System.out.print("Mã Nhân viên: ");
 		int manv = sc.nextInt();
-		manv -= 1;
-		for (int i = 0; i < ds.size(); i++) {	
-				if (i == manv && chon == true) {
-					
-					System.out.print("Nhap ngay nghi phep:");
-					int nNP = sc.nextInt();
-					setNP(i, nNP);
-					ds.get(i).hienThi();
-					return;
-				}
-				else if (i == manv && chon == false) {
-					System.out.print("Nhap so gio lam:");
-					int sgl = sc.nextInt();
-					setSGL(i, sgl);
-					ds.get(i).hienThi();
-					return;
-				}
+		for (NhanVien nv : ds) {
+			if (nv instanceof NhanVienFT && nv.getMaNV() == manv) {
+
+				nv.hienThi();
+				System.out.print("Nhap ngay nghi phep:");
+				int nNP = sc.nextInt();
+
+				NhanVienFT nvft = (NhanVienFT) nv;
+				nvft.setNghiPhep(nNP);
+				return;
 			}
-		System.out.println("Ma hoac loai Nhan Vien khong dung");
+			else if (nv instanceof NhanVienPT && nv.getMaNV() == manv) {
+				nv.hienThi();
+				System.out.print("Nhap so gio lam:");
+				int sgl = sc.nextInt();
+				NhanVienPT nvpt = (NhanVienPT) nv;
+				nvpt.setSoGioLamViec(sgl);
+				return;
+			}
+            else if(nv.getMaNV() == ds.size() )
+            		System.out.println("Khong tim thay ma nhan vien");
+        }
 		}
+	
 	public void thangHaChuc(String d)throws ParseException{
 		System.out.println("Sua thong tin nhan Vien: ---------");
-		System.out.print("FullTime:True === Partime:false   : ");
-		boolean chon = sc.nextBoolean();
 		System.out.print("Mã Nhân viên: ");
 		int manv = sc.nextInt();
-		manv -= 1;
 		for (NhanVien nv : ds) {
             // Ghi thông tin sản phẩm vào tập tin sử dụng toString
-            if (nv instanceof NhanVienFT) {
+            if (nv instanceof NhanVienFT && nv.getMaNV() == manv) {
+				nv.hienThi();
             	sc.nextLine();
             	System.out.print("Nhập Lương Nhân viên theo gio: ");
 				int luong = Integer.parseInt(sc.nextLine());
-				NhanVienPT a = nv.convertFromNhanVienPT((NhanVienFT) nv, luong);
-				nv.hienThi();
+				NhanVienPT nvpt = nv.formFT(nv, luong);
+				ds.add(nvpt);
+				ds.remove(nv);
 				break;
  	       }
-            else if (nv instanceof NhanVienPT) {
+            else if (nv instanceof NhanVienPT && nv.getMaNV() == manv) {
+				nv.hienThi();
             	System.out.print("Nhập Lương Nhân viên thang: ");
-				int luong = Integer.parseInt(sc.nextLine());
-				NhanVienFT a = nv.convertFromNhanVienFT((NhanVienPT) nv, luong, d);
-				nv.hienThi();
+            	sc.nextLine();
+            	Date date = F.parse(d);
+				long luong = Integer.parseInt(sc.nextLine());
+				NhanVienFT nvft = nv.formPT(nv, luong, date);
+				ds.add(nvft);
+				ds.remove(nv);
 				break;
  	       }
-            else 
-        		System.out.println("Ma hoac loai Nhan Vien khong dung");;
+            else if(nv.getMaNV() == ds.size() )
+            		System.out.println("Khong tim thay ma nhan vien");
         }
 		}
 	
@@ -382,30 +382,7 @@ public class QuanLyNhanVien {
 	    // Đóng tập tin
 	    bufferedReader.close();
 	}
-	public void setLthang(int index, long l) {
-	       if (ds.get(index) instanceof NhanVienFT) {
-	           NhanVienFT nv = (NhanVienFT) ds.get(index);
-	           nv.setlThang(l);
-	       }
-	}
-	public void setNP(int index, int l) {
-		if (ds.get(index) instanceof NhanVienFT) {
-			NhanVienFT nv = (NhanVienFT) ds.get(index);
-			nv.setNghiPhep(l);
-		}
-	}
-	public void setL(int index, int l) {
-		if (ds.get(index) instanceof NhanVienPT) {
-			NhanVienPT nv = (NhanVienPT) ds.get(index);
-			nv.setLuongNV(l);
-		}
-	}
-	public void setSGL(int index, int l) {
-		if (ds.get(index) instanceof NhanVienPT) {
-			NhanVienPT nv = (NhanVienPT) ds.get(index);
-			nv.setSoGioLamViec(l);
-		}
-	}
+	
 //	public void setLthang(int index, long l) {
 //	       if (ds.get(index) instanceof NhanVienFT) {
 //	           NhanVienFT nv = (NhanVienFT) ds.get(index);

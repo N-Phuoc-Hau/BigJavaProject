@@ -203,13 +203,14 @@ public class NhanVien {
 		return sc;
 	}
 	
-	public NhanVienPT convertFromNhanVienPT(NhanVienFT nvFT,int luong) throws ParseException {
+	public NhanVienPT formFT(NhanVien nv,int luong) throws ParseException {
 		// TODO Auto-generated method stub
-		return new NhanVienPT(tenNV,gioiTinh, diaChi, ngaySinh, false, luong, 0 );
+		return new NhanVienPT(nv.getTenNV(),nv.getGioiTinh(),nv.getDiaChi(),nv.getNgaySinh(),false,luong,0);
 	}
-	public NhanVienFT convertFromNhanVienFT(NhanVienPT nvPT,long luong, String n) throws ParseException {
-		return new NhanVienFT(tenNV,gioiTinh, diaChi, F.format(ngaySinh), true, luong, 0, F.format(n));
+	public NhanVienFT formPT(NhanVien nv,long luong, Date n) throws ParseException {
+		return new NhanVienFT(nv.getTenNV(),nv.getGioiTinh(),nv.getDiaChi(),nv.getNgaySinh(),true,luong,0,n);
 	}
+
 
 
 	

@@ -84,6 +84,5 @@ public class NhanVienFT extends NhanVien {
 		this.ngayBDLam = ngayBDLam;
 
 	}
-
 }
 

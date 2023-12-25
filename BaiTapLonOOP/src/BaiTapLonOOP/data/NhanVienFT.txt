@@ -1,1 +1,2 @@
-Ngô Phước Hậu;Nam;Bến Tre;28/01/2004;true;30000000;2;01/02/2022
+Ngô Phước Hậu;Nam;Bến Tre;28/01/2004;true;4;2;01/02/2022
+Nguyễn Thanh Nở;Nam;THủ ĐỨc;01/01/2004;true;2000000;0;25/12/2023

@@ -1,3 +1,2 @@
-Nguyễn Thanh Nở;Nam;THủ ĐỨc;01/01/2004;false;25000;40
-Hồ Quế Trân;Nữ;302/25 Lê Đức Thọ;13/03/2004;false;25000;120
-Trần Trọng Nhân;Nam;1408 Lê Văn Lương;02/06/2004;false;25000;0
+Hồ QUế Trân;Nữ;302/25 Lê Đức Thọ;13/03/2004;false;25000;20
+Trần Trọng Nhân;Nam;1508 Lê Văn Lương;02/06/2004;false;25000;0
