@@ -467,17 +467,18 @@ public class Main {
 						}
 						break;
 					case 7:
-						cs.tinhToanGiamGia(danhSachKH);
-						break;
-					case 8:
-						cs.tinhToanTichDiem(danhSachKH);
-						break;
-					case 9:
-						cs.xuLyFeedBack(danhSachKH);
-						break;
-					case 10:
 						danhSachKH.datBan();
 						danhSachKH.hienThiDatBan();
+						break;
+					case 8:
+						cs.tinhToanGiamGia(danhSachKH);
+						break;
+					case 9:
+						cs.tinhToanTichDiem(danhSachKH);
+						break;
+					case 10:
+						cs.xuLyFeedBack(danhSachKH);
+						break;
 					case 0:
 						System.out
 								.println("Cảm ơn bạn đã sử dụng chương trình.");
