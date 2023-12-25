@@ -5,8 +5,8 @@ import java.text.SimpleDateFormat;
 
 public class KhachHang extends Nguoi{
 	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
-	private static int dem;
-	private int maKH = ++dem;
+	private static int dem=1;
+	private int maKH = dem++;
 	private boolean isThanhVien;
 
 	public int getMaKH() {

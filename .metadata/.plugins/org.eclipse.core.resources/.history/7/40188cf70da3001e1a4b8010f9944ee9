@@ -116,17 +116,14 @@ public class MainNhan {
 						break;
 					case 6:
 						do {
-							System.out
-									.println("--->>>>>>>Cap nhat gia san pham: ");
+							System.out.println("--->>>>>>>Cap nhat gia san pham: ");
 							System.out.print("->>>>Nhap ma san pham: ");
 							int masanpham = SC.nextInt();
-							System.out
-									.print("->>>>Nhap gia moi cua san pham: ");
+							System.out.print("->>>>Nhap gia moi cua san pham: ");
 							int giaMoi = SC.nextInt();
 
 							ql.capNhatGiaTien(masanpham, giaMoi);
-							System.out
-									.print("Đã thực hiện\nBan muon cap nhat gia tiep khong(1/0)?: ");
+							System.out.print("Đã thực hiện\nBan muon cap nhat gia tiep khong(1/0)?: ");
 							luachon1 = SC.nextInt();
 						} while (luachon1 == 1);
 						break;
@@ -146,8 +143,7 @@ public class MainNhan {
 				System.out.println("1. MUA SAN PHAM");
 				System.out.println("2. HIEN THI DANH SACH SAN PHAM DA MUA");
 				System.out.println("3. TINH TONG TIEN");
-				System.out
-						.println("4. SAP XEP DANH SACH SAN PHAM THEO GIA TIEN");
+				System.out.println("4. SAP XEP DANH SACH SAN PHAM THEO GIA TIEN");
 				System.out.println("5. TIM KIEM SAN PHAM THEO TEN SAN PHAM");
 				System.out.println("0. QUAY LAI");
 				System.out.print("Nhập lựa chọn của bạn: ");
@@ -160,8 +156,7 @@ public class MainNhan {
 						while (true) {
 //							danhSachKH.themKhachHang();
 							ql.muaSanPham(DATE);
-							System.out
-									.print("Đã thực hiện\nBan muon mua tiep khong(1/0)?: ");
+							System.out.print("Đã thực hiện\nBan muon mua tiep khong(1/0)?: ");
 							luachon2 = SC.nextInt();
 							if (luachon2 == 0)
 								break;
@@ -201,19 +196,14 @@ public class MainNhan {
 							// Duyet qua danh sach va in truc tiep
 							boolean timThay = false;
 							for (SanPham sp : ql.getDanhSachDaMua()) {
-								if (sp.getTenSP()
-										.toLowerCase()
-										.contains(
-												tenSanPhamCanTim.toLowerCase())) {
+								if (sp.getTenSP().toLowerCase().contains(tenSanPhamCanTim.toLowerCase())) {
 									System.out.println(sp);
 									timThay = true;
 								}
 							}
 
 							if (!timThay) {
-								System.out
-										.println("Không tìm thấy sản phẩm có tên "
-												+ tenSanPhamCanTim);
+								System.out.println("Không tìm thấy sản phẩm có tên " + tenSanPhamCanTim);
 							} else {
 								System.out.println("Sản phẩm đã mua có tên "
 										+ tenSanPhamCanTim);

@@ -206,8 +206,12 @@ public class QuanLyKhachHang {
 	
 	// Phương thức sắp xếp theo tên khách hàng
 	public void sapXepTheoTen() {
-        Collections.sort(danhSachKH, Comparator.comparing(KhachHang::getHoTen));
-        System.out.println("Đã sắp xếp danh sách theo tên.");
+        Collections.sort(danhSachKH, Comparator.comparing(kh -> {
+            String ten = kh.getHoTen();
+            return ten.charAt(ten.lastIndexOf(' ') + 1);
+        }));
+
+        System.out.println("Đã sắp xếp danh sách theo chữ cái cuối cùng trong tên.");
     }
 	
 	// Phương thức sắp xếp theo mã khách hàng
