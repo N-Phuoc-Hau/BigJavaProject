@@ -112,7 +112,7 @@ public class Main {
 			// Hiển thị menu và yêu cầu người dùng nhập lựa chọn
 			giaoDien();
 
-			// Đọc lựa chọn từ người dùng	
+			// Đọc lựa chọn từ người dùng
 			String DATE = SC.nextLine();
 
 			// Đọc lựa chọn từ người dùng
