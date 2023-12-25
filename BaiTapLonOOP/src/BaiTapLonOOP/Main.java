@@ -39,7 +39,8 @@ public class Main {
 		System.out.println("TIEM CAFE NHO!!!");
 		System.out.println("1. QUAN LY NHAN VIEN");
 		System.out.println("2. QUAN LY SAN PHAM");
-		System.out.println("3. QUAN LY KHACH HANG");
+		System.out.println("3. QUAN LY HOA DON");
+		System.out.println("4. QUAN LY KHACH HANG");
 		System.out.println("0. THOAT");
 
 		System.out.print("Nhập lựa chọn của bạn: ");
@@ -244,8 +245,11 @@ public class Main {
 						break;
 					case 0:
 						// Kết thúc vòng lặp khi lựa chọn là 0
-						System.out.println("Chương trình kết thúc.");
+						System.out.println("Thoát!!!");
 						break;
+					default:
+						System.out
+								.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
 					}
 					if (choice1 == 0)
 						break;
@@ -342,8 +346,13 @@ public class Main {
 						break;
 					case 0:
 						// Kết thúc vòng lặp khi lựa chọn là 0
-						System.out.println("Chương trình kết thúc.");
+						System.out
+								.println("Cảm ơn quý khách đã sử dụng dịch vụ!!");
 						break;
+					default:
+						System.out
+								.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+
 					}
 					// qlnv.ghiFileBH();
 					if (choice2 == 0)
