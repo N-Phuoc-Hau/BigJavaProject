@@ -141,6 +141,20 @@ public class QuanLySanPham {
 			throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
 		}
 	}
+	
+	//Phương thức ghi tập tin danh sách sản phẩm bán được
+			public void ghiTapTinDSSPBD(String duongDan) throws IOException {
+				try (FileWriter writer = new FileWriter(duongDan)) {
+					for (SanPham sp : danhSachDaMua) {
+						// Ghi thông tin sản phẩm vào tập tin sử dụng toString
+						writer.write(sp.toString() + System.lineSeparator());
+					}
+					System.out.println("Đã ghi dữ liệu vào tập tin thành công.");
+				} catch (IOException e) {
+					System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
+					throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
+				}
+			}
 
 	//Phương thứ tìm kiếm tên và mã sản phẩm
 	public SanPham timKiem(int maSP) {
