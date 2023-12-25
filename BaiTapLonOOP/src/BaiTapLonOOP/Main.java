@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 public class Main{
-
+	private static final Scanner SC = new Scanner(System.in);
 	private static QuanLyNhanVien qlnv = new QuanLyNhanVien();
 	public static void khoa(){
 		Scanner sc = new Scanner(System.in);
@@ -75,19 +75,22 @@ public class Main{
 		System.out.println("4. SỬA THÔNG TIN KHÁCH HÀNG");
 		System.out.println("5. TÌM KIẾM KHÁCH HÀNG");
 		System.out.println("6. SẮP XẾP KHÁCH HÀNG");
-		System.out.println("QUAY LAI");
-	}
-
-	public static void menuCSKH() {
-		System.out.println("QUAN LY CHAM SOC KHACH HANG");
-		System.out.println("1. TẠO GIẢM GIÁ");
-		System.out.println("2. TÍCH ĐIỂM");
-		System.out.println("3. FEEDBACK");
-		System.out.println("4. ĐẶT BÀN");
-		System.out.println("QUAY LAI");
+		System.out.println("7. Đặt bàn");
+		System.out.println("8. TẠO GIẢM GIÁ CHO KHÁCH HÀNG");
+		System.out.println("9. TÍCH ĐIỂM CHO KHÁCH HÀNG");
+		System.out.println("10. FEEDBACK CỦA KHÁCH HÀNG");
+		System.out.println("0. QUAY LAI");
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
+		KhachHang kh1 = new KhachHang("Nguyễn Văn A","03/08/2005", "123456789", false);
+		KhachHang kh2 = new KhachHang("Trần Thị B","03/09/2000", "987654321", false);
+		KhachHang kh3 = new ChamSocKhachHang("Lê Văn C","07/08/2010", "987654321", true,0);
+		KhachHang kh4 = new ChamSocKhachHang("Lý Thái D", "01/02/2007", "012345679", true, 0);
+		KhachHang kh5 = new ChamSocKhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 0);
+		QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
+		ChamSocKhachHang cs=new ChamSocKhachHang();
+		danhSachKH.them(kh1,kh2,kh3,kh4, kh5);
 		qlnv.docTapTinFT();
 		qlnv.docTapTinPT();
 		int chon1, chon2, chon3;
@@ -184,23 +187,107 @@ public class Main{
 					chon3 = sc.nextInt();
 					switch (chon3){
 					case 1:
-						break;
+						System.out.println("1. Hiển thị toàn bộ khách hàng");
+						System.out.println("2. Hiển thị khách hàng theo Mã");
+						System.out.println("3. Hiển thị khách hàng theo Tên");
+						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
+						int chonkh1 = SC.nextInt();
+	                    SC.nextLine(); 
+						if(chonkh1==1){
+							danhSachKH.hienThi();						
+						}
+						else if(chonkh1 == 2){
+							danhSachKH.hienThiTheoMa();						
+						}
+						else if(chonkh1 == 3){
+							danhSachKH.hienThiTheoTen();						
+						}
+						else {
+							System.out.println("Lựa chọn không hợp lệ.");
+						}
+						break;					
 					case 2:
-						break;
-					case 3: 
-						break;
+						danhSachKH.themKhachHang();
+						break;				
+					case 3:
+						System.out.println("1. Xóa theo mã");
+						System.out.println("2. Xóa theo tên");
+						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
+						int chonkh3 = SC.nextInt();
+	                    SC.nextLine(); 
+						if(chonkh3==1){
+							danhSachKH.xoaKHTheoMa();						
+						}
+						else if(chonkh3 == 2){
+							danhSachKH.xoaKHTheoTen();						
+						}
+						else {
+							System.out.println("Lựa chọn không hợp lệ.");
+						}
+						break;					
 					case 4:
+						danhSachKH.suaThongTinKH();
 						break;
 					case 5:
+						System.out.println("1. Tìm kiếm theo mã");
+						System.out.println("2. Tìm kiếm theo tên");
+						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
+						int chonkh5 = SC.nextInt();
+	                    SC.nextLine(); 
+						if(chonkh5==1){
+							danhSachKH.timKiemTheoMaKH();						
+						}
+						else if(chonkh5 == 2){
+							danhSachKH.timKiemTheoTenKH();						
+						}
+						else {
+							System.out.println("Lựa chọn không hợp lệ.");
+						}
 						break;
-					case 6: 
+					case 6:
+						System.out.println("1. Sắp xếp theo mã");
+						System.out.println("2. Sắp xếp theo tên");
+						System.out.println("3. Sắp xếp theo ngày sinh");
+						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
+						int chonkh6 = SC.nextInt();
+	                    SC.nextLine();
+						danhSachKH.sapXepTheoMaKH();
+						danhSachKH.hienThi();
+						if(chonkh6==1){
+							danhSachKH.sapXepTheoMaKH();						
+						}
+						else if(chonkh6 == 2){
+							danhSachKH.sapXepTheoTen();						
+						}
+						else if(chonkh6==3){
+							danhSachKH.sapXepTheoNgaySinh();
+						}
+						else {
+							System.out.println("Lựa chọn không hợp lệ.");
+						}
 						break;
+					case 7:
+			            cs.tinhToanGiamGia(danhSachKH);
+					    break;
+					case 8:
+			            cs.tinhToanTichDiem(danhSachKH);
+						break;
+					case 9:
+						cs.xuLyFeedBack(danhSachKH);
+						break;
+					case 10:
+						danhSachKH.datBan();
+						danhSachKH.hienThiDatBan();
+					case 0:
+						System.out.println("Cảm ơn bạn đã sử dụng chương trình.");
+						return;
+					default:
+						System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
 					}
-				}while(chon3 > 1 || chon3 < 6);
+				}while(chon3 > 1 || chon3 < 10);
 				System.out.println("Đã thực hiện công việc 3");
 				break;
 			case 0:
-				// Kết thúc vòng lặp khi lựa chọn là 0
 				System.out.println("Chương trình kết thúc.");
 				return;
 			default:

@@ -2,8 +2,6 @@ package BaiTapLonOOP;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Scanner;
 
 public class KhachHang extends Nguoi{
 	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
