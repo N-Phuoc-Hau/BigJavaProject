@@ -7,6 +7,7 @@ import java.util.Date;
 
 public class SanPham {
 	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
+	private static final SimpleDateFormat H = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 	private static final Scanner SC = new Scanner(System.in);
 	private static int dem;
 	private int maSP = ++dem;
@@ -96,6 +97,11 @@ public class SanPham {
 	@Override
 	public String toString() {
 		return "Ten SP: " + tenSP + ", Gia Tien: " + giaTien + ", So Luong: "
-				+ soLuong + ", Ngay Tao: " + ngayTao;
+				+ soLuong + ", Ngay Tao: " + F.format(ngayTao);
+	}public String toStringSPBD(String h) throws ParseException {
+		String A = F.format(ngayTao) + ' ' + h;
+		ngayTao = H.parse(A);
+		return "Ten SP: " + tenSP + ", Gia Tien: " + giaTien + ", So Luong: "
+				+ soLuong + ", Ngay Tao: " + H.format(ngayTao);
 	}
 }

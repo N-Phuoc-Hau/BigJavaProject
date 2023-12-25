@@ -12,6 +12,8 @@ import java.io.FileNotFoundException;
 import java.lang.ArrayIndexOutOfBoundsException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -19,7 +21,9 @@ import java.lang.reflect.InvocationTargetException;
 
 public class QuanLyNhanVien {
 
-	private SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+	private SimpleDateFormat H = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+
+	private SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 	private Scanner sc = new Scanner(System.in);
 	private List<NhanVien> ds = new ArrayList<>();
 	public QuanLyNhanVien() {
@@ -71,20 +75,19 @@ public class QuanLyNhanVien {
 	public NhanVien timKiem(int id){
 		return ds.stream().filter(sp->sp.getMaNV()==id).findFirst().get();
 	}
-	public void ghiFileBH() throws IOException, ParseException{
+	public void ghiFileBH(String d,String h) throws IOException, ParseException{
 
 		System.out.println("Nhap Ma Nhan Vien ban hang: ");
 		String i = sc.nextLine();
 		int id = Integer.parseInt(i);
-		System.out.print("Ngay tao hoa don (dd/MM/yyyy HH:mm): ");
-		String d = sc.nextLine();
+		d = d + ' ' + h;
 		Date date = F.parse(d);
 		
 		NhanVien nv = timKiem(id);
 		String duongDan = "src/BaiTapLonOOP/data/DSBanHang.txt";
         try (FileWriter writer = new FileWriter(duongDan, true)) {
                 // Ghi thông tin sản phẩm vào tập tin sử dụng toString
-                   writer.write(i + ';' + nv.getTenNV()+ ';' + F.format(date) + System.lineSeparator());
+                   writer.write(i + ';' + nv.getTenNV()+ ';' + H.format(date) + System.lineSeparator());
         } catch (IOException e) {
             System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
             throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
@@ -119,6 +122,18 @@ public class QuanLyNhanVien {
 		if(nv.size() == 0) 
 			System.out.println("Khong tim thay nhan vien co que quan: " + qq);
 	}
+	public void sapXepTheoTen() {
+        Collections.sort(ds, Comparator.comparing(nv -> {
+            String ten = nv.getTenNV();
+            return ten.charAt(ten.lastIndexOf(' ') + 1);
+        }));
+
+        System.out.println("Đã sắp xếp danh sách theo chữ cái cuối cùng trong tên.");
+        
+        for (NhanVien NhanVien : ds) {
+        	NhanVien.hienThi();
+        }
+    }
 
 	public void them() throws ParseException {
 		System.out.println("Tuyen them nhan vien PT: ---------");
@@ -185,7 +200,92 @@ public class QuanLyNhanVien {
 				break;
 			}
 		}
-	}
+	}public void sualuong()throws ParseException{
+		System.out.println("Sua thong tin nhan Vien: ---------");
+		System.out.print("FullTime:True === Partime:false   : ");
+		boolean chon = sc.nextBoolean();
+		System.out.print("Mã Nhân viên: ");
+		int manv = sc.nextInt();
+		manv -= 1;
+		for (int i = 0; i < ds.size(); i++) {	
+				if (i == manv && chon == true) {
+					
+//					System.out.print("Nhap loai:");
+//					boolean loai = sc.nextBoolean();
+					System.out.print("Nhap luong thang:");
+					long lTh = sc.nextLong();
+//					ds.get(i).setLoaiNV(loai);
+					setLthang(i, lTh);
+					ds.get(i).hienThi();
+					return;
+				}
+				else if (i == manv && chon == false) {
+					System.out.print("Nhap loai:");
+//					boolean loai = sc.nextBoolean();
+					System.out.print("Nhap luong:");
+					int l = sc.nextInt();
+					setL(i, l);
+					ds.get(i).hienThi();
+					return;
+				}
+			}
+		System.out.println("Ma hoac loai Nhan Vien khong dung");
+		}
+	public void suaTTlamviec()throws ParseException{
+		System.out.println("Sua thong tin nhan Vien: ---------");
+		System.out.print("FullTime:True === Partime:false   : ");
+		boolean chon = sc.nextBoolean();
+		System.out.print("Mã Nhân viên: ");
+		int manv = sc.nextInt();
+		manv -= 1;
+		for (int i = 0; i < ds.size(); i++) {	
+				if (i == manv && chon == true) {
+					
+					System.out.print("Nhap ngay nghi phep:");
+					int nNP = sc.nextInt();
+					setNP(i, nNP);
+					ds.get(i).hienThi();
+					return;
+				}
+				else if (i == manv && chon == false) {
+					System.out.print("Nhap so gio lam:");
+					int sgl = sc.nextInt();
+					setSGL(i, sgl);
+					ds.get(i).hienThi();
+					return;
+				}
+			}
+		System.out.println("Ma hoac loai Nhan Vien khong dung");
+		}
+	public void thangHaChuc(String d)throws ParseException{
+		System.out.println("Sua thong tin nhan Vien: ---------");
+		System.out.print("FullTime:True === Partime:false   : ");
+		boolean chon = sc.nextBoolean();
+		System.out.print("Mã Nhân viên: ");
+		int manv = sc.nextInt();
+		manv -= 1;
+		for (NhanVien nv : ds) {
+            // Ghi thông tin sản phẩm vào tập tin sử dụng toString
+            if (nv instanceof NhanVienFT) {
+            	sc.nextLine();
+            	System.out.print("Nhập Lương Nhân viên theo gio: ");
+				int luong = Integer.parseInt(sc.nextLine());
+				NhanVienPT a = nv.convertFromNhanVienPT((NhanVienFT) nv, luong);
+				nv.hienThi();
+				break;
+ 	       }
+            else if (nv instanceof NhanVienPT) {
+            	System.out.print("Nhập Lương Nhân viên thang: ");
+				int luong = Integer.parseInt(sc.nextLine());
+				NhanVienFT a = nv.convertFromNhanVienFT((NhanVienPT) nv, luong, d);
+				nv.hienThi();
+				break;
+ 	       }
+            else 
+        		System.out.println("Ma hoac loai Nhan Vien khong dung");;
+        }
+		}
+	
 	public void ghiTapTin() throws IOException {
 		String duongDan = "src/BaiTapLonOOP/data/NhanVienPT.txt";
         try (FileWriter writer = new FileWriter(duongDan)) {
@@ -215,44 +315,7 @@ public class QuanLyNhanVien {
         System.out.println("Đã ghi dữ liệu vào tập tin thành công.");
     }
 	
-	public void suaTTNC()throws ParseException{
-		System.out.println("Sua thong tin nhan Vien: ---------");
-		System.out.print("FullTime:True === Partime:false   : ");
-		boolean chon = sc.nextBoolean();
-		System.out.print("Mã Nhân viên: ");
-		int manv = sc.nextInt();
-		manv -= 1;
-		for (int i = 0; i < ds.size(); i++) {	
-				if (i == manv && chon == true) {
-					
-//					System.out.print("Nhap loai:");
-//					boolean loai = sc.nextBoolean();
-					System.out.print("Nhap luong thang:");
-					long lTh = sc.nextLong();
-					System.out.print("Nhap ngay nghi phep:");
-					int nNP = sc.nextInt();
-//					ds.get(i).setLoaiNV(loai);
-					setLthang(i, lTh);
-					setNP(i, nNP);
-					ds.get(i).hienThi();
-					return;
-				}
-				else if (i == manv && chon == false) {
-					System.out.print("Nhap loai:");
-//					boolean loai = sc.nextBoolean();
-					System.out.print("Nhap luong:");
-					int l = sc.nextInt();
-					System.out.print("Nhap so gio lam:");
-					int sgl = sc.nextInt();
-//					ds.get(i).setLoaiNV(loai);
-					setSGL(i, sgl);
-					setL(i, l);
-					ds.get(i).hienThi();
-					return;
-				}
-			}
-		System.out.println("Ma hoac loai Nhan Vien khong dung");
-		}
+	
 	public void docTapTinPT() throws ParseException, IOException {
 	    // Tạo đối tượng File để đại diện cho tập tin
 	    File file = new File("src/BaiTapLonOOP/data/NhanVienPT.txt");

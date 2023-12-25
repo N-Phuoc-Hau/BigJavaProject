@@ -71,7 +71,7 @@ public class QuanLySanPham {
 	}
 
 	//Phương thức nhập sản phẩm mới
-	public void nhapSanPham() throws ParseException, IOException {
+	public void nhapSanPham(String d) throws ParseException, IOException {
 		System.out.print("Nhap ten san pham: ");
 		String m = SC.nextLine();
 		System.out.print("Nhap gia san pham: ");
@@ -79,15 +79,6 @@ public class QuanLySanPham {
 		SC.nextLine();
 		System.out.print("Nhap so luong san pham: ");
 		int l = SC.nextInt();
-		String d;
-		do {
-			d = SC.nextLine();
-			if (d.isEmpty()) {
-				System.out.print("");
-			}
-			System.out.print("Ngay tao hoa don (dd/MM/yyyy): ");
-			d = SC.nextLine();
-		} while (d.isEmpty());
 		ChamSocKhachHang khachHang = null;
 		// Kiểm tra xem khách hàng có phải là Thành viên (ChamSocKhachHang) không
 	    if (khachHang instanceof ChamSocKhachHang) {
@@ -98,7 +89,7 @@ public class QuanLySanPham {
 
 		try {
 			Date date = F.parse(d);
-			SanPham sp = new SanPham(m, n, l, date);
+			SanPham sp = new SanPham(m, n, l, F.format(date));
 			themSP(sp);
 		} catch (ParseException e) {
 			System.out.println("Loi!!!");
@@ -129,11 +120,11 @@ public class QuanLySanPham {
 	}
 
 	//Phương thức ghi tập tin
-	public void ghiTapTin(String duongDan) throws IOException {
+	public void ghiTapTin(String duongDan,String h) throws IOException, ParseException {
 		try (FileWriter writer = new FileWriter(duongDan)) {
 			for (SanPham sp : ds) {
 				// Ghi thông tin sản phẩm vào tập tin sử dụng toString
-				writer.write(sp.toString() + System.lineSeparator());
+				writer.write(sp.toStringSPBD(h) + System.lineSeparator());
 			}
 			System.out.println("Đã ghi dữ liệu vào tập tin thành công.");
 		} catch (IOException e) {
@@ -143,11 +134,11 @@ public class QuanLySanPham {
 	}
 	
 	//Phương thức ghi tập tin danh sách sản phẩm bán được
-			public void ghiTapTinDSSPBD(String duongDan) throws IOException {
+			public void ghiTapTinDSSPBD(String duongDan,String h) throws IOException, ParseException {
 				try (FileWriter writer = new FileWriter(duongDan)) {
 					for (SanPham sp : danhSachDaMua) {
 						// Ghi thông tin sản phẩm vào tập tin sử dụng toString
-						writer.write(sp.toString() + System.lineSeparator());
+						writer.write(sp.toStringSPBD(h) + System.lineSeparator());
 					}
 					System.out.println("Đã ghi dữ liệu vào tập tin thành công.");
 				} catch (IOException e) {

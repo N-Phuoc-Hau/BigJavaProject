@@ -34,7 +34,6 @@ public class NhanVienFT extends NhanVien {
 		this.ngayBDLam = F.parse(ng);
 		// TODO Auto-generated constructor stub
 	}
-
 	@Override
 	public String toString() {
         return super.toString() + ";" + nghiPhep + ";" + lThang + ";" + F.format(ngayBDLam);
@@ -85,5 +84,6 @@ public class NhanVienFT extends NhanVien {
 		this.ngayBDLam = ngayBDLam;
 
 	}
+
 }
 

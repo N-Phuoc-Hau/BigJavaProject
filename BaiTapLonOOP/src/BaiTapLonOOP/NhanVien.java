@@ -202,6 +202,15 @@ public class NhanVien {
 	public static Scanner getSc() {
 		return sc;
 	}
+	
+	public NhanVienPT convertFromNhanVienPT(NhanVienFT nvFT,int luong) throws ParseException {
+		// TODO Auto-generated method stub
+		return new NhanVienPT(tenNV,gioiTinh, diaChi, ngaySinh, false, luong, 0 );
+	}
+	public NhanVienFT convertFromNhanVienFT(NhanVienPT nvPT,long luong, String n) throws ParseException {
+		return new NhanVienFT(tenNV,gioiTinh, diaChi, F.format(ngaySinh), true, luong, 0, F.format(n));
+	}
+
 
 	
 
