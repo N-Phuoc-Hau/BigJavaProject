@@ -403,14 +403,15 @@ public class Main {
 						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
 						int chonkh6 = SC.nextInt();
 						SC.nextLine();
-						danhSachKH.sapXepTheoMaKH();
-						danhSachKH.hienThi();
 						if (chonkh6 == 1) {
 							danhSachKH.sapXepTheoMaKH();
+							danhSachKH.hienThi();
 						} else if (chonkh6 == 2) {
 							danhSachKH.sapXepTheoTen();
+							danhSachKH.hienThi();
 						} else if (chonkh6 == 3) {
 							danhSachKH.sapXepTheoNgaySinh();
+							danhSachKH.hienThi();
 						} else {
 							System.out.println("Lựa chọn không hợp lệ.");
 						}
