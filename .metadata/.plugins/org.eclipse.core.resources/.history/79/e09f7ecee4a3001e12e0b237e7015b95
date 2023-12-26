@@ -34,6 +34,7 @@ public class Main {
 		System.out.println("======QUÁN CÀ PHÊ NHỎ========");
 		// Đọc lựa chọn từ người dùng
 		String DATE = GiaoDien.checkNgay();
+		String h = GiaoDien.checkGio();
 		// Bắt đầu vòng lặp
 		while (true) {
 			// Hiển thị menu và yêu cầu người dùng nhập lựa chọn
@@ -279,7 +280,8 @@ public class Main {
 						break;
 					case 0:
 						// Kết thúc vòng lặp khi lựa chọn là 0
-						String h = GiaoDien.checkGio(DATE);
+						System.out.print("Nhập giờ phút tạo hóa đơn: ");
+						String a = SC.nextLine();
 						qlnv.ghiFileBH(DATE, h);
 						String duongDan2 = "./src/BaiTapLonOOP/data/danhsachsanphambanduoc.txt";
 						ql.ghiTapTin(duongDan2, h);

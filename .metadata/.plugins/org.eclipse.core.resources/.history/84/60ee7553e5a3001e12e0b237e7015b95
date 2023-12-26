@@ -279,7 +279,7 @@ public class Main {
 						break;
 					case 0:
 						// Kết thúc vòng lặp khi lựa chọn là 0
-						String h = GiaoDien.checkGio(DATE);
+						String h = checkGio(DATE);
 						qlnv.ghiFileBH(DATE, h);
 						String duongDan2 = "./src/BaiTapLonOOP/data/danhsachsanphambanduoc.txt";
 						ql.ghiTapTin(duongDan2, h);

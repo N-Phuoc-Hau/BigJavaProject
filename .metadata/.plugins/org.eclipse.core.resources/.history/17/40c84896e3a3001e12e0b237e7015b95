@@ -4,10 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-
 public class GiaoDien {
 	private static final Scanner SC = new Scanner(System.in);
-
+	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 	public static void khoa() {
 		do {
 
@@ -46,8 +45,7 @@ public class GiaoDien {
 	}
 
 	public static void menuNV() {
-		System.out
-				.println("------------------------------MENU------------------------------");
+		 System.out.println("------------------------------MENU------------------------------");
 		System.out.println("QUAN LY NHAN VIEN");
 		System.out.println("1. HIEN THI NHAN VIEN");
 		System.out.println("2. SUA DOI CO BAN");
@@ -59,33 +57,31 @@ public class GiaoDien {
 	}
 
 	public static void menuSP() {
-		System.out
-				.println("------------------------------MENU------------------------------");
-		System.out.println("QUAN LY SAN PHAM");
-		System.out.println("1. THEM SAN PHAM");
-		System.out.println("2. HIEN THI DANH SACH SAN PHAM");
-		System.out.println("3. TONG SO LUONG SAN PHAM");
-		System.out.println("4. XOA SAN PHAM");
-		System.out.println("5. TIM KIEM SAN PHAM");
-		System.out.println("6. CAP NHAT GIA TIEN");
-		System.out.println("0. QUAY LAI");
+		 System.out.println("------------------------------MENU------------------------------");
+			System.out.println("QUAN LY SAN PHAM");
+			System.out.println("1. THEM SAN PHAM");
+			System.out.println("2. HIEN THI DANH SACH SAN PHAM");
+			System.out.println("3. TONG SO LUONG SAN PHAM");
+			System.out.println("4. XOA SAN PHAM");
+			System.out.println("5. TIM KIEM SAN PHAM");
+			System.out.println("6. CAP NHAT GIA TIEN");
+			System.out.println("0. QUAY LAI");
 	}
-
+	
 	public static void menuHD() {
-		System.out
-				.println("------------------------------MENU------------------------------");
-		System.out.println("QUAN LY HOA DON");
-		System.out.println("1. MUA SAN PHAM");
-		System.out.println("2. HIEN THI DANH SACH SAN PHAM DA MUA");
-		System.out.println("3. TINH TONG TIEN");
-		System.out.println("4. SAP XEP DANH SACH SAN PHAM THEO GIA TIEN");
-		System.out.println("5. TIM KIEM SAN PHAM THEO TEN SAN PHAM");
-		System.out.println("0. QUAY LAI");
+		 System.out.println("------------------------------MENU------------------------------");
+			System.out.println("QUAN LY HOA DON");
+			System.out.println("1. MUA SAN PHAM");
+			System.out.println("2. HIEN THI DANH SACH SAN PHAM DA MUA");
+			System.out.println("3. TINH TONG TIEN");
+			System.out
+					.println("4. SAP XEP DANH SACH SAN PHAM THEO GIA TIEN");
+			System.out
+					.println("5. TIM KIEM SAN PHAM THEO TEN SAN PHAM");
+			System.out.println("0. QUAY LAI");
 	}
-
 	public static void menuKH() {
-		System.out
-				.println("------------------------------MENU------------------------------");
+		 System.out.println("------------------------------MENU------------------------------");
 		System.out.println("QUAN LY KHACH HANG");
 		System.out.println("1. HIỂN THỊ KHÁCH HÀNG");
 		System.out.println("2. THÊM KHÁCH HÀNG");
@@ -99,48 +95,25 @@ public class GiaoDien {
 		System.out.println("10. FEEDBACK CỦA KHÁCH HÀNG");
 		System.out.println("0. QUAY LAI");
 	}
+	public void static checkNgay() {
+	    SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 
-	public static String checkNgay() {
-		SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
+	    do {
+	        System.out.print("Nhập ngày bán hàng(dd/mm/YYYY):");
+	        String DATE = SC.nextLine();
 
-		do {
-			System.out.print("Nhập ngày bán hàng(dd/mm/YYYY):");
-			String DATE = SC.nextLine();
+	        try {
+	            // Kiểm tra DATE có đúng định dạng không
+	            Date date = F.parse(DATE);
+	            if (date == null) {
+	                throw new Exception("Định dạng ngày nhập không đúng");
+	            }
 
-			try {
-				// Kiểm tra DATE có đúng định dạng không
-				Date date = F.parse(DATE);
-				if (date == null) {
-					throw new Exception("Định dạng ngày nhập không đúng");
-				}
-
-				// DATE có đúng định dạng
-				return DATE;
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		} while (true);
-	}
-
-	public static String checkGio(String date) {
-		SimpleDateFormat F = new SimpleDateFormat("dd/mm/YYYY HH:mm");
-
-		do {
-			System.out.print("Nhập giờ bán hàng(HH:mm):");
-			String hour = SC.nextLine();
-			String DATE = date + ' ' + hour;
-			try {
-				// Kiểm tra DATE có đúng định dạng không
-				Date tmp = F.parse(DATE);
-				if (tmp == null) {
-					throw new Exception("Định dạng ngày nhập không đúng");
-				}
-
-				// DATE có đúng định dạng
-				return hour;
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		} while (true);
+	            // DATE có đúng định dạng
+	            break;
+	        } catch (Exception e) {
+	            System.out.println(e.getMessage());
+	        }
+	    } while (true);
 	}
 }
