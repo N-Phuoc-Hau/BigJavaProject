@@ -1,15 +1,12 @@
 package BaiTapLonOOP;
 
 import java.io.BufferedReader;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
-import java.io.FileNotFoundException;
-import java.lang.ArrayIndexOutOfBoundsException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,7 +14,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import java.lang.reflect.InvocationTargetException;
 
 public class QuanLyNhanVien {
 
@@ -48,13 +44,18 @@ public class QuanLyNhanVien {
 	*/
 	public void hienThiTheoMa(){
 		System.out.print("Nhập mã Nhân Viên cần tìm: ");
-		int manv = sc.nextInt();
+		int manv = Integer.parseInt(sc.nextLine());
 		for (int i = 1; i <= ds.size()+1; i++) {
 			if(i == manv) {
 				ds.get(i-1).hienThi();
 				break;
 			}
-			else if(i == ds.size()+1)  System.out.println("Không có mã nhân viên cần tìm");
+			else if(i == ds.size()+1)  
+				{
+				System.out.println("Không có mã nhân viên cần tìm");
+				break;
+				}
+			
 		}
 		System.out.println("Đã thực hiện yêu cầu!!");
 		
@@ -68,12 +69,40 @@ public class QuanLyNhanVien {
 				break;
 			}
 			else if(i == ds.size())  
+			{
 				System.out.println("Khong tim thay nhan vien co ten: " + tenNV);
+				break;
+			}
 		}
 		System.out.println("Đã thực hiện yêu cầu!!");
 	}
 	public NhanVien timKiem(int id){
 		return ds.stream().filter(sp->sp.getMaNV()==id).findFirst().get();
+	}
+	public void hienThiTheoGT(){
+		System.out.print("Nhập Giới tính Nhân Viên cần tìm: ");
+		String gt = sc.nextLine();
+		List<NhanVien> nv = timKiemGT(gt);
+		for(int i = 1; i <= nv.size(); i++){
+			nv.get(i-1).hienThi();
+		}
+		if(nv.size() == 0) 
+			System.out.println("Khong tim thay nhan vien co gioi tinh: " + gt);
+	}
+	
+	public List<NhanVien> timKiemQQ(String kw){
+		return ds.stream().filter(nv->nv.getGioiTinh().contains(kw)).
+				collect(Collectors.toList());
+	}
+	public void hienThiTheoQQ(){
+		System.out.print("Nhập Quê Quán Nhân Viên cần tìm: ");
+		String qq = sc.nextLine();
+		List<NhanVien> nv = timKiemQQ(qq);
+		for(int i = 1; i <= nv.size(); i++){
+			nv.get(i-1).hienThi();
+		}
+		if(nv.size() == 0) 
+			System.out.println("Khong tim thay nhan vien co que quan: " + qq);
 	}
 	public void ghiFileBH(String d,String h) throws IOException, ParseException{
 
@@ -81,7 +110,7 @@ public class QuanLyNhanVien {
 		String i = sc.nextLine();
 		int id = Integer.parseInt(i);
 		d = d + ' ' + h;
-		Date date = F.parse(d);
+		Date date = H.parse(d);
 		
 		NhanVien nv = timKiem(id);
 		String duongDan = "src/BaiTapLonOOP/data/DSBanHang.txt";
@@ -96,31 +125,6 @@ public class QuanLyNhanVien {
 	public List<NhanVien> timKiemGT(String kw){
 			return ds.stream().filter(nv->nv.getGioiTinh().contains(kw)).
 					collect(Collectors.toList());
-	}
-	public void hienThiTheoGT(){
-		System.out.print("Nhập Giới tính Nhân Viên cần tìm: ");
-		String gt = sc.nextLine();
-		List<NhanVien> nv = timKiemGT(gt);
-		for(int i = 1; i <= nv.size(); i++){
-			nv.get(i-1).hienThi();
-		}
-		if(nv.size() == 0) 
-			System.out.println("Khong tim thay nhan vien co gioi tinh: " + gt);
-	}
-
-	public List<NhanVien> timKiemQQ(String kw){
-			return ds.stream().filter(nv->nv.getGioiTinh().contains(kw)).
-					collect(Collectors.toList());
-	}
-	public void hienThiTheoQQ(){
-		System.out.print("Nhập Quê Quán Nhân Viên cần tìm: ");
-		String qq = sc.nextLine();
-		List<NhanVien> nv = timKiemQQ(qq);
-		for(int i = 1; i <= nv.size(); i++){
-			nv.get(i-1).hienThi();
-		}
-		if(nv.size() == 0) 
-			System.out.println("Khong tim thay nhan vien co que quan: " + qq);
 	}
 	public void sapXepTheoTen() {
         Collections.sort(ds, Comparator.comparing(nv -> {
@@ -161,6 +165,11 @@ public class QuanLyNhanVien {
 		for (int i = 1; i <= ds.size(); i++) {
 			if (i == manv) {
 				ds.remove(i - 1);
+				break;
+			}
+			else if(i == ds.size())  
+			{
+				System.out.println("Khong tim thay nhan vien");
 				break;
 			}
 		}

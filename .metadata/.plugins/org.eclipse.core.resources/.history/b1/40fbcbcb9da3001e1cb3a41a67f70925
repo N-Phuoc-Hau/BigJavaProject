@@ -1,0 +1,107 @@
+package BaiTapLonOOP;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+import java.util.Date;
+
+public class SanPham {
+	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
+	private static final SimpleDateFormat H = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+	private static final Scanner SC = new Scanner(System.in);
+	private static int dem;
+	private int maSP = ++dem;
+	private String tenSP;
+	private Date ngayTao;
+	private int giaTien;
+	private int soLuong;
+
+	public SanPham(String tsp, int gt, int sl, Date nt) {
+		this.tenSP = tsp;
+		this.giaTien = gt;
+		this.soLuong = sl;
+		this.ngayTao = nt;
+	}
+
+	public SanPham(String tsp, int gt, int sl, String nt) throws ParseException {
+		this.tenSP = tsp;
+		this.giaTien = gt;
+		this.soLuong = sl;
+		this.ngayTao = F.parse(nt);
+	}
+
+	public void hienThi() {
+		System.out
+				.print("\n-----------------------------------------------------\n");
+		System.out.printf("Ma san pham: %d\n", this.maSP);
+		System.out.printf("Ten san pham: %s\n", this.tenSP);
+		System.out.printf("Gia san pham: %d\n", this.giaTien);
+		System.out.printf("So luong: %d\n", this.soLuong);
+		System.out.printf("Ngay tao hoa don: %s\n", F.format(this.ngayTao));
+		System.out
+				.print("\n-----------------------------------------------------\n");
+	}
+
+	public int capNhatGia(int giaMoi) {
+		int giaCu = giaTien;
+		giaTien = giaMoi;
+		return giaCu;
+	}
+
+	public void giamSoLuong(int soLuongMua) {
+		if (soLuongMua > 0 && soLuongMua <= soLuong) {
+			soLuong -= soLuongMua;
+		}
+	}
+
+	public int getSoLuong() {
+		return soLuong;
+	}
+
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
+	}
+
+	public int getMaSP() {
+		return maSP;
+	}
+
+	public void setMaSP(int maSP) {
+		this.maSP = maSP;
+	}
+
+	public String getTenSP() {
+		return tenSP;
+	}
+
+	public void setTenSP(String tenSP) {
+		this.tenSP = tenSP;
+	}
+
+	public Date getNgayTao() {
+		return ngayTao;
+	}
+
+	public void setNgayTao(Date ngayTao) {
+		this.ngayTao = ngayTao;
+	}
+
+	public int getGiaTien() {
+		return giaTien;
+	}
+
+	public void setGiaTien(int giaTien) {
+		this.giaTien = giaTien;
+	}
+
+	@Override
+	public String toString() {
+		return "Ten SP: " + tenSP + ", Gia Tien: " + giaTien + ", So Luong: "
+				+ soLuong + ", Ngay Tao: " + F.format(ngayTao);
+	}public String toStringSPBD(String h) throws ParseException {
+		String A = F.format(ngayTao) + ' ' + h;
+		ngayTao = H.parse(A);
+		return "Ten SP: " + tenSP + ", Gia Tien: " + giaTien + ", So Luong: "
+				+ soLuong + ", Ngay Tao: " + H.format(ngayTao);
+	}
+}

@@ -1,0 +1,311 @@
+package BaiTapLonOOP;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+public class QuanLySanPham {
+	private ArrayList<SanPham> ds = new ArrayList<>();
+	private static final Scanner SC = new Scanner(System.in);
+	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
+	private List<SanPham> danhSachDaMua; // Danh sách sản phẩm đã mua
+//	private Object tongGiaTriHoaDon;
+
+	//Phương thức khởi tạo
+	public QuanLySanPham() {
+		this.ds = new ArrayList<>();
+		danhSachDaMua = new ArrayList<>();
+	}
+
+	//Phương thức thêm sản phẩm
+	public void themSP(SanPham sp) {
+		ds.add(sp);
+	}
+ 
+	//Phương thức xóa sản phẩm theo mã và tên sản phẩm
+	public void xoaSPTheoTen(String tenSP) {
+		Iterator<SanPham> iterator = ds.iterator();
+		while (iterator.hasNext()) {
+			SanPham sanPham = iterator.next();
+			// In giá trị để debug
+			System.out.println("Tên SP trong danh sách: [" + sanPham.getTenSP()
+					+ "]");
+			// Sử dụng phương thức trim() để loại bỏ khoảng trắng ở đầu và cuối
+			// tên sản phẩm
+			if (sanPham.getTenSP().trim().equalsIgnoreCase(tenSP.trim())) {
+				iterator.remove();	
+				System.out.println("Đã xóa sản phẩm có tên là: " + tenSP);
+				return;
+			}
+		}
+		System.out.println("Không tìm thấy sản phẩm có tên: " + tenSP);
+	}
+
+	public void xoaSPTheoMa(int maSP) {
+		Iterator<SanPham> iterator = ds.iterator();
+		while (iterator.hasNext()) {
+			SanPham sp = iterator.next();
+			if (sp.getMaSP() == maSP) {
+				iterator.remove();
+				System.out.println("Da xoa hoa don co ma: " + maSP);
+				return; // Bạn có thể tiếp tục vòng lặp nếu muốn xóa nhiều hóa
+						// đơn có cùng mã
+			}
+		}
+		System.out.println("Khong tim thay hoa don co ma: " + maSP);
+	}
+
+	//Phương thức hiển thị danh sách sản phẩm
+	public void hienThi() {
+		ds.forEach(hd -> hd.hienThi());
+	}
+
+	//Phương thức nhập sản phẩm mới
+	public void nhapSanPham(String d) throws ParseException, IOException {
+		System.out.print("Nhap ten san pham: ");
+		String m = SC.nextLine();
+		System.out.print("Nhap gia san pham: ");
+		int n = SC.nextInt();
+		SC.nextLine();
+		System.out.print("Nhap so luong san pham: ");
+		int l = SC.nextInt();
+		ChamSocKhachHang khachHang = null;
+		// Kiểm tra xem khách hàng có phải là Thành viên (ChamSocKhachHang) không
+	    if (khachHang instanceof ChamSocKhachHang) {
+	        // Gọi phương thức tích điểm từ ChamSocKhachHang
+	        ((ChamSocKhachHang) khachHang).tichDiem();
+	    }
+		System.out.println("-----------------------------------");
+
+		try {
+			Date date = F.parse(d);
+			SanPham sp = new SanPham(m, n, l, F.format(date));
+			themSP(sp);
+		} catch (ParseException e) {
+			System.out.println("Loi!!!");
+			throw e; // Ném lại ngoại lệ cho phía gọi
+		}
+	}
+
+	
+//Phương thức đọc tập tin
+	public void docTapTin(String duongDan) throws FileNotFoundException,
+			ParseException {
+		File f = new File(duongDan);
+		try (Scanner sc = new Scanner(f)) {
+			while (sc.hasNext()) {
+				String tenSP = sc.nextLine();
+				String n = sc.nextLine();
+				int giaTien = Integer.parseInt(n);
+				String m = sc.nextLine();
+				int soLuong = Integer.parseInt(m);
+				String ngayTao = sc.nextLine();
+
+				SanPham sp = new SanPham(tenSP, giaTien, soLuong, ngayTao);
+
+				ds.add(sp);
+			}
+			sc.close();
+		}
+	}
+
+	//Phương thức ghi tập tin
+	public void ghiTapTin(String duongDan,String h) throws IOException, ParseException {
+		try (FileWriter writer = new FileWriter(duongDan)) {
+			for (SanPham sp : ds) {
+				// Ghi thông tin sản phẩm vào tập tin sử dụng toString
+				writer.write(sp.toStringSPBD(h) + System.lineSeparator());
+			}
+			System.out.println("Đã ghi dữ liệu vào tập tin thành công.");
+		} catch (IOException e) {
+			System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
+			throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
+		}
+	}
+	
+	//Phương thức ghi tập tin danh sách sản phẩm bán được
+			public void ghiTapTinDSSPBD(String duongDan,String h) throws IOException, ParseException {
+				try (FileWriter writer = new FileWriter(duongDan)) {
+					for (SanPham sp : danhSachDaMua) {
+						// Ghi thông tin sản phẩm vào tập tin sử dụng toString
+						writer.write(sp.toStringSPBD(h) + System.lineSeparator());
+					}
+					System.out.println("Đã ghi dữ liệu vào tập tin thành công.");
+				} catch (IOException e) {
+					System.out.println("Lỗi khi ghi tập tin: " + e.getMessage());
+					throw e; // Re-throw để cho phép lớp gọi xử lý lỗi nếu cần
+				}
+			}
+
+	//Phương thứ tìm kiếm tên và mã sản phẩm
+	public SanPham timKiem(int maSP) {
+		for (SanPham h : ds) {
+			if (h.getMaSP() == maSP)
+				return h;
+		}
+		System.out.println("Khong tim thay hoa don co ma hoa don: " + maSP);
+		return null;
+	}
+
+	//Phương thức cập nhật giá sản phẩm
+	public void capNhatGiaTien(int maSanPham, int giaMoi) {
+		for (SanPham sp : ds) {
+			if (sp.getMaSP() == maSanPham) {
+				sp.setGiaTien(giaMoi);
+				System.out.println("Đã cập nhật giá sản phẩm " + maSanPham
+						+ " thành " + giaMoi);
+				return;
+			}
+		}
+		System.out.println("Không tìm thấy sản phẩm có mã " + maSanPham);
+	}
+
+	// Phương thức để tìm kiếm sản phẩm theo tên
+	public SanPham timKiemTheoTen(String tenSP) {
+		for (SanPham sp : ds) {
+			// Sử dụng phương thức trim() để loại bỏ khoảng trắng ở đầu và cuối
+			// tên sản phẩm
+			if (sp.getTenSP().trim().equalsIgnoreCase(tenSP.trim())) {
+				return sp; // Trả về sản phẩm nếu tìm thấy
+			}
+		}
+
+		return null; // Trả về null nếu không tìm thấy sản phẩm
+	}
+
+	//Phương thức tính tổng số lượng sản phẩm
+	public int tinhTongSoLuong() {
+		int tongSoLuong = 0;
+		for (SanPham sp : ds) {
+			tongSoLuong += sp.getSoLuong();
+		}
+
+		return tongSoLuong;
+	}
+
+	// Phương thức hiển thị danh sách đã mua
+	public void hienThiDanhSachDaMua1() {
+		System.out.println("Danh sách sản phẩm đã mua:");
+		for (SanPham sp : danhSachDaMua) {
+			System.out.println(sp);
+		}
+	}
+
+	public void hienThiDanhSachDaMua() {
+		if (danhSachDaMua.isEmpty()) {
+			System.out.println("Danh sách sản phẩm đã mua trống.");
+		} else {
+			System.out.println("Danh sách sản phẩm đã mua:");
+			for (SanPham sp : danhSachDaMua) {
+				System.out.println(sp);
+			}
+		}
+	}
+
+	// Phương thức để nhập số lượng muốn mua và tính số sản phẩm còn lại
+	public void muaSanPham(String d) throws ParseException {
+		
+		// Hiển thị danh sách sản phẩm
+		// hienThiDanhSachSanPham();
+
+		// Nhập mã sản phẩm
+		System.out.print("Nhập mã sản phẩm muốn mua: ");
+		int maSanPham = SC.nextInt();
+
+		// Tìm sản phẩm theo mã
+		SanPham sanPham = timKiem(maSanPham);
+
+		if (sanPham != null) {
+			// Hiển thị thông tin sản phẩm
+			System.out.println("Thông tin sản phẩm:");
+			System.out.println(sanPham);
+
+			// Nhập số lượng muốn mua
+			System.out.print("Nhập số lượng muốn mua: ");
+			int soLuongMua = SC.nextInt();
+
+			if (soLuongMua > 0 && soLuongMua <= sanPham.getSoLuong()) {
+				// Giảm số lượng sản phẩm
+				sanPham.giamSoLuong(soLuongMua);
+				System.out.println("Đã mua " + soLuongMua + " sản phẩm "
+						+ sanPham.getTenSP());
+				// Thêm sản phẩm vào danh sách đã mua
+				String clear = SC.nextLine();
+				
+                System.out.println("Đã thêm vào danh sách đã mua của khách hàng.");
+				System.out.println("-----------------------------------");
+				System.out.println("Sau khi nhập hóa đơn: ");
+				try {
+					
+					Date date = F.parse(d);
+					SanPham sanPhamDaMua = new SanPham(sanPham.getTenSP(),
+							sanPham.getGiaTien(), soLuongMua, F.format(date));
+					danhSachDaMua.add(sanPhamDaMua);
+				} catch (ParseException e) {
+					System.out.println("Lỗi!!!");
+					throw e; // Ném lại ngoại lệ cho phía gọi
+				}
+			} else {
+				System.out.println("Số lượng mua không hợp lệ hoặc không đủ hàng.");
+			}
+		} else {
+			System.out.println("Không tìm thấy sản phẩm có mã " + maSanPham);
+		}
+		hienThiDanhSachDaMua();
+	}
+	//Tim kiem san pham theo ten san pham
+	public List<SanPham> timKiemSanPhamDaMua(String tenSanPhamCanTim) {
+        String tenSanPhamTimKiem = tenSanPhamCanTim.toLowerCase(); // Chuyển về chữ thường
+
+        return danhSachDaMua.stream()
+            .filter(sp -> sp.getTenSP().toLowerCase().contains(tenSanPhamTimKiem))
+            .collect(Collectors.toList());
+    }
+	
+	//Phuong thuc tinh tong tien trong danh sach da mua
+	public double tinhTongTien() {
+        double tongTien = 0;
+        for (SanPham sp : danhSachDaMua) {
+            tongTien += sp.getGiaTien() * sp.getSoLuong();
+        }
+        return tongTien;
+    }
+
+	public List<SanPham> getDanhSachDaMua() {
+		return danhSachDaMua;
+	}
+
+	public void setDanhSachDaMua(List<SanPham> danhSachDaMua) {
+		this.danhSachDaMua = danhSachDaMua;
+	}
+
+	//Phương thức sắp xếp sản phẩm theo giá giảm dần
+	public void sapXepGiamTheoGia() {
+		this.ds.sort((sp1, sp2) -> {
+			int k = sp1.getGiaTien() - sp2.getGiaTien();
+
+			if (k > 0)
+				return -1;
+			else if (k < 0)
+				return 1;
+			return 0;
+		});
+	}
+
+	public ArrayList<SanPham> getDs() {
+		return ds;
+	}
+
+	public void setDs(ArrayList<SanPham> ds) {
+		this.ds = ds;
+	}
+}

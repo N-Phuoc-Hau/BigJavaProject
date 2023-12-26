@@ -1,7 +1,7 @@
-Ten SP: Caffee, Gia Tien: 15000, So Luong: 10, Ngay Tao: 25/10/2023 05:05
-Ten SP: Tra Dao Cam Xa, Gia Tien: 15000, So Luong: 10, Ngay Tao: 25/10/2023 05:05
-Ten SP: Caffee Sua, Gia Tien: 25000, So Luong: 10, Ngay Tao: 25/10/2023 05:05
-Ten SP: Tra Xanh, Gia Tien: 30000, So Luong: 10, Ngay Tao: 25/10/2023 05:05
-Ten SP: Bac Xiu, Gia Tien: 25000, So Luong: 10, Ngay Tao: 25/10/2023 05:05
-Ten SP: MatCha Da Xay, Gia Tien: 35000, So Luong: 10, Ngay Tao: 25/10/2023 05:05
-Ten SP: Caffee Sua Tuoi, Gia Tien: 18000, So Luong: 10, Ngay Tao: 25/10/2023 05:05
+Ten SP: Caffee, Gia Tien: 15000, So Luong: 8, Ngay Tao: 25/10/2023 11:45
+Ten SP: Tra Dao Cam Xa, Gia Tien: 15000, So Luong: 10, Ngay Tao: 25/10/2023 11:45
+Ten SP: Caffee Sua, Gia Tien: 25000, So Luong: 6, Ngay Tao: 25/10/2023 11:45
+Ten SP: Tra Xanh, Gia Tien: 30000, So Luong: 10, Ngay Tao: 25/10/2023 11:45
+Ten SP: Bac Xiu, Gia Tien: 25000, So Luong: 10, Ngay Tao: 25/10/2023 11:45
+Ten SP: MatCha Da Xay, Gia Tien: 35000, So Luong: 10, Ngay Tao: 25/10/2023 11:45
+Ten SP: Caffee Sua Tuoi, Gia Tien: 18000, So Luong: 10, Ngay Tao: 25/10/2023 11:45

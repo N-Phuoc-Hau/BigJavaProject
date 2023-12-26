@@ -3,6 +3,7 @@
 >>>>>>>=779aa0c7d2250833686da7f843ad439adcda2e13
 eclipse.preferences.version=1
 encoding//src/BaiTapLonOOP/ChamSocKhachHang.java=UTF-8
+encoding//src/BaiTapLonOOP/GiaoDien.java=UTF-8
 encoding//src/BaiTapLonOOP/KhachHang.java=UTF-8
 encoding//src/BaiTapLonOOP/Main.java=UTF-8
 encoding//src/BaiTapLonOOP/MainHau.java=UTF-8
@@ -15,5 +16,6 @@ encoding//src/BaiTapLonOOP/data/DSBanHang.txt=UTF-8
 encoding//src/BaiTapLonOOP/data/KhachHang.txt=UTF-8
 encoding//src/BaiTapLonOOP/data/NhanVienFT.txt=UTF-8
 encoding//src/BaiTapLonOOP/data/NhanVienPT.txt=UTF-8
+encoding//src/BaiTapLonOOP/data/TichDiem.txt=UTF-8
 encoding//src/BaiTapLonOOP/dataa/KhachHang.txt=UTF-8
 encoding//src/BaiTapLonOOP/dataa/NhanVienFT.txt=UTF-8

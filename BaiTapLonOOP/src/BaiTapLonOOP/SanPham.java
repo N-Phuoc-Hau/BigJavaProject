@@ -2,13 +2,13 @@ package BaiTapLonOOP;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Scanner;
+//import java.util.Scanner;
 import java.util.Date;
 
 public class SanPham {
 	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 	private static final SimpleDateFormat H = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-	private static final Scanner SC = new Scanner(System.in);
+//	private static final Scanner SC = new Scanner(System.in);
 	private static int dem;
 	private int maSP = ++dem;
 	private String tenSP;

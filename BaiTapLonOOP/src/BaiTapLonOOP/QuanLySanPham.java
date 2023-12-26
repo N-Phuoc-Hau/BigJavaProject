@@ -1,6 +1,5 @@
 package BaiTapLonOOP;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -19,7 +18,7 @@ public class QuanLySanPham {
 	private static final Scanner SC = new Scanner(System.in);
 	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 	private List<SanPham> danhSachDaMua; // Danh sách sản phẩm đã mua
-	private Object tongGiaTriHoaDon;
+//	private Object tongGiaTriHoaDon;
 
 	//Phương thức khởi tạo
 	public QuanLySanPham() {
@@ -135,7 +134,7 @@ public class QuanLySanPham {
 	
 	//Phương thức ghi tập tin danh sách sản phẩm bán được
 			public void ghiTapTinDSSPBD(String duongDan,String h) throws IOException, ParseException {
-				try (FileWriter writer = new FileWriter(duongDan)) {
+				try (FileWriter writer = new FileWriter(duongDan,true)) {
 					for (SanPham sp : danhSachDaMua) {
 						// Ghi thông tin sản phẩm vào tập tin sử dụng toString
 						writer.write(sp.toStringSPBD(h) + System.lineSeparator());
@@ -214,16 +213,13 @@ public class QuanLySanPham {
 
 	// Phương thức để nhập số lượng muốn mua và tính số sản phẩm còn lại
 	public void muaSanPham(String d) throws ParseException {
-		Scanner scanner = new Scanner(System.in);
-		
-		
 		
 		// Hiển thị danh sách sản phẩm
 		// hienThiDanhSachSanPham();
 
 		// Nhập mã sản phẩm
 		System.out.print("Nhập mã sản phẩm muốn mua: ");
-		int maSanPham = scanner.nextInt();
+		int maSanPham = SC.nextInt();
 
 		// Tìm sản phẩm theo mã
 		SanPham sanPham = timKiem(maSanPham);
@@ -235,7 +231,7 @@ public class QuanLySanPham {
 
 			// Nhập số lượng muốn mua
 			System.out.print("Nhập số lượng muốn mua: ");
-			int soLuongMua = scanner.nextInt();
+			int soLuongMua = SC.nextInt();
 
 			if (soLuongMua > 0 && soLuongMua <= sanPham.getSoLuong()) {
 				// Giảm số lượng sản phẩm
@@ -243,7 +239,7 @@ public class QuanLySanPham {
 				System.out.println("Đã mua " + soLuongMua + " sản phẩm "
 						+ sanPham.getTenSP());
 				// Thêm sản phẩm vào danh sách đã mua
-				String clear = scanner.nextLine();
+				SC.nextLine();
 				
                 System.out.println("Đã thêm vào danh sách đã mua của khách hàng.");
 				System.out.println("-----------------------------------");
