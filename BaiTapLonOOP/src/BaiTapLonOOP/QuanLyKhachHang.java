@@ -47,6 +47,7 @@ public class QuanLyKhachHang {
 		for (int i = 1; i <= danhSachKH.size(); i++) {
 			if (danhSachKH.get(i).getHoTen().equals(hoTen)) {
 				danhSachKH.get(i).hienThi();
+				return;
 			}
 		}
 		System.out.println("Không tìm thấy khách hàng có tên: " + hoTen);
@@ -337,6 +338,7 @@ public class QuanLyKhachHang {
 
         if (khachHangDatBan != null) {
             System.out.print("Nhập thông tin đặt bàn: ");
+            SC.nextLine();
             String thongTinDatBan = SC.nextLine();
 
             danhSachDatBan.put(khachHangDatBan.getMaKH(), thongTinDatBan);

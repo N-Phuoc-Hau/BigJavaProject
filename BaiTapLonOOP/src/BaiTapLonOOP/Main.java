@@ -300,6 +300,8 @@ public class Main {
 				do {
 
 					GiaoDien.menuKH();
+
+					System.out.print("Nhập lựa chọn của bạn: ");
 					chon3 = SC.nextInt();
 					switch (chon3) {
 					case 1:
@@ -378,12 +380,6 @@ public class Main {
 						danhSachKH.hienThiDatBan();
 						break;
 					case 8:
-						cs.tinhToanGiamGia(danhSachKH);
-						break;
-					case 9:
-						cs.tinhToanTichDiem(danhSachKH);
-						break;
-					case 10:
 						cs.xuLyFeedBack(danhSachKH);
 						break;
 					case 0:
@@ -396,11 +392,11 @@ public class Main {
 					}
 					if (chon3 == 0)
 						break;
-				} while (chon3 > 1 || chon3 < 10);
+				} while (chon3 > 1 || chon3 < 8);
 				System.out.println("Đã thực hiện công việc 3");
 				break;
 			case 0:
-				System.out.println("Chương trình kết thúc.");
+				System.out.println("Chương trình kết thúc.\n Cảm ơn đã sử dụng");
 				return;
 			default:
 				// Hiển thị thông báo nếu lựa chọn không hợp lệ

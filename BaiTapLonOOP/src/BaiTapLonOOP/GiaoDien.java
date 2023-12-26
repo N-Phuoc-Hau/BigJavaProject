@@ -92,10 +92,8 @@ public class GiaoDien {
 		System.out.println("4. SỬA THÔNG TIN KHÁCH HÀNG");
 		System.out.println("5. TÌM KIẾM KHÁCH HÀNG");
 		System.out.println("6. SẮP XẾP KHÁCH HÀNG");
-		System.out.println("7. Đặt bàn");
-		System.out.println("8. TẠO GIẢM GIÁ CHO KHÁCH HÀNG");
-		System.out.println("9. TÍCH ĐIỂM CHO KHÁCH HÀNG");
-		System.out.println("10. FEEDBACK CỦA KHÁCH HÀNG");
+		System.out.println("7. ĐẶT BÀN");
+		System.out.println("8. FEEDBACK CỦA KHÁCH HÀNG");
 		System.out.println("0. QUAY LAI");
 	}
 
