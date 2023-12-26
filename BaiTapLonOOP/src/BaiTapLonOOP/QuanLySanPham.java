@@ -78,12 +78,6 @@ public class QuanLySanPham {
 		SC.nextLine();
 		System.out.print("Nhap so luong san pham: ");
 		int l = SC.nextInt();
-		ChamSocKhachHang khachHang = null;
-		// Kiểm tra xem khách hàng có phải là Thành viên (ChamSocKhachHang) không
-	    if (khachHang instanceof ChamSocKhachHang) {
-	        // Gọi phương thức tích điểm từ ChamSocKhachHang
-	        ((ChamSocKhachHang) khachHang).tichDiem();
-	    }
 		System.out.println("-----------------------------------");
 
 		try {
