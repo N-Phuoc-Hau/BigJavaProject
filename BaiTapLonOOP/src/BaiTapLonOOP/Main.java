@@ -379,9 +379,6 @@ public class Main {
 						danhSachKH.hienThiDatBan();
 						break;
 					case 8:
-<<<<<<< HEAD
-						cs.xuLyFeedBack(danhSachKH);
-=======
 						danhSachKH.tinhToanGiamGia(danhSachKH);
 						break;
 					case 9:
@@ -389,7 +386,7 @@ public class Main {
 						break;
 					case 10:
 						danhSachKH.xuLyFeedBack(danhSachKH);
->>>>>>> b6cb05154935030d450a9e42f629c99a58c95683
+
 						break;
 					case 0:
 						System.out

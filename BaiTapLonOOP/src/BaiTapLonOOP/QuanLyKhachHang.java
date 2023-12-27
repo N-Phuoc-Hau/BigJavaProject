@@ -54,12 +54,8 @@ public class QuanLyKhachHang {
 		for (int i = 0; i < danhSachKH.size(); i++) {
 			if (danhSachKH.get(i).getHoTen().equals(hoTen)) {
 				danhSachKH.get(i).hienThi();
-<<<<<<< HEAD
-				return;
-=======
 				found = true;
 				break;
->>>>>>> b6cb05154935030d450a9e42f629c99a58c95683
 			}
 		}
 		if (!found) {
@@ -337,17 +333,10 @@ public class QuanLyKhachHang {
 			System.out.println("Lựa chọn không hợp lệ.");
 			return;
 		}
-
-<<<<<<< HEAD
         if (khachHangDatBan != null) {
             System.out.print("Nhập thông tin đặt bàn: ");
             SC.nextLine();
             String thongTinDatBan = SC.nextLine();
-=======
-		if (khachHangDatBan != null) {
-			System.out.print("Nhập thông tin đặt bàn: ");
-			String thongTinDatBan = SC.nextLine();
->>>>>>> b6cb05154935030d450a9e42f629c99a58c95683
 
 			danhSachDatBan.put(khachHangDatBan.getMaKH(), thongTinDatBan);
 

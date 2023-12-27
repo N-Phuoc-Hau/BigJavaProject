@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 3;Lê Văn C;Nở Mập bán dở quá
+4;Lý Thái D;Anh Phát Mập
+=======
+5;Ngô Phước E;	Giá cả ổn nhưng dịch vụ chưa được!
+5;Ngô Phước E;	Tuyệt vời
+1;Nguyễn Văn A;ádasdasd
+>>>>>>> b6cb05154935030d450a9e42f629c99a58c95683
