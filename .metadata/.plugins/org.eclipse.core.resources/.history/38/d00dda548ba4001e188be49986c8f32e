@@ -1,38 +1,45 @@
 package BaiTapLonOOP;
 
-import java.util.Scanner;
-
 
 public class ChamSocKhachHang {
 		private NhanVien nv;
-		private static final Scanner SC = new Scanner(System.in);
+		public String getComplaint() {
+			return complaint;
+		}
+
+		public void setComplaint(String complaint) {
+			this.complaint = complaint;
+		}
+
+		public String getAnswer() {
+			return answer;
+		}
+
+		public void setAnswer(String answer) {
+			this.answer = answer;
+		}
+
+		private String complaint;
+		private String answer;
 		  // Hàm giải quyết khiếu nại của khách hàng
-		  public void resolveCustomerComplaint(KhachHang kh) {
+		  public void resolveCustomerComplaint(String complaint) {
 		    // Xác định loại khiếu nại
-		   System.out.print("\nNhập loại khiếu nại:\n 1.Chất lượng sản phẩm \n 2.dịch vụ khách hàng kém");
-		   Integer complaintType = Integer.parseInt(SC.nextLine());
+		    String complaintType = getComplaint(complaint);
+
 		    // Xử lý khiếu nại
 		    switch (complaintType) {
-		      case 1:
+		      case "sản phẩm bị lỗi":
 		        // Gửi sản phẩm thay thế cho khách hàng
-		    	  System.out.println("Cảm ơn quý khách đã sử dụng dịch vụ chúng tôi sẽ cố gắng khắc phục!!");
 		        break;
-		      case 2:
+		      case "dịch vụ khách hàng kém":
 		        // Xin lỗi khách hàng và đề nghị bồi thường
-		    	  System.out.println("Cảm ơn quý khách đã sử dụng dịch vụ chúng tôi sẽ cố gắng khắc phục!!");
 		        break;
 		      default:
 		        // Trả lời khách hàng rằng chúng tôi sẽ xem xét khiếu nại
 		        break;
 		    }
 		  }
-		  public void cauHoiKhachHang(KhachHang kh) {
-			  // Tìm kiếm câu trả lời cho câu hỏi
-			  String question = getAnswer(question);
 
-			  // Trả lời khách hàng
-			  nv.traLoiCauHoi(kh, question, answer);
-		  }
 		  // Hàm trả lời câu hỏi của khách hàng
 		  public void answerCustomerQuestion(String question) {
 			  // Tìm kiếm câu trả lời cho câu hỏi
@@ -40,8 +47,13 @@ public class ChamSocKhachHang {
 
 			  // Trả lời khách hàng
 			  nv.traLoiCauHoi(kh, question, answer);
-		  }
+		}
 
+		  // Hàm gửi email hoặc thư cho khách hàng
+		  public void sendEmailOrLetter(String customerName, String subject, String message) {
+		    // Gửi email hoặc thư cho khách hàng
+		    nv.guiEmailHoacThongBao(kh, subject, message);
+		  }
 
 		  // Hàm theo dõi lịch sử giao dịch của khách hàng
 		  public void trackCustomerTransactionHistory(String customerName) {

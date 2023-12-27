@@ -8,11 +8,16 @@ public class Main {
 	private static final Scanner SC = new Scanner(System.in);
 
 	public static void main(String[] args) throws ParseException, IOException {
-		KhachHang kh1 = new KhachHang("Nguyễn Văn A", "03/08/2005", "123456789", false,0);
-		KhachHang kh2 = new KhachHang("Trần Thị B", "03/09/2000", "987654321", false,0);
-		KhachHang kh3 = new KhachHang("Lê Văn C", "07/08/2010", "987654321", true, 7);
-		KhachHang kh4 = new KhachHang("Lý Thái D", "01/02/2007", "012345679", true, 2);
-		KhachHang kh5 = new KhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 4);
+		KhachHang kh1 = new KhachHang("Nguyễn Văn A", "03/08/2005",
+				"123456789", false,4);
+		KhachHang kh2 = new KhachHang("Trần Thị B", "03/09/2000", "987654321",
+				false,0);
+		KhachHang kh3 = new KhachHang("Lê Văn C", "07/08/2010",
+				"987654321", true, 0);
+		KhachHang kh4 = new KhachHang("Lý Thái D", "01/02/2007",
+				"012345679", true, 0);
+		KhachHang kh5 = new KhachHang("Ngô Phước E", "06/06/2004",
+				"07986456123", true, 0);
 		QuanLyNhanVien qlnv = new QuanLyNhanVien();
 		QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
 		QuanLySanPham ql = new QuanLySanPham();
@@ -74,7 +79,8 @@ public class Main {
 					case 3:
 						System.out.println("3. SUA DOI NANG CAO");
 						System.out.println("1. Sửa đổi lương");
-						System.out.println("2. Sửa đổi giờ làm việc & Ngày nghỉ phép");
+						System.out
+								.println("2. Sửa đổi giờ làm việc & Ngày nghỉ phép");
 						System.out.println("3. Sửa đổi Chức vụ");
 						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
 						int chonnv2 = SC.nextInt();
@@ -318,13 +324,35 @@ public class Main {
 						danhSachKH.themKhachHang();
 						break;
 					case 3:
-						danhSachKH.xoaKhachHang();
+						System.out.println("1. Xóa theo mã");
+						System.out.println("2. Xóa theo tên");
+						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
+						int chonkh3 = SC.nextInt();
+						SC.nextLine();
+						if (chonkh3 == 1) {
+							danhSachKH.xoaKHTheoMa();
+						} else if (chonkh3 == 2) {
+							danhSachKH.xoaKHTheoTen();
+						} else {
+							System.out.println("Lựa chọn không hợp lệ.");
+						}
 						break;
 					case 4:
 						danhSachKH.suaThongTinKH();
 						break;
 					case 5:
-						danhSachKH.timKiemKH();
+						System.out.println("1. Tìm kiếm theo mã");
+						System.out.println("2. Tìm kiếm theo tên");
+						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
+						int chonkh5 = SC.nextInt();
+						SC.nextLine();
+						if (chonkh5 == 1) {
+							danhSachKH.timKiemTheoMaKH();
+						} else if (chonkh5 == 2) {
+							danhSachKH.timKiemTheoTenKH();
+						} else {
+							System.out.println("Lựa chọn không hợp lệ.");
+						}
 						break;
 					case 6:
 						System.out.println("1. Sắp xếp theo mã");
@@ -351,7 +379,8 @@ public class Main {
 						danhSachKH.hienThiDatBan();
 						break;
 					case 8:
-<<<<<<< Updated upstream
+<<<<<<< HEAD
+						cs.xuLyFeedBack(danhSachKH);
 =======
 						danhSachKH.tinhToanGiamGia(danhSachKH);
 						break;
@@ -359,14 +388,16 @@ public class Main {
 						danhSachKH.tinhToanTichDiem(danhSachKH);
 						break;
 					case 10:
->>>>>>> Stashed changes
 						danhSachKH.xuLyFeedBack(danhSachKH);
+>>>>>>> b6cb05154935030d450a9e42f629c99a58c95683
 						break;
 					case 0:
-						System.out.println("Cảm ơn bạn đã sử dụng chương trình.");
+						System.out
+								.println("Cảm ơn bạn đã sử dụng chương trình.");
 						break;
 					default:
-						System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+						System.out
+								.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
 					}
 					if (chon3 == 0)
 						break;
