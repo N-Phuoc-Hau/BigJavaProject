@@ -30,10 +30,6 @@ public class KhachHang extends Nguoi {
 		this.maKH = maKH;
 	}
 
-	public boolean supportsGiamGia() {
-		return false; // Override this method in ChamSocKhachHang class
-	}
-
 	public boolean isThanhVien() {
 		return isThanhVien;
 	}
@@ -46,8 +42,7 @@ public class KhachHang extends Nguoi {
 
 	}
 
-	public KhachHang(String hoTen, String ngaySinh, String soDT,
-			boolean isThanhVien, int diem) throws ParseException {
+	public KhachHang(String hoTen, String ngaySinh, String soDT, boolean isThanhVien, int diem) throws ParseException {
 		super(hoTen, ngaySinh, soDT);
 		this.isThanhVien = isThanhVien;
 		this.diem = diem;
@@ -72,7 +67,6 @@ public class KhachHang extends Nguoi {
 	public void taoGiamGia() {
 		System.out.print("Nhập tổng giá trị hóa đơn: ");
 		double tongGiaTriHoaDon = SC.nextDouble();
-
 		if (tongGiaTriHoaDon >= 300000) {
 			double giamGia = tongGiaTriHoaDon * 0.1;
 			tongGiaTriHoaDon -= giamGia;
@@ -86,17 +80,13 @@ public class KhachHang extends Nguoi {
 	public void tichDiem() throws IOException {
 		System.out.print("Nhập tổng giá trị hóa đơn: ");
 		double tongGiaTriHoaDon = SC.nextDouble();
-
 		int diemTichLuy = (int) (tongGiaTriHoaDon / 50000);
 		diem += diemTichLuy;
-
 		while (diem >= 15) {
 			int soSanPhamMienPhi = diem / 15;
 			diem %= 15;
-			System.out.println("Bạn được thưởng " + soSanPhamMienPhi
-					+ " sản phẩm miễn phí dưới 100,000 đồng.");
+			System.out.println("Bạn được thưởng " + soSanPhamMienPhi + " sản phẩm miễn phí dưới 100,000 đồng.");
 		}
-
 		if (diemTichLuy > 0) {
 			System.out.println("Đã tích " + diemTichLuy
 					+ " điểm cho khách hàng:");
@@ -108,11 +98,8 @@ public class KhachHang extends Nguoi {
 	}
 
 	public void luuDiemVaoTepTin() throws IOException {
-		try (FileWriter writer = new FileWriter(
-				"src/BaiTapLonOOP/data/TichDiem.txt", true)) {
-			writer.write(getMaKH() + ";" + getHoTen() + ";" + getNgaySinh()
-					+ ";" + getSoDT() + ";" + isThanhVien() + ";" + diem + "\n");
-			System.out.println("Đã lưu điểm vào tệp tin.");
+		try (FileWriter writer = new FileWriter("src/BaiTapLonOOP/data/TichDiem.txt", true)) {
+			writer.write(getMaKH() + " - " + getHoTen() + " - " + F.format(getNgaySinh()) + " - " + getSoDT() + " - " + isThanhVien() + " - " + diem + "\n");
 		} catch (IOException e) {
 			System.err.println("Lỗi khi ghi tệp tin: " + e.getMessage());
 			throw e;
@@ -120,31 +107,26 @@ public class KhachHang extends Nguoi {
 	}
 	
 	// Gửi Feedback
-		public void feedBack() throws IOException {
-			System.out.print("Nhập feedback của bạn: ");
-			String feedback = SC.nextLine();
-
-			System.out.println("Feedback của bạn: " + feedback);
-			System.out
-					.println("Cảm ơn bạn đã luôn yêu quý chúng tôi, luôn ủng hộ và góp ý.");
-
-			luuFeedbackVaoTepTin(feedback);
-		}
+	public void feedBack() throws IOException {
+		System.out.print("Nhập feedback của bạn: ");
+		String feedback = SC.nextLine();
+		System.out.println("Feedback của bạn: " + feedback);
+		System.out.println("Cảm ơn bạn đã luôn yêu quý chúng tôi, luôn ủng hộ và góp ý.");
+		luuFeedbackVaoTepTin(feedback);
+	}
 		
-		private void luuFeedbackVaoTepTin(String feedback) throws IOException {
-			try (FileWriter writer = new FileWriter(
-					"src/BaiTapLonOOP/data/FeedBack.txt", true)) {
-				writer.write(getMaKH() + ";" + getHoTen() + ";" + feedback + "\n");
-				System.out.println("Đã lưu feedback vào tệp tin.");
-			} catch (IOException e) {
-				System.err.println("Lỗi khi ghi tệp tin: " + e.getMessage());
-				throw e;
-			}
+	private void luuFeedbackVaoTepTin(String feedback) throws IOException {
+		try (FileWriter writer = new FileWriter("src/BaiTapLonOOP/data/FeedBack.txt", true)) {
+			writer.write(getMaKH() + " - " + getHoTen() + " - " + feedback + "\n");
+			System.out.println("Đã lưu feedback vào tệp tin.");
+		} catch (IOException e) {
+			System.err.println("Lỗi khi ghi tệp tin: " + e.getMessage());
+			throw e;
 		}
+	}
 
 	public String toString() {
-		return maKH + ";" + hoTen + ";" + ngaySinh + ";" + soDT + ";"
-				+ isThanhVien + ";" + diem;
+		return maKH + ";" + hoTen + ";" + ngaySinh + ";" + soDT + ";" + isThanhVien + ";" + diem;
 	}
 
 }

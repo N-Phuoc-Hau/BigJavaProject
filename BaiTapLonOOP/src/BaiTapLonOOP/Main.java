@@ -324,35 +324,13 @@ public class Main {
 						danhSachKH.themKhachHang();
 						break;
 					case 3:
-						System.out.println("1. Xóa theo mã");
-						System.out.println("2. Xóa theo tên");
-						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
-						int chonkh3 = SC.nextInt();
-						SC.nextLine();
-						if (chonkh3 == 1) {
-							danhSachKH.xoaKHTheoMa();
-						} else if (chonkh3 == 2) {
-							danhSachKH.xoaKHTheoTen();
-						} else {
-							System.out.println("Lựa chọn không hợp lệ.");
-						}
+						danhSachKH.xoaKhachHang();
 						break;
 					case 4:
 						danhSachKH.suaThongTinKH();
 						break;
 					case 5:
-						System.out.println("1. Tìm kiếm theo mã");
-						System.out.println("2. Tìm kiếm theo tên");
-						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
-						int chonkh5 = SC.nextInt();
-						SC.nextLine();
-						if (chonkh5 == 1) {
-							danhSachKH.timKiemTheoMaKH();
-						} else if (chonkh5 == 2) {
-							danhSachKH.timKiemTheoTenKH();
-						} else {
-							System.out.println("Lựa chọn không hợp lệ.");
-						}
+						danhSachKH.timKiemKH();
 						break;
 					case 6:
 						System.out.println("1. Sắp xếp theo mã");
@@ -389,12 +367,10 @@ public class Main {
 
 						break;
 					case 0:
-						System.out
-								.println("Cảm ơn bạn đã sử dụng chương trình.");
+						System.out.println("Cảm ơn bạn đã sử dụng chương trình.");
 						break;
 					default:
-						System.out
-								.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+						System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
 					}
 					if (chon3 == 0)
 						break;

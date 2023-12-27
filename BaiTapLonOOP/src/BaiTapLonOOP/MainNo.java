@@ -17,16 +17,7 @@ public class MainNo {
 		
 			danhSachKH.them(kh1,kh2,kh3,kh4, kh5);
 			
-//			System.out.println("DS SAU KHI DOC FILE");
-//			String duongDanKH = "src/BaiTapLonOOP/data/KhachHang.txt";
-	//		danhSachKH.docTapTinKH(duongDanKH);
-	//		danhSachKH.hienThi();
-			//String duongDanGhi = "src/BaiTapLonOOP/data/KhachHang.txt";
-	//		danhSachKH.ghiTapTin(duongDan);
-//			danhSachKH.themKhachHang();
-//			danhSachKH.hienThi();
 			int chon;
-			
 			
 			while (true) {
 				System.out.println("========QUẢN LÝ KHÁCH HÀNG========");
@@ -39,7 +30,7 @@ public class MainNo {
 				System.out.println("7. TẠO GIẢM GIÁ CHO KHÁCH HÀNG");
 				System.out.println("8. TÍCH ĐIỂM CHO KHÁCH HÀNG");
 				System.out.println("9. FEEDBACK CỦA KHÁCH HÀNG");
-				System.out.println("10. Đặt bàn");
+				System.out.println("10. ĐẶT BÀN");
 				System.out.println("0. QUAY LAI");
 				System.out.print("Nhập lựa chọn của bạn: ");
 
@@ -70,39 +61,13 @@ public class MainNo {
 					danhSachKH.themKhachHang();
 					break;				
 				case 3:
-					System.out.println("1. Xóa theo mã");
-					System.out.println("2. Xóa theo tên");
-					System.out.print(">>>>>Nhập lựa chọn của bạn: ");
-					int chon3 = SC.nextInt();
-                    SC.nextLine(); 
-					if(chon3==1){
-						danhSachKH.xoaKHTheoMa();						
-					}
-					else if(chon3 == 2){
-						danhSachKH.xoaKHTheoTen();						
-					}
-					else {
-						System.out.println("Lựa chọn không hợp lệ.");
-					}
+					danhSachKH.xoaKhachHang();
 					break;					
 				case 4:
 					danhSachKH.suaThongTinKH();
 					break;
 				case 5:
-					System.out.println("1. Tìm kiếm theo mã");
-					System.out.println("2. Tìm kiếm theo tên");
-					System.out.print(">>>>>Nhập lựa chọn của bạn: ");
-					int chon5 = SC.nextInt();
-                    SC.nextLine(); 
-					if(chon5==1){
-						danhSachKH.timKiemTheoMaKH();						
-					}
-					else if(chon5 == 2){
-						danhSachKH.timKiemTheoTenKH();						
-					}
-					else {
-						System.out.println("Lựa chọn không hợp lệ.");
-					}
+					danhSachKH.timKiemKH();
 					break;
 				case 6:
 					System.out.println("1. Sắp xếp theo mã");
