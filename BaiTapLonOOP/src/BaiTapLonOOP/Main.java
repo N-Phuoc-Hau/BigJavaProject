@@ -135,11 +135,11 @@ public class Main {
 					switch (choice1) {
 					case 1:
 						ql.nhapSanPham(DATE);
-						System.out.print("\nĐã thực hiện!");
+						System.out.print("\nĐã thực hiện!\n");
 						break;
 					case 2:
 						ql.hienThi();
-						System.out.println("\nĐã thực hiện!");
+						System.out.println("\nĐã thực hiện!\n");
 						break;
 					case 3:
 						double tongSoLuong = ql.tinhTongSoLuong();
