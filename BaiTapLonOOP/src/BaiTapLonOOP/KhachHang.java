@@ -115,7 +115,7 @@ public class KhachHang extends Nguoi {
 		luuFeedbackVaoTepTin(feedback);
 	}
 		
-	private void luuFeedbackVaoTepTin(String feedback) throws IOException {
+	public void luuFeedbackVaoTepTin(String feedback) throws IOException {
 		try (FileWriter writer = new FileWriter("src/BaiTapLonOOP/data/FeedBack.txt", true)) {
 			writer.write(getMaKH() + " - " + getHoTen() + " - " + feedback + "\n");
 			System.out.println("Đã lưu feedback vào tệp tin.");
@@ -124,6 +124,7 @@ public class KhachHang extends Nguoi {
 			throw e;
 		}
 	}
+	
 
 	public String toString() {
 		return maKH + ";" + hoTen + ";" + ngaySinh + ";" + soDT + ";" + isThanhVien + ";" + diem;

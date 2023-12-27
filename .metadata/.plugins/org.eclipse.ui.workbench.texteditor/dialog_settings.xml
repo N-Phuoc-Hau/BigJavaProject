@@ -6,18 +6,24 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="of" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="of"/>
-			<item value="cesof"/>
-			<item value="in"/>
-			<item value="intan"/>
+			<item value="     sc.nextLine()"/>
+			<item value="sc.nextLine()"/>
+			<item value="   sc.nextLine()"/>
+			<item value=" sc.nextLine()"/>
+			<item value="sc.nextInt();"/>
+			<item value="scnextInt();"/>
+			<item value="Integer.parseInt(SC.nextLine());"/>
+			<item value="SC.nextInt();"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Integer.parseInt(sc.nextLine());"/>
+			<item value="Integer.parseInt(SC.nextLine());"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

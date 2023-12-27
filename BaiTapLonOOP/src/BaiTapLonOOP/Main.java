@@ -12,10 +12,11 @@ public class Main {
 		KhachHang kh2 = new KhachHang("Trần Thị B", "03/09/2000", "987654321", false,0);
 		KhachHang kh3 = new KhachHang("Lê Văn C", "07/08/2010", "987654321", true, 7);
 		KhachHang kh4 = new KhachHang("Lý Thái D", "01/02/2007", "012345679", true, 2);
-		KhachHang kh5 = new KhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 4);
+		KhachHang kh5 = new KhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 20);
 		QuanLyNhanVien qlnv = new QuanLyNhanVien();
 		QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
 		QuanLySanPham ql = new QuanLySanPham();
+		ChamSocKhachHang cskh = new ChamSocKhachHang();
 		String duongDan = "src/BaiTapLonOOP/data/danhsachsanpham.txt";
 		danhSachKH.them(kh1, kh2, kh3, kh4, kh5);
 		qlnv.docTapTinFT();
@@ -23,6 +24,7 @@ public class Main {
 		ql.docTapTin(duongDan);
 		int chon1, chon3;
 		int choice;
+		
 		GiaoDien.khoa();
 		System.out.println("======QUÁN CÀ PHÊ NHỎ========");
 		// Đọc lựa chọn từ người dùng
@@ -33,7 +35,7 @@ public class Main {
 			GiaoDien.giaoDien();
 
 			// Đọc lựa chọn từ người dùng
-			choice = SC.nextInt();
+			choice = Integer.parseInt(SC.nextLine());
 
 			// Xử lý lựa chọn sử dụng switch-case
 			switch (choice) {
@@ -42,7 +44,7 @@ public class Main {
 					// Thực hiện công việc 1
 					GiaoDien.menuNV();
 					System.out.print("Nhập lựa chọn của bạn: ");
-					chon1 = SC.nextInt();
+					chon1 = Integer.parseInt(SC.nextLine());
 					switch (chon1) {
 					case 1:
 						System.out.println("1. Hiển thị toàn bộ nhân viên");
@@ -51,8 +53,7 @@ public class Main {
 						System.out
 								.println("4. Hiển thị theo giới tính nhân viên");
 						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
-						int chonnv1 = SC.nextInt();
-						SC.nextLine();
+						int chonnv1 = Integer.parseInt(SC.nextLine());
 						if (chonnv1 == 1) {
 							qlnv.hienThi();
 						} else if (chonnv1 == 2) {
@@ -77,8 +78,7 @@ public class Main {
 						System.out.println("2. Sửa đổi giờ làm việc & Ngày nghỉ phép");
 						System.out.println("3. Sửa đổi Chức vụ");
 						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
-						int chonnv2 = SC.nextInt();
-						SC.nextLine();
+						int chonnv2 = Integer.parseInt(SC.nextLine());
 						if (chonnv2 == 1) {
 							qlnv.sualuong();
 						} else if (chonnv2 == 2) {
@@ -90,8 +90,18 @@ public class Main {
 						}
 						break;
 					case 4:
-						System.out.println("4. SAP XEP NHAN VIEN THEO TEN");
-						qlnv.sapXepTheoTen();
+						System.out.println("4. SAP XEP NHAN VIEN");
+						System.out.println("1. Sắp xếp theo tên");
+						System.out.println("2. Sắp xếp theo loại");
+						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
+						int chonnv3 = Integer.parseInt(SC.nextLine());
+						if (chonnv3 == 1) {
+							qlnv.sapXepTheoTen();
+						} else if (chonnv3 == 2) {
+							qlnv.sapXepTheoLoai();
+						} else {
+							System.out.println("Lựa chọn không hợp lệ.");
+						}
 						break;
 					case 5:
 						System.out.println("5. THEM NHAN VIEN");
@@ -120,7 +130,7 @@ public class Main {
 				do {
 					GiaoDien.menuSP();
 					System.out.print("Nhập lựa chọn của bạn: ");
-					choice1 = SC.nextInt();
+					choice1 = Integer.parseInt(SC.nextLine());
 					int luachon1;
 					switch (choice1) {
 					case 1:
@@ -141,25 +151,24 @@ public class Main {
 							System.out.println("--->>>>>>>Xoa theo ten: ");
 							System.out
 									.print("->>>Nhap ten san pham muon xoa: ");
-							SC.nextLine();
 							String b = SC.nextLine();
 							ql.xoaSPTheoTen(b);
 							ql.hienThi();
 							System.out
 									.print("Đã thực hiện\nBan muon xoa tiep khong(1/0)?: ");
-							luachon1 = SC.nextInt();
+							luachon1 = Integer.parseInt(SC.nextLine());
 						} while (luachon1 == 1);
 						break;
 					case 5:
 						do {
 							System.out.print("Nhap ma san pham can tim: ");
-							int s = SC.nextInt();
+							int s = Integer.parseInt(SC.nextLine());
 							SanPham kqTimKiem = ql.timKiem(s);
 							if (kqTimKiem != null)
 								kqTimKiem.hienThi();
 							System.out
 									.print("Đã thực hiện\nBan muon tim kiem tiep khong(1/0)?: ");
-							luachon1 = SC.nextInt();
+							luachon1 = Integer.parseInt(SC.nextLine());
 						} while (luachon1 == 1);
 						break;
 					case 6:
@@ -167,15 +176,15 @@ public class Main {
 							System.out
 									.println("--->>>>>>>Cap nhat gia san pham: ");
 							System.out.print("->>>>Nhap ma san pham: ");
-							int masanpham = SC.nextInt();
+							int masanpham = Integer.parseInt(SC.nextLine());
 							System.out
 									.print("->>>>Nhap gia moi cua san pham: ");
-							int giaMoi = SC.nextInt();
+							int giaMoi = Integer.parseInt(SC.nextLine());
 
 							ql.capNhatGiaTien(masanpham, giaMoi);
 							System.out
 									.print("Đã thực hiện\nBan muon cap nhat gia tiep khong(1/0)?: ");
-							luachon1 = SC.nextInt();
+							luachon1 = Integer.parseInt(SC.nextLine());
 						} while (luachon1 == 1);
 						break;
 					case 0:
@@ -197,8 +206,7 @@ public class Main {
 				do {
 					GiaoDien.menuHD();
 					System.out.print("Nhập lựa chọn của bạn: ");
-					choice2 = SC.nextInt();
-					SC.nextLine();
+					choice2 = Integer.parseInt(SC.nextLine());
 
 					int luachon2 = 0;
 					switch (choice2) {
@@ -208,7 +216,7 @@ public class Main {
 							ql.muaSanPham(DATE);
 							System.out
 									.print("Đã thực hiện\nBan muon mua tiep khong(1/0)?: ");
-							luachon2 = SC.nextInt();
+							luachon2 = Integer.parseInt(SC.nextLine());
 							if (luachon2 == 0)
 								break;
 						}
@@ -225,12 +233,11 @@ public class Main {
 						System.out.println("1. Tích Điểm");
 						System.out.println("2. Tạo giảm giá");
 						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
-						int c3 = SC.nextInt();
-						SC.nextLine();
+						int c3 = Integer.parseInt(SC.nextLine());
 						if (c3 == 1) {
-							danhSachKH.tinhToanTichDiem(danhSachKH);
+							cskh.tinhToanTichDiem(danhSachKH);
 						} else if (c3 == 2) {
-							danhSachKH.tinhToanGiamGia(danhSachKH);
+							cskh.tinhToanGiamGia(danhSachKH);
 						} else {
 							System.out.println("Lựa chọn không hợp lệ.");
 						}
@@ -266,7 +273,7 @@ public class Main {
 							}
 							System.out
 									.print("Đã thực hiện\nBan muon mua tiep khong(1/0)?: ");
-							luachon2 = SC.nextInt();
+							luachon2 = Integer.parseInt(SC.nextLine());
 						} while (luachon2 == 1);
 						break;
 					case 0:
@@ -295,15 +302,14 @@ public class Main {
 					GiaoDien.menuKH();
 
 					System.out.print("Nhập lựa chọn của bạn: ");
-					chon3 = SC.nextInt();
+					chon3 = Integer.parseInt(SC.nextLine());
 					switch (chon3) {
 					case 1:
 						System.out.println("1. Hiển thị toàn bộ khách hàng");
 						System.out.println("2. Hiển thị khách hàng theo Mã");
 						System.out.println("3. Hiển thị khách hàng theo Tên");
 						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
-						int chonkh1 = SC.nextInt();
-						SC.nextLine();
+						int chonkh1 = Integer.parseInt(SC.nextLine());
 						if (chonkh1 == 1) {
 							danhSachKH.hienThi();
 						} else if (chonkh1 == 2) {
@@ -331,8 +337,7 @@ public class Main {
 						System.out.println("2. Sắp xếp theo tên");
 						System.out.println("3. Sắp xếp theo ngày sinh");
 						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
-						int chonkh6 = SC.nextInt();
-						SC.nextLine();
+						int chonkh6 = Integer.parseInt(SC.nextLine());
 						if (chonkh6 == 1) {
 							danhSachKH.sapXepTheoMaKH();
 							danhSachKH.hienThi();
@@ -346,22 +351,6 @@ public class Main {
 							System.out.println("Lựa chọn không hợp lệ.");
 						}
 						break;
-					case 7:
-						danhSachKH.datBan();
-						danhSachKH.hienThiDatBan();
-						break;
-					case 8:
-<<<<<<< Updated upstream
-=======
-						danhSachKH.tinhToanGiamGia(danhSachKH);
-						break;
-					case 9:
-						danhSachKH.tinhToanTichDiem(danhSachKH);
-						break;
-					case 10:
->>>>>>> Stashed changes
-						danhSachKH.xuLyFeedBack(danhSachKH);
-						break;
 					case 0:
 						System.out.println("Cảm ơn bạn đã sử dụng chương trình.");
 						break;
@@ -370,12 +359,41 @@ public class Main {
 					}
 					if (chon3 == 0)
 						break;
-				} while (chon3 > 1 || chon3 < 8);
+				} while (chon3 > 1 || chon3 < 6);
+				System.out.println("Đã thực hiện công việc 3");
+				break;
+			case 5: 
+				do {
+
+					GiaoDien.menuCSKH();
+					System.out.print("Nhập lựa chọn của bạn: ");
+					chon3 = Integer.parseInt(SC.nextLine());
+					switch (chon3) {
+					case 1:
+						cskh.datBan(danhSachKH);
+						cskh.hienThiDatBan(danhSachKH);
+						break;
+					case 2:
+						cskh.giaiQuyet(danhSachKH, qlnv);
+						break;
+					case 0:
+						System.out.println("Cảm ơn đã sử dụng");
+						break;
+					default:
+						System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+						break;
+					}
+					if (chon3 == 0)
+						break;
+				} while (chon3 > 1 || chon3 < 2);
 				System.out.println("Đã thực hiện công việc 3");
 				break;
 			case 0:
-				System.out.println("Chương trình kết thúc.\n Cảm ơn đã sử dụng");
-				return;
+				
+				if(choice == 0) {
+					System.out.println("Chương trình kết thúc.\n Cảm ơn đã sử dụng");
+					return;
+				}
 			default:
 				// Hiển thị thông báo nếu lựa chọn không hợp lệ
 				System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");

@@ -15,6 +15,8 @@ public class SanPham {
 	private Date ngayTao;
 	private int giaTien;
 	private int soLuong;
+	private NhanVien nv;
+	private KhachHang kh;
 
 	public SanPham(String tsp, int gt, int sl, Date nt) {
 		this.tenSP = tsp;
@@ -46,6 +48,24 @@ public class SanPham {
 		int giaCu = giaTien;
 		giaTien = giaMoi;
 		return giaCu;
+	}
+
+	public NhanVien getNv() {
+		return nv;
+	}
+
+	public void setNv(NhanVien nv) {
+		this.nv = nv;
+	}
+	
+	
+	
+	public KhachHang getKh() {
+		return kh;
+	}
+
+	public void setKh(KhachHang kh) {
+		this.kh = kh;
 	}
 
 	public void giamSoLuong(int soLuongMua) {

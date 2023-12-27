@@ -39,6 +39,7 @@ public class GiaoDien {
 		System.out.println("2. QUAN LY SAN PHAM");
 		System.out.println("3. QUAN LY HOA DON");
 		System.out.println("4. QUAN LY KHACH HANG");
+		System.out.println("5. CHAM SOC KHACH HANG");
 		System.out.println("0. THOAT");
 
 		System.out.print("Nhập lựa chọn của bạn: ");
@@ -92,11 +93,15 @@ public class GiaoDien {
 		System.out.println("4. SỬA THÔNG TIN KHÁCH HÀNG");
 		System.out.println("5. TÌM KIẾM KHÁCH HÀNG");
 		System.out.println("6. SẮP XẾP KHÁCH HÀNG");
-		System.out.println("7. ĐẶT BÀN");
-		System.out.println("8. FEEDBACK CỦA KHÁCH HÀNG");
 		System.out.println("0. QUAY LAI");
 	}
-
+	public static void menuCSKH(){
+		System.out
+				.println("------------------------------MENU------------------------------");
+		System.out.println("1. ĐẶT BÀN");
+		System.out.println("2. FEEDBACK CỦA KHÁCH HÀNG");
+		System.out.println("0. QUAY LAI");
+	}
 	public static String checkNgay() {
 		SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 

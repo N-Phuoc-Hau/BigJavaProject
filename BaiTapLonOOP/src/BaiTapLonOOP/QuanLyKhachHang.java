@@ -9,14 +9,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Scanner;
 
 public class QuanLyKhachHang {
 	private ArrayList<KhachHang> danhSachKH = new ArrayList<>();
-	private Map<Integer, String> danhSachDatBan = new HashMap<>();
 	private static final Scanner SC = new Scanner(System.in);
 
 	public QuanLyKhachHang() {
@@ -34,7 +31,7 @@ public class QuanLyKhachHang {
 	//Hiển thị khách hàng theo mã
 	public void hienThiTheoMa() {
 		System.out.print("Nhập mã khách hàng cần hiển thị: ");
-		int maKH = SC.nextInt();
+		int maKH = Integer.parseInt(SC.nextLine());
 		boolean found = false;
 		for (int i = 0; i < danhSachKH.size(); i++) {
 			if (danhSachKH.get(i).getMaKH() == maKH) {
@@ -57,12 +54,7 @@ public class QuanLyKhachHang {
 		for (int i = 0; i < danhSachKH.size(); i++) {
 			if (danhSachKH.get(i).getHoTen().equals(hoTen)) {
 				danhSachKH.get(i).hienThi();
-<<<<<<< Updated upstream
-				found = true;
-				break;
-=======
 				return;
->>>>>>> Stashed changes
 			}
 		}
 		if (!found) {
@@ -85,7 +77,7 @@ public class QuanLyKhachHang {
 
 	    if (laThanhVien) {
 	        System.out.print("Nhập điểm tích lũy: ");
-	        diemTichLuy = SC.nextInt();
+	        diemTichLuy = Integer.parseInt(SC.nextLine());
 	    }
 
 	    KhachHang khachHang = new KhachHang(hoTen, ngaySinh, soDienThoai, laThanhVien, diemTichLuy);
@@ -100,7 +92,7 @@ public class QuanLyKhachHang {
 	    System.out.println("1. Xóa theo Mã khách hàng");
 	    System.out.println("2. Xóa theo Tên khách hàng");
 	    System.out.print("Nhập lựa chọn: ");
-	    int luaChonTimKiem = SC.nextInt();
+	    int luaChonTimKiem = Integer.parseInt(SC.nextLine());
 	    SC.nextLine(); 
 	    if (luaChonTimKiem != 1 && luaChonTimKiem != 2) {
 	        System.out.println("Lựa chọn không hợp lệ.");
@@ -133,7 +125,7 @@ public class QuanLyKhachHang {
 	    System.out.println("1. Sửa theo Mã khách hàng");
 	    System.out.println("2. Sửa theo Tên khách hàng");
 	    System.out.print("Nhập lựa chọn: ");
-	    int luaChonTimKiem = SC.nextInt();
+	    int luaChonTimKiem = Integer.parseInt(SC.nextLine());
 	    SC.nextLine(); 
 	    if (luaChonTimKiem != 1 && luaChonTimKiem != 2) {
 	        System.out.println("Lựa chọn không hợp lệ.");
@@ -158,7 +150,7 @@ public class QuanLyKhachHang {
 	            
 	            if (isThanhVienMoi) {
 	                System.out.print("Nhập số điểm tích lũy mới: ");
-	                int diemTichLuyMoi = SC.nextInt();
+	                int diemTichLuyMoi = Integer.parseInt(SC.nextLine());
 	                khachHang.setDiem(diemTichLuyMoi);
 	            } else {
 	                khachHang.setDiem(0);
@@ -186,7 +178,7 @@ public class QuanLyKhachHang {
 	    System.out.println("1. Tìm theo Mã khách hàng");
 	    System.out.println("2. Tìm theo Tên khách hàng");
 	    System.out.print("Nhập lựa chọn: ");
-	    int luaChonTimKiem = SC.nextInt();
+	    int luaChonTimKiem = Integer.parseInt(SC.nextLine());
 	    SC.nextLine(); 
 	    if (luaChonTimKiem != 1 && luaChonTimKiem != 2) {
 	        System.out.println("Lựa chọn không hợp lệ.");
@@ -256,163 +248,6 @@ public class QuanLyKhachHang {
 		return null;
 	}
 
-
-	//Đặt bàn
-	public void datBan() throws ParseException {
-	    System.out.println("Chọn cách Đặt bàn:");
-	    System.out.println("1. Đặt bàn theo Mã khách hàng");
-	    System.out.println("2. Đặt bàn theo Tên khách hàng");
-	    System.out.println("3. Đặt bàn cho khách hàng mới");
-	    System.out.print("Nhập lựa chọn: ");
-	    int luaChon = SC.nextInt();
-	    SC.nextLine();
-	    if (luaChon != 1 && luaChon != 2 && luaChon != 3) {
-	        System.out.println("Lựa chọn không hợp lệ.");
-	        return;
-	    }
-	    
-	    KhachHang khachHangDatBan = null;
-	    switch (luaChon) {
-	        case 1:
-	            System.out.print("Nhập mã khách hàng đặt bàn: ");
-	            int maKhachHangDatBan = SC.nextInt();
-	            SC.nextLine(); 
-	            khachHangDatBan = layKhachHangTheoMa(maKhachHangDatBan);
-	            break;
-	        case 2:
-	            System.out.print("Nhập tên khách hàng đặt bàn: ");
-	            String tenKhachHangDatBan = SC.nextLine();
-	            khachHangDatBan = layKhachHangTheoTen(tenKhachHangDatBan);
-	            break;
-	        case 3:
-	            System.out.println("Đặt cho khách hàng mới:");
-	            themKhachHang();
-	            khachHangDatBan = danhSachKH.get(danhSachKH.size() - 1);
-	            break;
-	        default:
-	            System.out.println("Lựa chọn không hợp lệ.");
-	            return;
-	    }
-	    if (khachHangDatBan == null) {
-	        System.out.println("Không tìm thấy khách hàng.");
-	        return;
-	    }
-	    SC.nextLine();
-	    System.out.print("Nhập thông tin đặt bàn: ");
-	    String thongTinDatBan = SC.nextLine();
-	    danhSachDatBan.put(khachHangDatBan.getMaKH(), thongTinDatBan);
-	    System.out.println("Đặt bàn thành công!");
-	}
-
-	//Hiển thị đặt bàn
-	public void hienThiDatBan() {
-		System.out.println("Danh sách đặt bàn:");
-		for (Map.Entry<Integer, String> entry : danhSachDatBan.entrySet()) {
-			int maKhachHang = entry.getKey();
-			String thongTinDatBan = entry.getValue();
-
-			KhachHang khachHang = layKhachHangTheoMa(maKhachHang);
-			if (khachHang != null) {
-				System.out.println("Mã KH: " + maKhachHang + ", Tên KH: " + khachHang.getHoTen() + ", Thông tin đặt bàn: " + thongTinDatBan);
-			} else {
-				System.out.println("Không tìm thấy thông tin khách hàng cho Mã KH: " + maKhachHang);
-			}
-		}
-	}
-
-	//Tạo giảm giá cho khách hàng
-	public void tinhToanGiamGia(QuanLyKhachHang danhSachKH) {
-		System.out.println("Chọn cách Tạo giảm giá:");
-		System.out.println("1. Tạo giảm giá theo Mã khách hàng");
-		System.out.println("2. Tạo giảm giá theo Tên khách hàng");
-		System.out.print("Nhập lựa chọn: ");
-		int luaChon = SC.nextInt();
-		SC.nextLine();
-
-		KhachHang khachHangGiamGia = null;
-
-		switch (luaChon) {
-		case 1:
-			System.out.print("Nhập mã khách hàng giảm giá: ");
-			int maKhachHangGiamGia = SC.nextInt();
-			khachHangGiamGia = danhSachKH.layKhachHangTheoMa(maKhachHangGiamGia);
-			break;
-		case 2:
-			System.out.print("Nhập tên khách hàng giảm giá: ");
-			String tenKhachHangGiamGia = SC.nextLine();
-			khachHangGiamGia = danhSachKH.layKhachHangTheoTen(tenKhachHangGiamGia);
-			break;
-		default:
-			System.out.println("Lựa chọn không hợp lệ.");
-			return;
-		}
-
-		if (khachHangGiamGia != null) {
-	        khachHangGiamGia.hienThi();
-
-	        if (khachHangGiamGia.isThanhVien()) {
-	            khachHangGiamGia.taoGiamGia();
-	            System.out.println("Đã tạo giảm giá cho khách hàng.");
-	        } else {
-	            System.out.println("Khách hàng không phải là thành viên. Không thể tích điểm.");
-	        }
-	    } else {
-	        System.out.println("Không tìm thấy khách hàng.");
-	    }
-	}
-
-	//Tích điểm cho khách hàng
-	public void tinhToanTichDiem(QuanLyKhachHang danhSachKH) throws IOException {
-	    System.out.println("Chọn cách Tích điểm:");
-	    System.out.println("1. Tích điểm theo Mã khách hàng");
-	    System.out.println("2. Tích điểm theo Tên khách hàng");
-	    System.out.print("Nhập lựa chọn: ");
-	    int luaChon = SC.nextInt();
-	    SC.nextLine();
-
-	    KhachHang khachHangTichDiem = null;
-	    switch (luaChon) {
-	        case 1:
-	            System.out.print("Nhập mã khách hàng tích điểm: ");
-	            int maKhachHangTichDiem = SC.nextInt();
-	            khachHangTichDiem = danhSachKH.layKhachHangTheoMa(maKhachHangTichDiem);
-	            break;
-	        case 2:
-	            System.out.print("Nhập tên khách hàng tích điểm: ");
-	            String tenKhachHangTichDiem = SC.nextLine();
-	            khachHangTichDiem = danhSachKH.layKhachHangTheoTen(tenKhachHangTichDiem);
-	            break;
-	        default:
-	            System.out.println("Lựa chọn không hợp lệ.");
-	            return;
-	    }
-	    if (khachHangTichDiem != null) {
-	    	khachHangTichDiem.hienThi();
-	        if (khachHangTichDiem.isThanhVien()) {
-	            khachHangTichDiem.tichDiem();
-	            System.out.println("Điểm tích lũy của khách hàng đã được cập nhật.");
-	        } else {
-	            System.out.println("Khách hàng không phải là thành viên. Không thể tích điểm.");
-	        }
-	    } else {
-	        System.out.println("Không tìm thấy khách hàng.");
-	    }
-	}
-	
-	//Xử lý feedback của khách hàng
-	public void xuLyFeedBack(QuanLyKhachHang danhSachKH) throws IOException {
-		System.out.println("Bạn muốn nhập feedback?");
-		System.out.print("Nhập mã khách hàng: ");
-		int maKhachHangfb = SC.nextInt();
-		SC.nextLine();
-		KhachHang khachHangfb = danhSachKH.layKhachHangTheoMa(maKhachHangfb);
-		if (khachHangfb != null) {
-			khachHangfb.feedBack();
-
-		} else {
-			System.out.println("Không tìm thấy khách hàng.");
-		}
-	}
 	
 	public void docTapTinKH(String duongDanKH) throws FileNotFoundException, ParseException {
 		File f = new File(duongDanKH);
@@ -463,148 +298,6 @@ public class QuanLyKhachHang {
 		}
 	}
 
-<<<<<<< Updated upstream
-=======
-	public void datBan() {
-		System.out.println("Chọn cách tìm khách hàng:");
-		System.out.println("1. Tìm theo Mã khách hàng");
-		System.out.println("2. Tìm theo Tên khách hàng");
-		System.out.print("Nhập lựa chọn: ");
-		int luaChon = SC.nextInt();
-		SC.nextLine();
 
-		KhachHang khachHangDatBan = null;
-
-		switch (luaChon) {
-		case 1:
-			System.out.print("Nhập mã khách hàng đặt bàn: ");
-			int maKhachHangDatBan = SC.nextInt();
-			khachHangDatBan = layKhachHangTheoMa(maKhachHangDatBan);
-			break;
-		case 2:
-			System.out.print("Nhập tên khách hàng đặt bàn: ");
-			String tenKhachHangDatBan = SC.nextLine();
-			khachHangDatBan = layKhachHangTheoTen(tenKhachHangDatBan);
-			break;
-		default:
-			System.out.println("Lựa chọn không hợp lệ.");
-			return;
-		}
-		String thongTinDatBan;
-		if (khachHangDatBan != null) {
-			System.out.print("Nhập thông tin đặt bàn: ");
-			thongTinDatBan = SC.nextLine();
-
-			danhSachDatBan.put(khachHangDatBan.getMaKH(), thongTinDatBan);
-
-			System.out.println("Đặt bàn thành công!");
-		} else {
-			System.out.println("Không tìm thấy khách hàng để đặt bàn.");
-		}
-	}
-
-	public void hienThiDatBan() {
-		System.out.println("Danh sách đặt bàn:");
-		for (Map.Entry<Integer, String> entry : danhSachDatBan.entrySet()) {
-			int maKhachHang = entry.getKey();
-			String thongTinDatBan = entry.getValue();
-
-			KhachHang khachHang = layKhachHangTheoMa(maKhachHang);
-			if (khachHang != null) {
-				System.out.println("Mã KH: " + maKhachHang + ", Tên KH: "
-						+ khachHang.getHoTen() + ", Thông tin đặt bàn: "
-						+ thongTinDatBan);
-			} else {
-				System.out
-						.println("Không tìm thấy thông tin khách hàng cho Mã KH: "
-								+ maKhachHang);
-			}
-		}
-	}
-
-	public void tinhToanGiamGia(QuanLyKhachHang danhSachKH) {
-		System.out.println("Chọn cách tìm khách hàng:");
-		System.out.println("1. Tìm theo Mã khách hàng");
-		System.out.println("2. Tìm theo Tên khách hàng");
-		System.out.print("Nhập lựa chọn: ");
-		int luaChon = SC.nextInt();
-		SC.nextLine();
-
-		KhachHang khachHangGiamGia = null;
-
-		switch (luaChon) {
-		case 1:
-			System.out.print("Nhập mã khách hàng giảm giá: ");
-			int maKhachHangGiamGia = SC.nextInt();
-			khachHangGiamGia = danhSachKH
-					.layKhachHangTheoMa(maKhachHangGiamGia);
-			break;
-		case 2:
-			System.out.print("Nhập tên khách hàng giảm giá: ");
-			String tenKhachHangGiamGia = SC.nextLine();
-			khachHangGiamGia = danhSachKH
-					.layKhachHangTheoTen(tenKhachHangGiamGia);
-			break;
-		default:
-			System.out.println("Lựa chọn không hợp lệ.");
-			return;
-		}
-
-		if (khachHangGiamGia != null) {
-			// Tạo giảm giá trực tiếp mà không kiểm tra kiểu
-			khachHangGiamGia.taoGiamGia();
-		} else {
-			System.out.println("Không tìm thấy khách hàng.");
-		}
-	}
-
-	public void tinhToanTichDiem(QuanLyKhachHang danhSachKH) throws IOException {
-		System.out.println("Chọn cách tìm khách hàng:");
-		System.out.println("1. Tìm theo Mã khách hàng");
-		System.out.println("2. Tìm theo Tên khách hàng");
-		System.out.print("Nhập lựa chọn: ");
-		int luaChon = SC.nextInt();
-		SC.nextLine();
-
-		KhachHang khachHangTichDiem = null;
-
-		switch (luaChon) {
-		case 1:
-			System.out.print("Nhập mã khách hàng tích điểm: ");
-			int maKhachHangTichDiem = SC.nextInt();
-			khachHangTichDiem = danhSachKH
-					.layKhachHangTheoMa(maKhachHangTichDiem);
-			break;
-		case 2:
-			System.out.print("Nhập tên khách hàng tích điểm: ");
-			String tenKhachHangTichDiem = SC.nextLine();
-			khachHangTichDiem = danhSachKH
-					.layKhachHangTheoTen(tenKhachHangTichDiem);
-			break;
-		default:
-			System.out.println("Lựa chọn không hợp lệ.");
-			return;
-		}
-		if (khachHangTichDiem != null) {
-			khachHangTichDiem.tichDiem();
-		} else {
-			System.out.println("Không tìm thấy khách hàng.");
-		}
-	}
-	
-	public void xuLyFeedBack(QuanLyKhachHang danhSachKH) throws IOException {
-		System.out.println("Bạn muốn nhập feedback?");
-		System.out.print("Nhập mã khách hàng: ");
-		int maKhachHangfb = SC.nextInt();
-		SC.nextLine();
-		KhachHang khachHangfb = danhSachKH.layKhachHangTheoMa(maKhachHangfb);
-		if (khachHangfb != null) {
-			khachHangfb.feedBack();
-
-		} else {
-			System.out.println("Không tìm thấy khách hàng.");
-		}
-	}
->>>>>>> Stashed changes
 
 }

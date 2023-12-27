@@ -132,7 +132,14 @@ public class QuanLyNhanVien {
 		return ds.stream().filter(nv -> nv.getGioiTinh().contains(kw))
 				.collect(Collectors.toList());
 	}
+	public void sapXepTheoLoai() {
+		Collections.sort(ds, Comparator.comparing(nv -> {
+			return !nv.isLoaiNV();
+		}));
 
+		System.out
+				.println("Đã sắp xếp danh sách theo loại.");
+	}
 	public void sapXepTheoTen() {
 		Collections.sort(ds, Comparator.comparing(nv -> {
 			String ten = nv.getTenNV();
@@ -141,10 +148,6 @@ public class QuanLyNhanVien {
 
 		System.out
 				.println("Đã sắp xếp danh sách theo chữ cái cuối cùng trong tên.");
-
-		for (NhanVien NhanVien : ds) {
-			NhanVien.hienThi();
-		}
 	}
 
 	public void them() throws ParseException {
@@ -168,12 +171,13 @@ public class QuanLyNhanVien {
 
 	public void xoaNVTheoMa() {
 		System.out.print("Nhập mã Nhân Viên cần xóa: ");
-		int manv = sc.nextInt();
+		int manv = Integer.parseInt(sc.nextLine());
 
 		for (int i = 1; i <= ds.size(); i++) {
 			if (i == manv) {
 				ds.remove(i - 1);
-				break;
+				System.out.println("Xóa Thành Công");
+				return;
 			} else if (i == ds.size()) {
 				System.out.println("Khong tim thay nhan vien");
 				break;
@@ -223,12 +227,12 @@ public class QuanLyNhanVien {
 	public void sualuong() throws ParseException {
 		System.out.println("Sua thong tin nhan Vien: ---------");
 		System.out.print("Mã Nhân viên: ");
-		int manv = sc.nextInt();
+		int manv = Integer.parseInt(sc.nextLine());
 		for (NhanVien nv : ds) {
 			if (nv instanceof NhanVienFT && nv.getMaNV() == manv) {
 				nv.hienThi();
 				System.out.print("Nhap luong theo thang moi:");
-				int nNP = sc.nextInt();
+				int nNP = Integer.parseInt(sc.nextLine());
 
 				NhanVienFT nvft = (NhanVienFT) nv;
 				nvft.setNghiPhep(nNP);
@@ -237,7 +241,7 @@ public class QuanLyNhanVien {
 
 				nv.hienThi();
 				System.out.print("Nhap luong theo gio moi:");
-				int sgl = sc.nextInt();
+				int sgl = Integer.parseInt(sc.nextLine());
 				NhanVienPT nvpt = (NhanVienPT) nv;
 				nvpt.setSoGioLamViec(sgl);
 				return;
@@ -248,13 +252,13 @@ public class QuanLyNhanVien {
 
 	public void suaTTlamviec() throws ParseException {
 		System.out.print("Mã Nhân viên: ");
-		int manv = sc.nextInt();
+		int manv = Integer.parseInt(sc.nextLine());
 		for (NhanVien nv : ds) {
 			if (nv instanceof NhanVienFT && nv.getMaNV() == manv) {
 
 				nv.hienThi();
 				System.out.print("Nhap ngay nghi phep:");
-				int nNP = sc.nextInt();
+				int nNP = Integer.parseInt(sc.nextLine());
 
 				NhanVienFT nvft = (NhanVienFT) nv;
 				nvft.setNghiPhep(nNP);
@@ -262,7 +266,7 @@ public class QuanLyNhanVien {
 			} else if (nv instanceof NhanVienPT && nv.getMaNV() == manv) {
 				nv.hienThi();
 				System.out.print("Nhap so gio lam:");
-				int sgl = sc.nextInt();
+				int sgl = Integer.parseInt(sc.nextLine());
 				NhanVienPT nvpt = (NhanVienPT) nv;
 				nvpt.setSoGioLamViec(sgl);
 				return;
@@ -274,7 +278,7 @@ public class QuanLyNhanVien {
 	public void thangHaChuc(String d) throws ParseException {
 		System.out.println("Sua thong tin nhan Vien: ---------");
 		System.out.print("Mã Nhân viên: ");
-		int manv = sc.nextInt();
+		int manv = Integer.parseInt(sc.nextLine());
 		for (NhanVien nv : ds) {
 			// Ghi thông tin sản phẩm vào tập tin sử dụng toString
 			if (nv instanceof NhanVienFT && nv.getMaNV() == manv) {
@@ -299,6 +303,8 @@ public class QuanLyNhanVien {
 			} else if (nv.getMaNV() == ds.size())
 				System.out.println("Khong tim thay ma nhan vien");
 		}
+		sapXepTheoLoai();
+		
 	}
 
 	public void ghiTapTin() throws IOException {

@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,16 +48,6 @@ public class NhanVien {
 		System.out.printf("Ngay sinh Nhan vien: %s\n", F.format(this.ngaySinh));
 		System.out.printf("Loai Nhan vien: %s\n", this.loaiNV ? "FullTime" : "PartTime");
 	}
-//	public void suaTTNC(int i){
-//
-//		System.out.print("Nhap loai:");
-//		boolean loai = sc.nextBoolean();
-//		System.out.print("Nhap luong thang:");
-//		long lTh = sc.nextLong();
-//		System.out.print("Nhap ngay nghi phep:");
-//		int nNP = sc.nextInt();
-//		this.get()
-//	}
 	public void ghiFilePT(ArrayList<NhanVienPT> ds) throws FileNotFoundException {
         // Táº¡o Ä‘á»‘i tÆ°á»£ng File Ä‘á»ƒ Ä‘áº¡i diá»‡n cho táº­p tin
         File file;
@@ -135,18 +127,27 @@ public class NhanVien {
 
         // Ä�Ã³ng Ä‘á»‘i tÆ°á»£ng PrintWriter
     }
+	public String traLoiCauHoi(){
+		System.out.print("Nhập phần trả lời:");
+		String answer = sc.nextLine();
+		return answer;
+	}
+	public void luuTraLoiVaoTepTin(KhachHang kh,String feedback) throws IOException {
+		try (FileWriter writer = new FileWriter("src/BaiTapLonOOP/data/TraLoiNhanVien.txt", true)) {
+			writer.write(getMaNV() + " - " + getTenNV() + " - " + feedback + "---" + kh.getHoTen() + "\n" );
+			System.out.println("Đã lưu câu trả lời vào tệp tin.");
+		} catch (IOException e) {
+			System.err.println("Lỗi khi ghi tệp tin: " + e.getMessage());
+			throw e;
+		}
+	}
+	
 	public boolean isLoaiNV() {
 		return loaiNV;
 	}
-
-
 	public void setLoaiNV(boolean loaiNV) {
 		this.loaiNV = loaiNV;
 	}
-
-
-
-
 	public static int getDem() {
 		return dem;
 	}
