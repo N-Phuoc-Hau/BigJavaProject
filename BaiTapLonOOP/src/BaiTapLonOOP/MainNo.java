@@ -7,14 +7,13 @@ import java.util.Scanner;
 public class MainNo {
 	private static final Scanner SC = new Scanner(System.in);
 		public static void main(String[] args) throws ParseException, IOException, InterruptedException {
-			KhachHang kh1 = new KhachHang("Nguyễn Văn A","03/08/2005", "123456789", false);
-			KhachHang kh2 = new KhachHang("Trần Thị B","03/09/2000", "987654321", false);
-			KhachHang kh3 = new ChamSocKhachHang("Lê Văn C","07/08/2010", "987654321", true,0);
-			KhachHang kh4 = new ChamSocKhachHang("Lý Thái D", "01/02/2007", "012345679", true, 0);
-			KhachHang kh5 = new ChamSocKhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 0);
+			KhachHang kh1 = new KhachHang("Nguyễn Văn A","03/08/2005", "123456789", false,0);
+			KhachHang kh2 = new KhachHang("Trần Thị B","03/09/2000", "987654321", false,0);
+			KhachHang kh3 = new KhachHang("Lê Văn C","07/08/2010", "987654321", true,0);
+			KhachHang kh4 = new KhachHang("Lý Thái D", "01/02/2007", "012345679", true, 0);
+			KhachHang kh5 = new KhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 0);
 			
 			QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
-			ChamSocKhachHang cs=new ChamSocKhachHang();
 		
 			danhSachKH.them(kh1,kh2,kh3,kh4, kh5);
 			
@@ -129,13 +128,13 @@ public class MainNo {
 					}
 					break;
 				case 7:
-		            cs.tinhToanGiamGia(danhSachKH);
+		            danhSachKH.tinhToanGiamGia(danhSachKH);
 				    break;
 				case 8:
-		            cs.tinhToanTichDiem(danhSachKH);
+		            danhSachKH.tinhToanTichDiem(danhSachKH);
 					break;
 				case 9:
-					cs.xuLyFeedBack(danhSachKH);
+					danhSachKH.xuLyFeedBack(danhSachKH);
 					break;
 				case 10:
 					danhSachKH.datBan();
