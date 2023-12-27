@@ -144,11 +144,11 @@ public class QuanLyKhachHang {
 	            System.out.print("Số điện thoại: ");
 	            String soDienThoaiMoi = SC.nextLine();
 	            System.out.print("Là thành viên (true/false): ");
-	            boolean isThanhVienMoi = Boolean.parseBoolean(SC.nextLine());
+	            boolean isThanhVienMoi = SC.nextBoolean();
 	            
 	            if (isThanhVienMoi) {
 	                System.out.print("Nhập số điểm tích lũy mới: ");
-	                int diemTichLuyMoi = Integer.parseInt(SC.nextLine());
+	                int diemTichLuyMoi = SC.nextByte();
 	                khachHang.setDiem(diemTichLuyMoi);
 	            } else {
 	                khachHang.setDiem(0);

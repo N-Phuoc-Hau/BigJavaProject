@@ -148,7 +148,7 @@ public class QuanLyKhachHang {
 	            
 	            if (isThanhVienMoi) {
 	                System.out.print("Nhập số điểm tích lũy mới: ");
-	                int diemTichLuyMoi = Integer.parseInt(SC.nextLine());
+	                int diemTichLuyMoi = SC.nextByte();
 	                khachHang.setDiem(diemTichLuyMoi);
 	            } else {
 	                khachHang.setDiem(0);
