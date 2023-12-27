@@ -9,15 +9,15 @@ public class Main {
 
 	public static void main(String[] args) throws ParseException, IOException {
 		KhachHang kh1 = new KhachHang("Nguyễn Văn A", "03/08/2005",
-				"123456789", false,4);
+				"123456789", false,0);
 		KhachHang kh2 = new KhachHang("Trần Thị B", "03/09/2000", "987654321",
 				false,0);
 		KhachHang kh3 = new KhachHang("Lê Văn C", "07/08/2010",
-				"987654321", true, 0);
+				"987654321", true, 7);
 		KhachHang kh4 = new KhachHang("Lý Thái D", "01/02/2007",
-				"012345679", true, 0);
+				"012345679", true, 2);
 		KhachHang kh5 = new KhachHang("Ngô Phước E", "06/06/2004",
-				"07986456123", true, 0);
+				"07986456123", true, 4);
 		QuanLyNhanVien qlnv = new QuanLyNhanVien();
 		QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
 		QuanLySanPham ql = new QuanLySanPham();
@@ -357,14 +357,7 @@ public class Main {
 						danhSachKH.hienThiDatBan();
 						break;
 					case 8:
-						danhSachKH.tinhToanGiamGia(danhSachKH);
-						break;
-					case 9:
-						danhSachKH.tinhToanTichDiem(danhSachKH);
-						break;
-					case 10:
 						danhSachKH.xuLyFeedBack(danhSachKH);
-
 						break;
 					case 0:
 						System.out.println("Cảm ơn bạn đã sử dụng chương trình.");

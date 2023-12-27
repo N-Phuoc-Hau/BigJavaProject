@@ -93,7 +93,7 @@ public class QuanLyKhachHang {
 
 	//Xóa khách hàng
 	public void xoaKhachHang(){
-		System.out.println("Chọn cách xóa khách hàng:");
+		System.out.println("Chọn cách Xóa khách hàng:");
 	    System.out.println("1. Xóa theo Mã khách hàng");
 	    System.out.println("2. Xóa theo Tên khách hàng");
 	    System.out.print("Nhập lựa chọn: ");
@@ -126,7 +126,7 @@ public class QuanLyKhachHang {
 	}
 	//Sửa thông tin khách hàng
 	public void suaThongTinKH() throws IOException {
-	    System.out.println("Chọn cách sửa khách hàng:");
+	    System.out.println("Chọn cách Sửa khách hàng:");
 	    System.out.println("1. Sửa theo Mã khách hàng");
 	    System.out.println("2. Sửa theo Tên khách hàng");
 	    System.out.print("Nhập lựa chọn: ");
@@ -179,7 +179,7 @@ public class QuanLyKhachHang {
 	
 	//Tìm kiếm khách hàng
 	public void timKiemKH(){
-		System.out.println("Chọn cách tìm khách hàng:");
+		System.out.println("Chọn cách Tìm khách hàng:");
 	    System.out.println("1. Tìm theo Mã khách hàng");
 	    System.out.println("2. Tìm theo Tên khách hàng");
 	    System.out.print("Nhập lựa chọn: ");
@@ -256,20 +256,24 @@ public class QuanLyKhachHang {
 
 	//Đặt bàn
 	public void datBan() throws ParseException {
-	    System.out.println("Chọn cách tìm khách hàng:");
-	    System.out.println("1. Tìm theo Mã khách hàng");
-	    System.out.println("2. Tìm theo Tên khách hàng");
+	    System.out.println("Chọn cách Đặt bàn:");
+	    System.out.println("1. Đặt bàn theo Mã khách hàng");
+	    System.out.println("2. Đặt bàn theo Tên khách hàng");
+	    System.out.println("3. Đặt bàn cho khách hàng mới");
 	    System.out.print("Nhập lựa chọn: ");
 	    int luaChon = SC.nextInt();
-	    
 	    SC.nextLine();
-
+	    if (luaChon != 1 && luaChon != 2 && luaChon != 3) {
+	        System.out.println("Lựa chọn không hợp lệ.");
+	        return;
+	    }
+	    
 	    KhachHang khachHangDatBan = null;
-
 	    switch (luaChon) {
 	        case 1:
 	            System.out.print("Nhập mã khách hàng đặt bàn: ");
 	            int maKhachHangDatBan = SC.nextInt();
+	            SC.nextLine(); 
 	            khachHangDatBan = layKhachHangTheoMa(maKhachHangDatBan);
 	            break;
 	        case 2:
@@ -277,23 +281,23 @@ public class QuanLyKhachHang {
 	            String tenKhachHangDatBan = SC.nextLine();
 	            khachHangDatBan = layKhachHangTheoTen(tenKhachHangDatBan);
 	            break;
+	        case 3:
+	            System.out.println("Đặt cho khách hàng mới:");
+	            themKhachHang();
+	            khachHangDatBan = danhSachKH.get(danhSachKH.size() - 1);
+	            break;
 	        default:
 	            System.out.println("Lựa chọn không hợp lệ.");
 	            return;
 	    }
-
 	    if (khachHangDatBan == null) {
-	        System.out.println("Không tìm thấy khách hàng. Thêm mới khách hàng trước.");
-	        SC.nextLine();
-	        themKhachHang();
-	        khachHangDatBan = danhSachKH.get(danhSachKH.size() - 1);
+	        System.out.println("Không tìm thấy khách hàng.");
+	        return;
 	    }
-
+	    SC.nextLine();
 	    System.out.print("Nhập thông tin đặt bàn: ");
 	    String thongTinDatBan = SC.nextLine();
-	    
 	    danhSachDatBan.put(khachHangDatBan.getMaKH(), thongTinDatBan);
-
 	    System.out.println("Đặt bàn thành công!");
 	}
 
@@ -315,7 +319,7 @@ public class QuanLyKhachHang {
 
 	//Tạo giảm giá cho khách hàng
 	public void tinhToanGiamGia(QuanLyKhachHang danhSachKH) {
-		System.out.println("Chọn cách tạo giảm giá khách hàng:");
+		System.out.println("Chọn cách Tạo giảm giá:");
 		System.out.println("1. Tạo giảm giá theo Mã khách hàng");
 		System.out.println("2. Tạo giảm giá theo Tên khách hàng");
 		System.out.print("Nhập lựa chọn: ");
@@ -356,7 +360,7 @@ public class QuanLyKhachHang {
 
 	//Tích điểm cho khách hàng
 	public void tinhToanTichDiem(QuanLyKhachHang danhSachKH) throws IOException {
-	    System.out.println("Chọn cách tích điểm khách hàng:");
+	    System.out.println("Chọn cách Tích điểm:");
 	    System.out.println("1. Tích điểm theo Mã khách hàng");
 	    System.out.println("2. Tích điểm theo Tên khách hàng");
 	    System.out.print("Nhập lựa chọn: ");
