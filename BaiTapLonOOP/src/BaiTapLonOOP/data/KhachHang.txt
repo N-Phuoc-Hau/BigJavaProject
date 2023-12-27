@@ -2,11 +2,13 @@ Nguyễn Văn A
 03/08/2005
 123456789
 false
+0
 
 Trần Thị B
 03/09/2000
 987654321
 false
+0
 
 Lê Văn C
 07/08/2010
@@ -24,11 +26,13 @@ Trần Văn E
 02/06/1988
 0123465789
 false	
+0
 
 Nguyễn Thanh F
 03/02/1978
 012345679	
 false
+0
 
 Nguyễn Thanh G
 01/12/2004
