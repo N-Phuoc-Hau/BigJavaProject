@@ -15,3 +15,5 @@ Ten SP: Tra Dao Cam Xa, Gia Tien: 15000, So Luong: 3, Ngay Tao: 27/12/2023 05:44
 Ten SP: Tra Dao Cam Xa, Gia Tien: 15000, So Luong: 3, Ngay Tao: 27/12/2023 05:44
 Ten SP: Tra Xanh, Gia Tien: 30000, So Luong: 4, Ngay Tao: 27/12/2023 05:44
 Ten SP: Tra Dao Cam Xa, Gia Tien: 15000, So Luong: 3, Ngay Tao: 27/12/2023 05:44
+Ten SP: Caffee, Gia Tien: 20000, So Luong: 10, Ngay Tao: 27/12/2023 07:17
+Ten SP: Tra Dao Cam Xa, Gia Tien: 15000, So Luong: 10, Ngay Tao: 27/12/2023 07:17
