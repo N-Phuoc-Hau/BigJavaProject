@@ -18,7 +18,7 @@ public class QuanLySanPham {
 	private static final Scanner SC = new Scanner(System.in);
 	private static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
 	private List<SanPham> danhSachDaMua; // Danh sách sản phẩm đã mua
-//	private Object tongGiaTriHoaDon;
+
 
 	//Phương thức khởi tạo
 	public QuanLySanPham() {

@@ -12,7 +12,7 @@ public class Main {
 		KhachHang kh2 = new KhachHang("Trần Thị B", "03/09/2000", "987654321", false,0);
 		KhachHang kh3 = new KhachHang("Lê Văn C", "07/08/2010", "987654321", true, 7);
 		KhachHang kh4 = new KhachHang("Lý Thái D", "01/02/2007", "012345679", true, 2);
-		KhachHang kh5 = new KhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 20);
+		KhachHang kh5 = new KhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 3);
 		QuanLyNhanVien qlnv = new QuanLyNhanVien();
 		QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
 		QuanLySanPham ql = new QuanLySanPham();
@@ -135,11 +135,11 @@ public class Main {
 					switch (choice1) {
 					case 1:
 						ql.nhapSanPham(DATE);
-						System.out.print("\nĐã thực hiện!");
+						System.out.print("\nĐã thực hiện!\n");
 						break;
 					case 2:
 						ql.hienThi();
-						System.out.println("\nĐã thực hiện!");
+						System.out.println("\nĐã thực hiện!\n");
 						break;
 					case 3:
 						double tongSoLuong = ql.tinhTongSoLuong();
@@ -201,7 +201,6 @@ public class Main {
 				break;
 			case 3:
 				// Thực hiện công việc 2
-				// menuSP();
 				int choice2;
 				do {
 					GiaoDien.menuHD();
@@ -212,7 +211,6 @@ public class Main {
 					switch (choice2) {
 					case 1:
 						while (true) {
-							// danhSachKH.themKhachHang();
 							ql.muaSanPham(DATE);
 							System.out
 									.print("Đã thực hiện\nBan muon mua tiep khong(1/0)?: ");
@@ -251,7 +249,6 @@ public class Main {
 							System.out.print("Nhap ten san pham can tim: ");
 							String tenSanPhamCanTim = SC.nextLine();
 
-							// Duyet qua danh sach va in truc tiep
 							boolean timThay = false;
 							for (SanPham sp : ql.getDanhSachDaMua()) {
 								if (sp.getTenSP()
@@ -395,7 +392,6 @@ public class Main {
 					return;
 				}
 			default:
-				// Hiển thị thông báo nếu lựa chọn không hợp lệ
 				System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
 			}
 		}

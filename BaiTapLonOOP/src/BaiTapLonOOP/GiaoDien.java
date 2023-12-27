@@ -34,13 +34,13 @@ public class GiaoDien {
 	}
 
 	public static void giaoDien() {
-		System.out.println("TIEM CAFE NHO!!!");
-		System.out.println("1. QUAN LY NHAN VIEN");
-		System.out.println("2. QUAN LY SAN PHAM");
-		System.out.println("3. QUAN LY HOA DON");
-		System.out.println("4. QUAN LY KHACH HANG");
-		System.out.println("5. CHAM SOC KHACH HANG");
-		System.out.println("0. THOAT");
+		System.out.println("THE COFFEE HOUSE!!!");
+		System.out.println("1. QUẢN LÝ NHÂN VIÊN");
+		System.out.println("2. QUẢN LÝ SẢN PHẨM");
+		System.out.println("3. QUẢN LÝ HÓA ĐƠN");
+		System.out.println("4. QUẢN LÝ KHÁCH HÀNG");
+		System.out.println("5. CHĂM SÓC KHÁCH HÀNG");
+		System.out.println("0. THOÁT");
 
 		System.out.print("Nhập lựa chọn của bạn: ");
 	}
@@ -48,45 +48,45 @@ public class GiaoDien {
 	public static void menuNV() {
 		System.out
 				.println("------------------------------MENU------------------------------");
-		System.out.println("QUAN LY NHAN VIEN");
-		System.out.println("1. HIEN THI NHAN VIEN");
-		System.out.println("2. SUA DOI CO BAN");
-		System.out.println("3. SUA DOI NANG CAO");
-		System.out.println("4. SAP XEP NHAN VIEN");
-		System.out.println("5. THEM NHAN VIEN");
-		System.out.println("6. XOA NHAN VIEN");
-		System.out.println("0. QUAY LAI");
+		System.out.println("====QUẢN LÝ NHÂN VIÊN====");
+		System.out.println("1. HIỂN THỊ NHÂN VIÊN");
+		System.out.println("2. SỬA ĐỔI CƠ BẢN");
+		System.out.println("3. SỬA ĐỔI NÂNG CAO");
+		System.out.println("4. SẮP XẾP NHÂN VIÊN");
+		System.out.println("5. THÊM NHÂN VIÊN");
+		System.out.println("6. XÓA NHÂN VIÊN");
+		System.out.println("0. QUAY LẠI");
 	}
 
 	public static void menuSP() {
 		System.out
 				.println("------------------------------MENU------------------------------");
-		System.out.println("QUAN LY SAN PHAM");
-		System.out.println("1. THEM SAN PHAM");
-		System.out.println("2. HIEN THI DANH SACH SAN PHAM");
-		System.out.println("3. TONG SO LUONG SAN PHAM");
-		System.out.println("4. XOA SAN PHAM");
-		System.out.println("5. TIM KIEM SAN PHAM");
-		System.out.println("6. CAP NHAT GIA TIEN");
-		System.out.println("0. QUAY LAI");
+		System.out.println("====QUAN LY SAN PHAM====");
+		System.out.println("1. THÊM SẢN PHẨM");
+		System.out.println("2. HIỂN THỊ DANH SÁCH SẢN PHẨM");
+		System.out.println("3. TỔNG SỐ LƯỢNG SẢN PHẨM");
+		System.out.println("4. XÓA SẢN PHẨM");
+		System.out.println("5. TÌM KIẾM SẢN PHẨM");
+		System.out.println("6. CẬP NHẬT GIÁ TIỀN");
+		System.out.println("0. QUAY LẠI");
 	}
 
 	public static void menuHD() {
 		System.out
 				.println("------------------------------MENU------------------------------");
-		System.out.println("QUAN LY HOA DON");
-		System.out.println("1. MUA SAN PHAM");
-		System.out.println("2. HIEN THI DANH SACH SAN PHAM DA MUA");
-		System.out.println("3. TINH TONG TIEN");
-		System.out.println("4. SAP XEP DANH SACH SAN PHAM THEO GIA TIEN");
-		System.out.println("5. TIM KIEM SAN PHAM THEO TEN SAN PHAM");
-		System.out.println("0. QUAY LAI");
+		System.out.println("====QUAN LY HOA DON====");
+		System.out.println("1. MUA SẢN PHẨM");
+		System.out.println("2. HIỂN THỊ DANH SÁCH SẢN PHẨM ĐÃ MUA");
+		System.out.println("3. TÍNH TỔNG TIỀN");
+		System.out.println("4. SẮP XẾP DANH SÁCH SẢN PHẨM THEO GIÁ TIỀN");
+		System.out.println("5. TÌM KIẾM SẢN PHẨM THEO TÊN SẢN PHẨM");
+		System.out.println("0. QUAY LẠI");
 	}
 
 	public static void menuKH() {
 		System.out
 				.println("------------------------------MENU------------------------------");
-		System.out.println("QUAN LY KHACH HANG");
+		System.out.println("====QUAN LY KHACH HANG====");
 		System.out.println("1. HIỂN THỊ KHÁCH HÀNG");
 		System.out.println("2. THÊM KHÁCH HÀNG");
 		System.out.println("3. XÓA KHÁCH HÀNG");
@@ -100,7 +100,7 @@ public class GiaoDien {
 				.println("------------------------------MENU------------------------------");
 		System.out.println("1. ĐẶT BÀN");
 		System.out.println("2. FEEDBACK CỦA KHÁCH HÀNG");
-		System.out.println("0. QUAY LAI");
+		System.out.println("0. QUAY LẠI");
 	}
 	public static String checkNgay() {
 		SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
