@@ -47,7 +47,6 @@ public class QuanLyKhachHang {
 
 	//Hiển thị khách hàng theo tên
 	public void hienThiTheoTen() {
-		SC.nextLine();
 		System.out.print("Nhập Tên khách hàng cần hiển thị: ");
 		String hoTen = SC.nextLine().trim();
 		boolean found = false;
@@ -77,7 +76,7 @@ public class QuanLyKhachHang {
 
 	    if (laThanhVien) {
 	        System.out.print("Nhập điểm tích lũy: ");
-	        diemTichLuy = Integer.parseInt(SC.nextLine());
+	        diemTichLuy = SC.nextByte();
 	    }
 
 	    KhachHang khachHang = new KhachHang(hoTen, ngaySinh, soDienThoai, laThanhVien, diemTichLuy);
@@ -92,7 +91,7 @@ public class QuanLyKhachHang {
 	    System.out.println("1. Xóa theo Mã khách hàng");
 	    System.out.println("2. Xóa theo Tên khách hàng");
 	    System.out.print("Nhập lựa chọn: ");
-	    int luaChonTimKiem = Integer.parseInt(SC.nextLine());
+	    int luaChonTimKiem = SC.nextByte();
 	    SC.nextLine(); 
 	    if (luaChonTimKiem != 1 && luaChonTimKiem != 2) {
 	        System.out.println("Lựa chọn không hợp lệ.");
@@ -126,7 +125,6 @@ public class QuanLyKhachHang {
 	    System.out.println("2. Sửa theo Tên khách hàng");
 	    System.out.print("Nhập lựa chọn: ");
 	    int luaChonTimKiem = Integer.parseInt(SC.nextLine());
-	    SC.nextLine(); 
 	    if (luaChonTimKiem != 1 && luaChonTimKiem != 2) {
 	        System.out.println("Lựa chọn không hợp lệ.");
 	        return;
@@ -150,7 +148,7 @@ public class QuanLyKhachHang {
 	            
 	            if (isThanhVienMoi) {
 	                System.out.print("Nhập số điểm tích lũy mới: ");
-	                int diemTichLuyMoi = Integer.parseInt(SC.nextLine());
+	                int diemTichLuyMoi = SC.nextByte();
 	                khachHang.setDiem(diemTichLuyMoi);
 	            } else {
 	                khachHang.setDiem(0);
@@ -179,7 +177,6 @@ public class QuanLyKhachHang {
 	    System.out.println("2. Tìm theo Tên khách hàng");
 	    System.out.print("Nhập lựa chọn: ");
 	    int luaChonTimKiem = Integer.parseInt(SC.nextLine());
-	    SC.nextLine(); 
 	    if (luaChonTimKiem != 1 && luaChonTimKiem != 2) {
 	        System.out.println("Lựa chọn không hợp lệ.");
 	        return;

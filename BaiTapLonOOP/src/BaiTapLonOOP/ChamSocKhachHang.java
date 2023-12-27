@@ -87,10 +87,11 @@ public class ChamSocKhachHang {
 			    switch (luaChon) {
 			        case 1:
 			            System.out.print("Nhập mã khách hàng đặt bàn: ");
-			            int maKhachHangDatBan = Integer.parseInt(SC.nextLine());
+			            int maKhachHangDatBan = SC.nextByte();
 			            khachHangDatBan = ql.layKhachHangTheoMa(maKhachHangDatBan);
 			            break;
 			        case 2:
+			        	SC.nextLine();
 			            System.out.print("Nhập tên khách hàng đặt bàn: ");
 			            String tenKhachHangDatBan = SC.nextLine();
 			            khachHangDatBan = ql.layKhachHangTheoTen(tenKhachHangDatBan);
