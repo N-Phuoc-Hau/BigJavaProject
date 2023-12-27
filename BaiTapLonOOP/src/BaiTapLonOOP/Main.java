@@ -8,16 +8,11 @@ public class Main {
 	private static final Scanner SC = new Scanner(System.in);
 
 	public static void main(String[] args) throws ParseException, IOException {
-		KhachHang kh1 = new KhachHang("Nguyễn Văn A", "03/08/2005",
-				"123456789", false,0);
-		KhachHang kh2 = new KhachHang("Trần Thị B", "03/09/2000", "987654321",
-				false,0);
-		KhachHang kh3 = new KhachHang("Lê Văn C", "07/08/2010",
-				"987654321", true, 7);
-		KhachHang kh4 = new KhachHang("Lý Thái D", "01/02/2007",
-				"012345679", true, 2);
-		KhachHang kh5 = new KhachHang("Ngô Phước E", "06/06/2004",
-				"07986456123", true, 4);
+		KhachHang kh1 = new KhachHang("Nguyễn Văn A", "03/08/2005", "123456789", false,0);
+		KhachHang kh2 = new KhachHang("Trần Thị B", "03/09/2000", "987654321", false,0);
+		KhachHang kh3 = new KhachHang("Lê Văn C", "07/08/2010", "987654321", true, 7);
+		KhachHang kh4 = new KhachHang("Lý Thái D", "01/02/2007", "012345679", true, 2);
+		KhachHang kh5 = new KhachHang("Ngô Phước E", "06/06/2004", "07986456123", true, 4);
 		QuanLyNhanVien qlnv = new QuanLyNhanVien();
 		QuanLyKhachHang danhSachKH = new QuanLyKhachHang();
 		QuanLySanPham ql = new QuanLySanPham();
@@ -79,8 +74,7 @@ public class Main {
 					case 3:
 						System.out.println("3. SUA DOI NANG CAO");
 						System.out.println("1. Sửa đổi lương");
-						System.out
-								.println("2. Sửa đổi giờ làm việc & Ngày nghỉ phép");
+						System.out.println("2. Sửa đổi giờ làm việc & Ngày nghỉ phép");
 						System.out.println("3. Sửa đổi Chức vụ");
 						System.out.print(">>>>>Nhập lựa chọn của bạn: ");
 						int chonnv2 = SC.nextInt();

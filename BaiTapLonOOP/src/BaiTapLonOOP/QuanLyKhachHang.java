@@ -79,7 +79,6 @@ public class QuanLyKhachHang {
 
 	    int diemTichLuy = 0;  
 
-	   
 	    if (laThanhVien) {
 	        System.out.print("Nhập điểm tích lũy: ");
 	        diemTichLuy = SC.nextInt();
